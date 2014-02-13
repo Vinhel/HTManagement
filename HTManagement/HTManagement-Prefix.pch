@@ -1,0 +1,113 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+typedef enum {
+    HTexpress,
+    HThousekeeping,
+    HTrepair,
+    HTcomplain
+}HTFeedbackType;
+
+typedef enum {
+    HTHousekeepingService,
+    HTComplainService,
+    HTRepairService,
+    HTExpresService
+}HTServiceType;
+
+typedef enum {
+    HTResident,
+    HTWorker,
+    HTAdmin
+}HTIdentity;
+
+#define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define ios7 [[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0? YES:NO
+
+#define isResident [[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"resident"]
+#define isWorker [[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"worker"]
+#define isAdmin [[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"admin"]
+
+
+#define prefix @"http://192.168.1.113:8000"
+#define imagePath @"http://192.168.1.113:8000/media/"
+
+//获取工作人员list,获取小区
+// /api/get/worker/list/?community_id=(小区id号)
+#define api_get_workers [prefix stringByAppendingString:@"/api/get/worker/list/?community_id="]
+#define api_get_community [prefix stringByAppendingString:@"/api/get/community/"]
+
+/*根据状态获取*/
+
+#define api_get_complains_by_status [prefix stringByAppendingString:@"/api/show/complains_by_status/?page=%d&community_id=%d&status=%@"]
+
+#define api_get_repairs_by_status [prefix stringByAppendingString:@"/api/show/repair_by_status/?page=%d&community_id=%d&status=%@"]
+
+#define api_get_housekeepings_by_status [prefix stringByAppendingString:@"/api/show/housekeeping_by_status/?page=%d&community_id=%d&status=%@"]
+
+#define api_get_expresses_by_status [prefix stringByAppendingString:@"/api/show/express_by_status/?page=%d&community_id=%d&status=%@"]
+
+//登录相关
+#define api_user_login [prefix stringByAppendingString:@"/api/user/login/"]
+
+
+//快递相关
+#define api_user_express [prefix stringByAppendingString:@"/api/get/user/express/"]
+#define api_user_obtain_express [prefix stringByAppendingString:@"/api/user/obtain/express/"]
+#define api_express_response [prefix stringByAppendingString:@"/api/express/response/"]
+#define api_express_complete [prefix stringByAppendingString:@"/api/express/complete/"]
+
+
+
+//家政相关
+#define api_get_all_housekeepingItem [prefix stringByAppendingString:@"/api/get/housekeeping_item/"]
+#define api_own_housekeeping [prefix stringByAppendingString:@"/api/own/housekeeping/"]
+#define api_user_submit_housekeeping [prefix stringByAppendingString:@"/api/user/submit_housekeeping/"]
+#define api_housekeeping_response [prefix stringByAppendingString:@"/api/housekeeping/response/"]
+#define api_housekeeping_deal [prefix stringByAppendingString:@"/api/housekeeping/deal/"]
+#define api_housekeeping_complete [prefix stringByAppendingString:@"/api/housekeeping/complete/"]
+
+#define api_get_all_housekeeping [prefix stringByAppendingString:@"/api/show/all_housekeeping/?page=%d&community_id=%d"]
+
+
+
+//投诉相关
+#define api_own_complain [prefix stringByAppendingString:@"/api/own/complain/"]
+#define api_complain_create [prefix stringByAppendingString:@"/api/complain/create/"]
+#define api_complain_response [prefix stringByAppendingString:@"/api/complain/response/"]
+#define api_complain_deal [prefix stringByAppendingString:@"/api/complain/deal/"]
+#define api_complain_complete [prefix stringByAppendingString:@"/api/complain/complete/"]
+#define api_get_all_complains [prefix stringByAppendingString:@"/api/show/all_complains/?page=%d&community_id=%d"]
+
+
+//报修相关
+#define api_own_repair [prefix stringByAppendingString:@"/api/own/repair/"]
+#define api_get_repair_item [prefix stringByAppendingString:@"/api/get/repair/item/?type="]
+#define api_repair_create [prefix stringByAppendingString:@"/api/repair/create/"]
+#define api_repair_response [prefix stringByAppendingString:@"/api/repair/response/"]
+#define api_repair_deal [prefix stringByAppendingString:@"/api/repair/deal/"]
+#define api_repair_complete [prefix stringByAppendingString:@"/api/repair/complete/"]
+
+
+/**********************/
+#import "UITextField+AddInputView.h"
+#import "UITextView+InputView.h"
+#import "MBProgressHUD.H"
+#import "SDWebImage/UIImageView+WebCache.h"
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
