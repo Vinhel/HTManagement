@@ -10,6 +10,7 @@
 		180142C2187E3F18002F5F02 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180142C0187E3F18002F5F02 /* FeedbackViewController.m */; };
 		180142C3187E3F18002F5F02 /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180142C1187E3F18002F5F02 /* FeedbackViewController.xib */; };
 		1801631C186813BA00DEDEEC /* RepairViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801631B186813BA00DEDEEC /* RepairViewController.m */; };
+		1811F30718ADC017001EAAB6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1811F30618ADC017001EAAB6 /* QuartzCore.framework */; };
 		181B22E5186174AA007584AC /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 181B22D3186174AA007584AC /* AFHTTPRequestOperation.m */; };
 		181B22E6186174AA007584AC /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 181B22D5186174AA007584AC /* AFHTTPRequestOperationManager.m */; };
 		181B22E7186174AA007584AC /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 181B22D7186174AA007584AC /* AFHTTPSessionManager.m */; };
@@ -131,6 +132,7 @@
 		180142C1187E3F18002F5F02 /* FeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
 		1801631A186813BA00DEDEEC /* RepairViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepairViewController.h; sourceTree = "<group>"; };
 		1801631B186813BA00DEDEEC /* RepairViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepairViewController.m; sourceTree = "<group>"; };
+		1811F30618ADC017001EAAB6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		181B22D2186174AA007584AC /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		181B22D3186174AA007584AC /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		181B22D4186174AA007584AC /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1811F30718ADC017001EAAB6 /* QuartzCore.framework in Frameworks */,
 				18FF552218AA0F35009701AD /* ImageIO.framework in Frameworks */,
 				187B6E4B1860299D004959DF /* CoreGraphics.framework in Frameworks */,
 				187B6E4D1860299D004959DF /* UIKit.framework in Frameworks */,
@@ -483,6 +486,7 @@
 		187B6E471860299D004959DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1811F30618ADC017001EAAB6 /* QuartzCore.framework */,
 				18FF552118AA0F35009701AD /* ImageIO.framework */,
 				187B6E481860299D004959DF /* Foundation.framework */,
 				187B6E4A1860299D004959DF /* CoreGraphics.framework */,

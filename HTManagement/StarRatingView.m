@@ -54,7 +54,7 @@
     return view;
 }
 
-#pragma mark -
+
 #pragma mark - Touche Event
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -88,28 +88,17 @@
     {
         p.x = 0;
     }
-    
-    if (p.x > self.frame.size.width)
+        if (p.x > self.frame.size.width)
     {
         p.x = self.frame.size.width;
     }
     NSLog(@"test %d",6/5);
     NSInteger num = p.x*starsnum/self.frame.size.width;
     NSLog(@"num %d",num);
-    // NSString * str = [NSString stringWithFormat:@"%0.1f",p.x / self.frame.size.width];
-    //  NSLog(@"%d",ceilf(p.x/self.frame.size.width));
-    // float score = [str floatValue];
-    //p.x = score * self.frame.size.width;
+
     self.starForegroundView.frame = CGRectMake(0, 0, (num+1)*50, self.frame.size.height);
     _ratingNum = num+1;
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
+
 
 @end
