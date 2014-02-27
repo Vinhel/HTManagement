@@ -95,8 +95,13 @@
     }
     
   //  [self.navigationController popViewControllerAnimated:YES];
-  
-    
+    NSLog(@" test %@",self.contentView.text );
+    if (_ratingView.ratingNum == 0 && [self.contentView.text isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"您还没有描述" message:nil delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else{
+        
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         manager.requestSerializer = [AFJSONRequestSerializer new];
         manager.responseSerializer = [AFJSONResponseSerializer new];
@@ -123,7 +128,7 @@
             NSLog(@"error %@",error);
         }];
         
-    
+    }
 
 
 }

@@ -27,7 +27,7 @@
     
     _userLabel.text = [NSString stringWithFormat:@"收件人: %@",_expressForm.express_author];
     _arriveTimeLabel.text = [NSString stringWithFormat:@"到达时间: %@",_expressForm.arrive_time];
-    if ([_expressForm.get_express_type isEqualToString:@""]&&[[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"resident"]) {
+    if ([_expressForm.get_express_type isEqualToString:@""]&&[[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"resident"]&& (_expressForm.deal_status == 0)) {
         [_typeButton setTitle:@"点击选择" forState:UIControlStateNormal];
         [_typeButton addTarget:self action:@selector(chooseType:) forControlEvents:UIControlEventTouchUpInside];
     }

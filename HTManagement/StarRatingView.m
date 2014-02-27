@@ -26,7 +26,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        _ratingNum = 4;
+        _ratingNum = 0;
         self.starBackgroundView = [self buidlStarViewWithImageName:kBACKGROUND_STAR];
         self.starForegroundView = [self buidlStarViewWithImageName:kFOREGROUND_STAR];
         [self addSubview:self.starBackgroundView];
