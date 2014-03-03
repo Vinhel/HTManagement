@@ -55,7 +55,7 @@
     cellHeight += marginHeight;
     
     NSLog(@"repair imgsrc %@",_repairForm.imgSrc);
-    if (![_repairForm.imgSrc isEqualToString:@""]) {
+    if (![_repairForm.imgSrc isEqualToString:@""]&& _repairForm.imgSrc) {
         CGRect rect = _imgView.frame;
         rect.origin.y = cellHeight;
         rect.origin.x = 0;

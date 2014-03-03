@@ -12,15 +12,26 @@
 #import "CreateRepairFormViewController.h"
 #import "WorkerListViewController.h"
 #import "FeedbackViewController.h"
+#import "HMSegmentedControl.h"
+
 
 @interface RepairViewController ()
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray *array;
-@property (nonatomic, strong) NSMutableArray *untreatedArray;
-@property (nonatomic, strong) NSMutableArray *processingArray;
-@property (nonatomic, strong) NSMutableArray *solovedArray;
-@property (nonatomic, strong) UISegmentedControl *segmented_status;
 @property (nonatomic, strong) RepairForm *repairForm;
+@property (nonatomic, strong) HMSegmentedControl *segmentedControl;
+@property (nonatomic, strong) NSMutableArray *array;
+@property (nonatomic, strong) UIScrollView *baseView;
+@property (nonatomic, strong) UITableView *unacceptedTable;
+@property (nonatomic, strong) UITableView *acceptedTable;
+@property (nonatomic, strong) UITableView *uncompletedTable;
+@property (nonatomic, strong) UITableView *completedTable;
+@property (nonatomic, strong) NSMutableArray *unacceptedArray;
+@property (nonatomic, strong) NSMutableArray *acceptedArray;
+@property (nonatomic, strong) NSMutableArray *uncompletedArray;
+@property (nonatomic, strong) NSMutableArray *completedArray;
+
+
+
+
 @end
 
 @implementation RepairViewController
@@ -38,129 +49,301 @@
 {
     [super viewDidLoad];
     
-    
+    self.navigationItem.title = @"报修";
     _repairForm = [RepairForm new];
     if (ios7) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
         
     }
 	// Do any additional setup after loading the view.
-    if (isResident) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addRepairForm)];
-    }
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshTableView)];
+ 
+  
     [self initArrays];
     [self setupSegmentedControl];
-    [self setupTableView];}
+    [self setupTableView];
+}
+- (void)setupTableView{
+    
+    self.baseView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 30, Screen_width, Screen_height - HeightOfStatusBar - HeightOfNavigationBar - 30)];
+    self.baseView.scrollEnabled = NO;
+    self.baseView.backgroundColor = [UIColor clearColor];
+    if (!isWorker) {
+        self.unacceptedTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Screen_width, self.baseView.frame.size.height) style:UITableViewStylePlain];
+        self.unacceptedTable.dataSource = self;
+        self.unacceptedTable.delegate = self;
+        [self.baseView addSubview:self.unacceptedTable];
+        
+        self.acceptedTable = [[UITableView alloc]initWithFrame:CGRectMake(Screen_width, 0, Screen_width, self.baseView.frame.size.height) style:UITableViewStylePlain];
+        self.acceptedTable.dataSource = self;
+        self.acceptedTable.delegate = self;
+        [self.baseView addSubview:self.acceptedTable];
+        
+        self.uncompletedTable = [[UITableView alloc]initWithFrame:CGRectMake(Screen_width * 2, 0, Screen_width, self.baseView.frame.size.height) style:UITableViewStylePlain];
+        self.uncompletedTable.dataSource = self;
+        self.uncompletedTable.delegate = self;
+        [self.baseView addSubview:self.uncompletedTable];
+        
+        self.completedTable = [[UITableView alloc]initWithFrame:CGRectMake(Screen_width * 3, 0, Screen_width, self.baseView.frame.size.height) style:UITableViewStylePlain];
+        self.completedTable.dataSource = self;
+        self.completedTable.delegate = self;
+        [self.baseView addSubview:self.completedTable];
+    }
+    
+    else
+    {
+        self.unacceptedTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Screen_width, self.baseView.frame.size.height) style:UITableViewStylePlain];
+        self.unacceptedTable.dataSource = self;
+        self.unacceptedTable.delegate = self;
+        [self.baseView addSubview:self.unacceptedTable];
+        
+        self.uncompletedTable = [[UITableView alloc]initWithFrame:CGRectMake(Screen_width * 1, 0, Screen_width, self.baseView.frame.size.height) style:UITableViewStylePlain];
+        self.uncompletedTable.dataSource = self;
+        self.uncompletedTable.delegate = self;
+        [self.baseView addSubview:self.uncompletedTable];
+        
+        self.completedTable = [[UITableView alloc]initWithFrame:CGRectMake(Screen_width * 2, 0, Screen_width, self.baseView.frame.size.height) style:UITableViewStylePlain];
+        self.completedTable.dataSource = self;
+        self.completedTable.delegate = self;
+        [self.baseView addSubview:self.completedTable];
+        
+    }
+    [self.view addSubview:self.baseView];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    [self getUserRepairs];
-    
-    
+    if (isWorker) {
+        [self getUserRepairsWithStatus:@"4"];
+    }
+    else
+        [self getUserRepairsWithStatus:@"1"];
 }
+
 - (void)initArrays
 {
     _array = [NSMutableArray array];
-    _untreatedArray = [NSMutableArray array];
-    _processingArray = [NSMutableArray array];
-    _solovedArray = [NSMutableArray array];
-    
+    _unacceptedArray = [NSMutableArray array];
 }
+
 - (void)setupSegmentedControl
 {
+    self.segmentedControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 0, Screen_width, 30)];
+    NSArray *titles = [NSArray array];
+    if (isWorker)
+        titles = @[@"未受理",@"处理中",@"处理完成"];
+    else
+        titles = @[@"未分配",@"未受理",@"处理中",@"处理完成"];
+    [self.segmentedControl setSectionTitles:titles];
+    [self.segmentedControl setSelectedIndex:0];
+    [self.segmentedControl setFont:[UIFont fontWithName:@"Avenir-Light" size:17.0f]];
+    [self.segmentedControl setBackgroundColor:[UIColor whiteColor]];
+    [self.segmentedControl setTextColor:[UIColor blackColor]];
+    [self.segmentedControl setSelectionIndicatorColor:[UIColor greenColor]];
+    [self.view addSubview:self.segmentedControl];
+    [self.segmentedControl addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
     
-    
-    _segmented_status = [[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"未受理", @"处理中", @"处理完成", nil]];
-    _segmented_status.frame = CGRectMake(0, 0, 320, 30);
-    _segmented_status.selectedSegmentIndex = 0;
-    _segmented_status.segmentedControlStyle = UISegmentedControlStyleBar;
-    _segmented_status.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    [_segmented_status addTarget:self action:@selector(refreshTableViewWithStatus) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:_segmented_status];
-    
+}
+
+- (void)refreshTableView
+{
+    if (isWorker)
+    {
+        switch (self.segmentedControl.selectedIndex) {
+            case 0:
+                [_unacceptedArray removeAllObjects];
+                [self getUserRepairsWithStatus:@"4"];
+                break;
+            case 1:
+                [_uncompletedArray removeAllObjects];
+                [self getUserRepairsWithStatus:@"2"];
+                break;
+            default:
+                [_completedArray removeAllObjects];
+                [self getUserRepairsWithStatus:@"3"];
+                break;
+        }
+    }
+    else{
+        switch (self.segmentedControl.selectedIndex) {
+            case 0:
+                [_unacceptedArray removeAllObjects];
+                [self getUserRepairsWithStatus:@"1"];
+                break;
+            case 1:
+                [_acceptedArray removeAllObjects];
+                [self getUserRepairsWithStatus:@"4"];
+            case 2:
+                [_uncompletedArray removeAllObjects];
+                [self getUserRepairsWithStatus:@"2"];
+            default:
+                [_completedArray removeAllObjects];
+                [self getUserRepairsWithStatus:@"3"];
+                break;
+        }
+        
+    }
+
+}
+
+- (void)valueChanged:(HMSegmentedControl *)control
+{
+    if (isWorker) {
+        switch (control.selectedIndex) {
+            case 0:
+                if (!_unacceptedArray) {
+                    [self getUserRepairsWithStatus:@"4"];
+                }
+                break;
+                
+            case 1:
+                if (!_uncompletedArray) {
+                    _uncompletedArray = [NSMutableArray array];
+                    [self getUserRepairsWithStatus:@"2"];
+                }
+                break;
+            case 2:
+                if (!_completedArray) {
+                    _completedArray = [NSMutableArray array];
+                    [self getUserRepairsWithStatus:@"3"];
+                    
+                }
+            default:
+                break;
+        }
+    }
+    else{
+        switch (control.selectedIndex) {
+            case 0:
+                if (!_unacceptedArray) {
+                    [self getUserRepairsWithStatus:@"1"];
+                }
+                break;
+            
+            case 1:
+                if (!_acceptedArray) {
+                    _acceptedArray = [NSMutableArray array];
+                    [self getUserRepairsWithStatus:@"4"];
+                }
+            case 2:
+                if (!_uncompletedArray) {
+                    _uncompletedArray = [NSMutableArray array];
+                    [self getUserRepairsWithStatus:@"2"];
+                }
+                break;
+            case 3:
+                if (!_completedArray) {
+                    _completedArray = [NSMutableArray array];
+                    [self getUserRepairsWithStatus:@"3"];
+                    
+                }
+            default:
+                break;
+        }
+    }
+    [self.baseView setContentOffset:CGPointMake(Screen_width * self.segmentedControl.selectedIndex, 0)];
+
 }
 - (void)addRepairForm
 {
-    
     CreateRepairFormViewController *createForm = [[CreateRepairFormViewController alloc]initWithNibName:@"CreateRepairViewController" bundle:nil];
     [self.navigationController pushViewController:createForm animated:YES];
     
 }
-- (void)setupTableView{
-    
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(5, 30, 310, iPhone5?474:386)style:UITableViewStylePlain];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    [self.view addSubview:_tableView];
-    
-}
 - (void)refreshTableViewWithStatus
 {
-    switch (_segmented_status.selectedSegmentIndex) {
-        case 0:
-            _array = [NSMutableArray arrayWithArray:_untreatedArray];
+    
+    if (isWorker) {
+        switch (self.segmentedControl.selectedIndex) {
+            case 0:
+                [_unacceptedTable reloadData ];
             break;
-            
-        case 1:
-            _array = [NSMutableArray arrayWithArray:_processingArray];
-            break;
-        default:
-            _array = [NSMutableArray arrayWithArray:_solovedArray];
-            break;
+            case 1:
+                [_uncompletedTable reloadData];
+                break;
+    
+            default:
+                [_completedTable reloadData];
+                break;
+        }
     }
-    
-    [_tableView reloadData];
-    
-    
-    
+  else
+  {
+      switch (self.segmentedControl.selectedIndex) {
+          case 0:
+              [_unacceptedTable reloadData ];
+              break;
+          case 1:
+              [_acceptedTable reloadData];
+              break;
+          case 2:
+              [_uncompletedTable reloadData];
+          default:
+              [_completedTable reloadData];
+              break;
+      }
+  }
 }
 
-- (void)getUserRepairs
+- (void)getUserRepairsWithStatus:(NSString *)status
 {
     
-    
-    if ([_untreatedArray count]||[_processingArray count]||[_solovedArray count]) {
-        [_untreatedArray removeAllObjects];
-        [_processingArray removeAllObjects];
-        [_solovedArray removeAllObjects];
-        
-    }
-    
-    
-    NSString *idstring ;
-    if (isAdmin) {
-        idstring = [NSString stringWithFormat:@"%d",_info.community_id];
-    }
-    else
-        idstring = [[[NSUserDefaults standardUserDefaults]objectForKey:@"user_profile"] objectForKey:@"community_id"];
-    
+    NSString *idstring = [[[NSUserDefaults standardUserDefaults]objectForKey:@"user_profile"] objectForKey:@"community_id"];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *status = [@"4" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        _untreatedArray  = [NSMutableArray arrayWithArray:[_repairForm getRepairFormWith:api_get_repairs_by_status communityID:idstring repairStatus:status]] ;
-        
-        status = [@"2" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        _processingArray  = [NSMutableArray arrayWithArray:[_repairForm getRepairFormWith:api_get_repairs_by_status communityID:idstring repairStatus:status]] ;
-        
-        status = [@"3" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        _solovedArray = [NSMutableArray arrayWithArray:[_repairForm getRepairFormWith:api_get_repairs_by_status communityID:idstring repairStatus:status]];
+        _array  = [NSMutableArray arrayWithArray:[_repairForm getRepairFormWith:api_get_repairs_by_status communityID:idstring repairStatus:status]] ;
+        if (isWorker) {
+            switch ([status integerValue]) {
+                case 4:
+                    _unacceptedArray = _array;
+                    break;
+                case 2:
+                    _uncompletedArray = _array;
+                    break;
+                case 3:
+                    _completedArray = _array;
+                default:
+                    break;
+            }
+        }
+        else{
+            switch ([status integerValue]) {
+                case 1:
+                    _unacceptedArray = _array;
+                    break;
+                case 2:
+                    _acceptedArray = _array;
+                case 3:
+                    _uncompletedArray = _array;
+                    break;
+                case 4:
+                    _completedArray = _array;
+                default:
+                    break;
+            }
+        }
         dispatch_async(dispatch_get_main_queue(),^{
             
             [self refreshTableViewWithStatus];
             
         });
-        
     });
-    
-    
-    
 }
 #pragma mark - UITableviewDatasource methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (tableView == _unacceptedTable)
+        _array = _unacceptedArray;
+    else if (tableView == _acceptedTable)
+        _array = _acceptedArray;
+    else if (tableView == _uncompletedTable)
+        _array = _uncompletedArray;
+    else
+        _array = _completedArray;
     return [_array count];
+        
 }
 
 
@@ -173,9 +356,20 @@
         NSArray *nib = [[NSBundle mainBundle]loadNibNamed:@"RepairCell" owner:nil options:nil];
         cell = [nib objectAtIndex:0];
     }
-    RepairForm *form = [self.array objectAtIndex:[indexPath row]];
-    cell.repairForm = form;
     
+   // RepairForm *form = [self.array objectAtIndex:[indexPath row]];
+    RepairForm *form;
+    if (tableView == _unacceptedTable) {
+        form = [_unacceptedArray objectAtIndex:[indexPath row]];
+    }
+    else if (tableView ==_acceptedTable)
+        form = [_acceptedArray objectAtIndex:[indexPath row]];
+    else if (tableView ==_uncompletedTable)
+        form = [_uncompletedArray objectAtIndex:[indexPath row]];
+    else if (tableView ==_completedTable)
+        form = [_completedArray objectAtIndex:[indexPath row]];
+    
+    cell.repairForm = form;
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -204,7 +398,7 @@
     
     [manager POST:api_repair_complete parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject objectForKey:@"success"]) {
-            [self getUserRepairs];
+            [self getUserRepairsWithStatus:@"2"];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error %@",error);
@@ -241,7 +435,7 @@
     
     [manager POST:api_repair_accept parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject objectForKey:@"success"]) {
-            [self getUserRepairs];
+            [self getUserRepairsWithStatus:@"4"];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error %@",error);
