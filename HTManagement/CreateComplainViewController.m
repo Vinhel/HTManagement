@@ -34,16 +34,16 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
     [_contentView setupDoneToolBar:YES];
     
-    _typeBtn.layer.borderWidth = 1;
-    _typeBtn.layer.borderColor = [[UIColor grayColor] CGColor];
+   // _typeBtn.layer.borderWidth = 1;
+   // _typeBtn.layer.borderColor = [[UIColor grayColor] CGColor];
   //  [_typeBtn addTarget:self action:@selector(chooseComplainType) forControlEvents:UIControlEventTouchUpInside];
     
-
-    _contentView.layer.borderWidth = 1;
-    _contentView.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_sand"]];
+   // _contentView.layer.borderWidth = 1;
+   // _contentView.layer.borderColor = [[UIColor grayColor] CGColor];
     
-    _imgView.layer.borderWidth = 1;
-    _imgView.layer.borderColor = [[UIColor grayColor] CGColor];
+   // _imgView.layer.borderWidth = 0.5;
+   // _imgView.layer.borderColor = [[UIColor grayColor] CGColor];
     _imgView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(chooseImg)];
     [_imgView addGestureRecognizer:tap];
@@ -167,6 +167,26 @@
     self.imgView.image = edit;
     [self.imgPicker dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - UITextView delegate methods
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    NSLog(@"text view string : %@",textView.text);
+    NSString *editedString = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if ([editedString isEqualToString:@""]) {
+        self.placeLabel.alpha = 1;
+        
+    }
+    
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    
+    self.placeLabel.alpha = 0;
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

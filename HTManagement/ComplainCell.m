@@ -81,6 +81,17 @@
         [button addTarget:self action:@selector(chooseComplainWorkerClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
     }
+    if (_complainForm.deal_status == 4 && [[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"worker"]) {
+        
+        rect.origin.y = cellHeight;
+        rect.origin.x = 173;
+        UIButton *button = [[UIButton alloc]initWithFrame:rect];
+        button.titleLabel.font = [UIFont systemFontOfSize:13];
+        button.backgroundColor = [UIColor greenColor];
+        [button setTitle:@"接受受理" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(acceptComplainClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:button];
+    }
     
     if (_complainForm.deal_status == 2 && [[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"worker"]) {
        
@@ -119,7 +130,9 @@
     
     cellHeight += _timeLabel.frame.size.height;
     cellFrame.size.height = cellHeight;
-    
+    self.layer.borderWidth = 0.5;
+    self.layer.borderColor = [[UIColor redColor]CGColor];
+    self.layer.cornerRadius = 5;
     [self setFrame:cellFrame];
     
 }
@@ -146,6 +159,16 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(feedBack:)]) {
         [self.delegate feedBack:_complainForm];
     }
+}
+
+
+- (void)acceptComplainClick:(id)sender
+{
+
+    if (self.delegate && [self.delegate respondsToSelector:@selector(acceptComplain:)]) {
+        [self.delegate acceptComplain:_complainForm];
+    }
+
 }
 
 #pragma mark

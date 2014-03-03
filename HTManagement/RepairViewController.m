@@ -73,7 +73,7 @@
 {
     
     
-    _segmented_status = [[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"未处理", @"处理中", @"处理完成", nil]];
+    _segmented_status = [[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"未受理", @"处理中", @"处理完成", nil]];
     _segmented_status.frame = CGRectMake(0, 0, 320, 30);
     _segmented_status.selectedSegmentIndex = 0;
     _segmented_status.segmentedControlStyle = UISegmentedControlStyleBar;
@@ -138,13 +138,13 @@
         idstring = [[[NSUserDefaults standardUserDefaults]objectForKey:@"user_profile"] objectForKey:@"community_id"];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *status = [@"未处理" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *status = [@"4" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         _untreatedArray  = [NSMutableArray arrayWithArray:[_repairForm getRepairFormWith:api_get_repairs_by_status communityID:idstring repairStatus:status]] ;
         
-        status = [@"处理中" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        status = [@"2" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         _processingArray  = [NSMutableArray arrayWithArray:[_repairForm getRepairFormWith:api_get_repairs_by_status communityID:idstring repairStatus:status]] ;
         
-        status = [@"已处理" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        status = [@"3" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         _solovedArray = [NSMutableArray arrayWithArray:[_repairForm getRepairFormWith:api_get_repairs_by_status communityID:idstring repairStatus:status]];
         dispatch_async(dispatch_get_main_queue(),^{
             
@@ -231,6 +231,24 @@
     
 }
 
+- (void)acceptRepair:(RepairForm *)form
+{
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer new];
+    manager.requestSerializer = [AFJSONRequestSerializer new];
+    NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:[NSString stringWithFormat:@"%d",form.idNum], @"repair_id_string",nil];
+    
+    [manager POST:api_repair_accept parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject objectForKey:@"success"]) {
+            [self getUserRepairs];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error %@",error);
+    }];
+
+
+}
 #pragma mark -
 
 - (void)didReceiveMemoryWarning

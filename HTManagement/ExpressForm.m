@@ -64,7 +64,8 @@
             form.express_author = [dict objectForKey:@"express_author"];
             form.get_time = [dict objectForKey:@"get_time"];
             form.get_express_type = [dict objectForKey:@"get_express_type"];
-            form.express_id = [[dict objectForKey:@"id"] integerValue];            [_array addObject:form];
+            form.express_id = [[dict objectForKey:@"id"] integerValue];
+            [_array addObject:form];
             
         }
     }

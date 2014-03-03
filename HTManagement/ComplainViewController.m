@@ -73,7 +73,7 @@
 {
     
     
-    _segmented_status = [[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"未处理", @"处理中", @"处理完成", nil]];
+    _segmented_status = [[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"未受理", @"处理中", @"处理完成", nil]];
     _segmented_status.frame = CGRectMake(0, 0, 320, 30);
     _segmented_status.selectedSegmentIndex = 0;
     _segmented_status.segmentedControlStyle = UISegmentedControlStyleBar;
@@ -102,13 +102,18 @@
     switch (_segmented_status.selectedSegmentIndex) {
         case 0:
             _array = [NSMutableArray arrayWithArray:_untreatedArray];
+            NSLog(@"_untreatedArray %@",_array);
             break;
             
         case 1:
             _array = [NSMutableArray arrayWithArray:_processingArray];
+            NSLog(@"_processingArray %@,",_array);
+
             break;
         default:
             _array = [NSMutableArray arrayWithArray:_solovedArray];
+            NSLog(@"_solovedArray %@,",_array);
+
             break;
     }
     
@@ -137,13 +142,13 @@
     else
         idstring = [[[NSUserDefaults standardUserDefaults]objectForKey:@"user_profile"] objectForKey:@"community_id"];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *status = [@"未处理" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *status = [@"4" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         _untreatedArray  = [NSMutableArray arrayWithArray:[_complainForm getComplainsFormWith:api_get_complains_by_status communityID:idstring  complainsStatus:status]] ;
         
-        status = [@"处理中" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        status = [@"2" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         _processingArray  = [NSMutableArray arrayWithArray:[_complainForm getComplainsFormWith:api_get_complains_by_status communityID:idstring  complainsStatus:status]] ;
         
-        status = [@"已处理" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        status = [@"3" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         _solovedArray = [NSMutableArray arrayWithArray:[_complainForm getComplainsFormWith:api_get_complains_by_status communityID:idstring  complainsStatus:status]];
         dispatch_async(dispatch_get_main_queue(),^{
         
@@ -281,6 +286,24 @@
     vc.feedbackType = HTcomplain;
     [self.navigationController pushViewController:vc animated:YES];
 
+
+}
+
+- (void)acceptComplain:(ComplainForm *)form
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer new];
+    manager.requestSerializer = [AFJSONRequestSerializer new];
+    NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:[NSString stringWithFormat:@"%d",form.complainId], @"complains_id_string",nil];
+    NSLog(@"dict %@",dict);
+    [manager POST:api_complain_accept parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject objectForKey:@"success"]) {
+            [self getUserComplains];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error %@",error);
+    }];
+    
 
 }
 

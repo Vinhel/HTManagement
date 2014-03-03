@@ -16,7 +16,8 @@
 @property (nonatomic, weak) IBOutlet UIImageView *imgView;
 @property (nonatomic, strong) UIImagePickerController *imgPicker;
 @property (nonatomic, weak) IBOutlet UIButton *submitBtn;
-
+@property (nonatomic, weak) IBOutlet UILabel *placeLabel;
+@property (nonatomic, weak) IBOutlet UIView *backgroundView;
 - (IBAction)submit:(id)sender;
 - (IBAction)chooseComplainType;
 

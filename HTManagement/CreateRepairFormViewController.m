@@ -42,7 +42,8 @@
     }
     
     [_content setupDoneToolBar:YES];
-    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_sand"]];
+
     _imageView.layer.borderWidth = 1;
     _imageView.layer.borderColor = [[UIColor grayColor] CGColor];
     _imageView.userInteractionEnabled = YES;
@@ -328,7 +329,18 @@
 {
     NSLog(@"text view string : %@",textView.text);
     NSString *editedString = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSLog(@"edited string :%@",editedString);
+    if ([editedString isEqualToString:@""]) {
+        self.placeLabel.alpha = 1;
+
+    }
+    
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+
+    self.placeLabel.alpha = 0;
+
 }
 
 

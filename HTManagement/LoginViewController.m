@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 #import "RootsViewController.h"
 #import "AFNetworking.h"
+#import "FirstViewController.h"
+#import "SecondViewController.h"
 
 @interface LoginViewController ()
 
@@ -96,20 +98,38 @@
         NSLog(@"community id %@",[[[NSUserDefaults standardUserDefaults] objectForKey:@"user_profile"] objectForKey:@"community_id"]);
         if ([[responseObject objectForKey:@"info"]isEqualToString:@"login successful"]) {
             [self presentViewController:nav animated:YES completion:nil];
+            //[self presentViewController];
+            
         }
         else{
-            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"错误" message:@"用户名或者密码不正确" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
-            [alertView show];
+            [self alertShowWithMessage:@"用户名或密码错误"];
         
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"错误" message:@"连不上服务器" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
-        [alertView show];
+        [self alertShowWithMessage:@"连不上服务器"];
     }];
     
     
     
 }
+
+- (void)presentViewController
+{
+    UINavigationController *nav =[ [UINavigationController alloc]initWithRootViewController:[FirstViewController new]];
+     UINavigationController *nav2 =[ [UINavigationController alloc]initWithRootViewController:[SecondViewController new]];
+    UITabBarController *tab = [[UITabBarController alloc]init];
+    tab.viewControllers = @[nav,nav2];
+    [self presentViewController:tab animated:YES completion:nil];
+}
+
+- (void)alertShowWithMessage:(NSString *)message
+{
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"错误" message:message delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
+    [alertView show];
+
+
+}
+
 
 - (void)resignKeyboard
 {

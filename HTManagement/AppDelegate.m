@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 
+#import "BPush.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -28,7 +30,7 @@
     }
     */
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
+/*
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
         [application setStatusBarStyle:UIStatusBarStyleLightContent];
 
@@ -39,7 +41,7 @@
 
     }
     
-    NSLog(@"self window frame %@",NSStringFromCGRect(self.window.frame));
+ */   NSLog(@"self window frame %@",NSStringFromCGRect(self.window.frame));
     NSLog(@"self window bounds %@",NSStringFromCGRect(self.window.bounds));
 
     //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
@@ -55,8 +57,56 @@
     
   //  nav.tabBarItem.title = @"second";
     self.window.rootViewController = loginVC;
+    [BPush unbindChannel];
+    [BPush setupChannel:launchOptions];
+    [BPush setDelegate:self];
+    
+    [application registerForRemoteNotificationTypes:
+     UIRemoteNotificationTypeAlert| UIRemoteNotificationTypeBadge| UIRemoteNotificationTypeSound];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+     NSLog(@"test:%@",deviceToken);
+    [BPush registerDeviceToken: deviceToken];
+    [BPush bindChannel];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+   // NSLog(@"Receive Notify: %@", [userInfo JSONString]);
+    NSLog(@"userinfo %@",userInfo);
+    NSString *alert = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
+    if (application.applicationState == UIApplicationStateActive) {
+        // Nothing to do if applicationState is Inactive, the iOS already displayed an alert view.
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Did receive a Remote Notification"
+                                                            message:[NSString stringWithFormat:@"The application received this remote notification while it was running:\n%@", alert]
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+    [application setApplicationIconBadgeNumber:0];
+    
+    [BPush handleNotification:userInfo];
+    
+  
+}
+
+- (void) onMethod:(NSString*)method response:(NSDictionary*)data {
+    NSLog(@"On method:%@", method);
+    NSLog(@"data:%@", [data description]);
+    NSDictionary* res = [[NSDictionary alloc] initWithDictionary:data];
+    if ([BPushRequestMethod_Bind isEqualToString:method]) {
+        NSString *appid = [res valueForKey:BPushRequestAppIdKey];
+        NSString *userid = [res valueForKey:BPushRequestUserIdKey];
+        NSString *channelid = [res valueForKey:BPushRequestChannelIdKey];
+        NSString *requestid = [res valueForKey:BPushRequestRequestIdKey];
+        NSLog(@"appid %@",appid);
+        NSLog(@"channelid %@",channelid);
+        NSLog(@"userid %@",userid);
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

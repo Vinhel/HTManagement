@@ -38,5 +38,6 @@
 
 - (void)chooseComplainWorker:(ComplainForm *)form;
 
+- (void)acceptComplain:(ComplainForm *)form;
 
 @end

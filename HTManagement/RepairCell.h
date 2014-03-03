@@ -19,6 +19,8 @@
 
 - (void)chooseRepairWorker:(RepairForm *)form;
 
+- (void)acceptRepair:(RepairForm *)form;
+
 @end
 
 @interface RepairCell : UITableViewCell

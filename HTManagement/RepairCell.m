@@ -100,6 +100,17 @@
         [self addSubview:button];
     }
     
+    if (_repairForm.deal_status ==4 && isWorker) {
+        rect.origin.y = cellHeight;
+        rect.origin.x = 173;
+        UIButton *button = [[UIButton alloc]initWithFrame:rect];
+        button.titleLabel.font = [UIFont systemFontOfSize:13];
+        button.backgroundColor = [UIColor greenColor];
+        [button setTitle:@"接受受理" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(acceptRepairClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:button];
+    }
+    
     if (_repairForm.deal_status == 3 )
     {
         _satisfactionLabel.alpha = 1;
@@ -125,7 +136,10 @@
     
     cellHeight += _timeLabel.frame.size.height;
     cellFrame.size.height = cellHeight;
-    
+    self.layer.borderWidth = 0.5;
+    self.layer.borderColor = [[UIColor redColor]CGColor];
+    self.layer.cornerRadius = 5;
+    self.clipsToBounds = YES;
     [self setFrame:cellFrame];
     
 }
@@ -152,6 +166,15 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(feedBack:)]) {
         [self.delegate feedBack:_repairForm];
     }
+}
+
+- (void)acceptRepairClick:(id)sender
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(acceptRepair:)]) {
+        [self.delegate acceptRepair:_repairForm];
+    }
+
+
 }
 
 @end

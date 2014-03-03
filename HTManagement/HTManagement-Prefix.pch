@@ -32,6 +32,13 @@ typedef enum {
 
 #define ios7 [[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0? YES:NO
 
+
+#define Screen_height [[UIScreen mainScreen] bounds].size.height
+#define Screen_width    [[UIScreen mainScreen] bounds].size.width
+#define HeightOfStatusBar 20
+#define HeightOfNavigationBar 44
+#define HeightOfTabBar 49
+
 #define isResident [[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"resident"]
 #define isWorker [[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"worker"]
 #define isAdmin [[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"admin"]
@@ -85,6 +92,9 @@ typedef enum {
 #define api_complain_response [prefix stringByAppendingString:@"/api/complain/response/"]
 #define api_complain_deal [prefix stringByAppendingString:@"/api/complain/deal/"]
 #define api_complain_complete [prefix stringByAppendingString:@"/api/complain/complete/"]
+#define api_complain_accept [prefix stringByAppendingString:@"/api_worker/deal/complain/"]
+
+
 #define api_get_all_complains [prefix stringByAppendingString:@"/api/show/all_complains/?page=%d&community_id=%d"]
 
 
@@ -95,7 +105,7 @@ typedef enum {
 #define api_repair_response [prefix stringByAppendingString:@"/api/repair/response/"]
 #define api_repair_deal [prefix stringByAppendingString:@"/api/repair/deal/"]
 #define api_repair_complete [prefix stringByAppendingString:@"/api/repair/complete/"]
-
+#define api_repair_accept [prefix stringByAppendingString:@"/api_worker/deal/repair/"]
 
 /**********************/
 #import "UITextField+AddInputView.h"
