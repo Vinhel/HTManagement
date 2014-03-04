@@ -12,7 +12,7 @@
 #import "ChooseTypeViewController.h"
 #import "FeedbackViewController.h"
 #import "HMSegmentedControl.h"
-
+#import "MBProgressHUD.h"
 @interface ExpressViewController ()
 
 @property (nonatomic, strong) NSMutableArray *receivedArray;
@@ -23,6 +23,7 @@
 @property (nonatomic, strong) ExpressForm *expressForm;
 @property (nonatomic, strong) HMSegmentedControl *segmentedControl;
 @property (nonatomic, strong) UIScrollView *baseView;
+@property (nonatomic, strong) MBProgressHUD *HUD;
 @end
 
 @implementation ExpressViewController
@@ -49,6 +50,10 @@
     [self setupTableView];
     [self setupSegmentedControl];
     [self getUserExpressWithStatus:@"未领取"];
+    
+    _HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    _HUD.labelText = @"正在加载";
+    [self.view addSubview:_HUD];
 
 }
 
@@ -145,8 +150,9 @@
   
    
     NSString *idstring = [[[NSUserDefaults standardUserDefaults]objectForKey:@"user_profile"] objectForKey:@"community_id"];
- 
-    
+  
+    //_HUD.detailsLabelText = @"加载中，请稍候。。。。";
+    [_HUD show:YES];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSString *status = [statusstring stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         _array = [NSMutableArray arrayWithArray:[_expressForm getExpressesFormWith:api_get_expresses_by_status communityID:idstring expressesStatus:status]] ;
@@ -158,24 +164,12 @@
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            [_HUD hide:YES];
             [self refreshTableViewWithStatus];
         });
     });
-    
-    
-
-    
-    //[self refreshTableViewWithStatus];
-    
 
 }
-
-
-
-
-#pragma mark - UITableviewDelegate methods
-
-
 #pragma mark - UITableviewDatasource methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

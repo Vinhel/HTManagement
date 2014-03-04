@@ -28,7 +28,7 @@
 @property (nonatomic, strong) NSMutableArray *acceptedArray;
 @property (nonatomic, strong) NSMutableArray *uncompletedArray;
 @property (nonatomic, strong) NSMutableArray *completedArray;
-
+@property (nonatomic, strong) MBProgressHUD *HUD;
 
 
 
@@ -48,7 +48,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+   
     self.navigationItem.title = @"报修";
     _repairForm = [RepairForm new];
     if (ios7) {
@@ -68,6 +68,9 @@
     }
     else
         [self getUserRepairsWithStatus:@"1"];
+    _HUD = [[MBProgressHUD alloc] initWithView:self.view];    [self.view addSubview:_HUD];
+    _HUD.labelText = @"正在加载";
+    [self.view addSubview:_HUD];
 }
 - (void)setupTableView{
     
@@ -133,7 +136,7 @@
 - (void)setupSegmentedControl
 {
     self.segmentedControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 0, Screen_width, 30)];
-    NSArray *titles = [NSArray array];
+    NSArray *titles;;
     if (isWorker)
         titles = @[@"未受理",@"处理中",@"处理完成"];
     else
@@ -291,7 +294,7 @@
 
 - (void)getUserRepairsWithStatus:(NSString *)status
 {
-    
+    [_HUD show:YES];
     NSString *idstring = [[[NSUserDefaults standardUserDefaults]objectForKey:@"user_profile"] objectForKey:@"community_id"];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         _array  = [NSMutableArray arrayWithArray:[_repairForm getRepairFormWith:api_get_repairs_by_status communityID:idstring repairStatus:status]] ;
@@ -326,7 +329,7 @@
             }
         }
         dispatch_async(dispatch_get_main_queue(),^{
-            
+            [_HUD hide:YES];
             [self refreshTableViewWithStatus];
             
         });

@@ -93,8 +93,8 @@
     NSDictionary *dictionary = [[NSDictionary alloc]initWithObjectsAndKeys:nameString,@"username",passwordString,@"password",nil];
     [manager POST:api_user_login parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"response %@",responseObject);
-        RootsViewController *roots = [RootsViewController new];
-        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:roots];
+       // RootsViewController *roots = [RootsViewController new];
+       // UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:roots];
         [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"identity"] forKey:@"role"];
         if (!isAdmin) {
             [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"user_profile"][0]  forKey:@"user_profile"];

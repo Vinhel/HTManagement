@@ -27,7 +27,7 @@
 @property (nonatomic, strong) NSMutableArray *acceptedArray;
 @property (nonatomic, strong) NSMutableArray *uncompletedArray;
 @property (nonatomic, strong) NSMutableArray *completedArray;
-
+@property (nonatomic, strong) MBProgressHUD *HUD;
 @end
 
 @implementation ComplainViewController
@@ -44,7 +44,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
 
     _complainForm = [ComplainForm new];
     self.navigationItem.title = @"投诉";
@@ -65,6 +64,10 @@
     }
     else
         [self getUserComplainsWithStatus:@"1"];
+    
+    _HUD = [[MBProgressHUD alloc] initWithView:self.view];    [self.view addSubview:_HUD];
+    _HUD.labelText = @"正在加载";
+    [self.view addSubview:_HUD];
 
 }
 - (void)setupTableView{
@@ -134,7 +137,7 @@
     
     
     self.segmentedControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 0, Screen_width, 30)];
-    NSArray *titles = [NSArray array];
+    NSArray *titles;
     if (isWorker)
         titles = @[@"未受理",@"处理中",@"处理完成"];
     else
@@ -295,40 +298,7 @@ else
 
 - (void)getUserComplainsWithStatus:(NSString *)status
 {
-    
-   /*
-    if ([_untreatedArray count]||[_processingArray count]||[_solovedArray count]) {
-        [_untreatedArray removeAllObjects];
-        [_processingArray removeAllObjects];
-        [_solovedArray removeAllObjects];
-        
-    }
-    
-  
-    NSString *idstring ;
-    if (isAdmin) {
-        idstring = [NSString stringWithFormat:@"%d",_info.community_id];
-    }
-    else
-        idstring = [[[NSUserDefaults standardUserDefaults]objectForKey:@"user_profile"] objectForKey:@"community_id"];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *status = [@"4" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        _untreatedArray  = [NSMutableArray arrayWithArray:[_complainForm getComplainsFormWith:api_get_complains_by_status communityID:idstring  complainsStatus:status]] ;
-        
-        status = [@"2" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        _processingArray  = [NSMutableArray arrayWithArray:[_complainForm getComplainsFormWith:api_get_complains_by_status communityID:idstring  complainsStatus:status]] ;
-        
-        status = [@"3" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        _solovedArray = [NSMutableArray arrayWithArray:[_complainForm getComplainsFormWith:api_get_complains_by_status communityID:idstring  complainsStatus:status]];
-        dispatch_async(dispatch_get_main_queue(),^{
-        
-            [self refreshTableViewWithStatus];
-        
-        });
-    
-    });
-    
-    */
+    [_HUD show:YES];
     NSString *idstring = [[[NSUserDefaults standardUserDefaults]objectForKey:@"user_profile"] objectForKey:@"community_id"];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
        // _array  = [NSMutableArray arrayWithArray:[_complainForm getFormWith:api_get_repairs_by_status communityID:idstring repairStatus:status]] ;
@@ -364,7 +334,7 @@ else
             }
         }
         dispatch_async(dispatch_get_main_queue(),^{
-            
+            [_HUD hide:YES];
             [self refreshTableViewWithStatus];
             
         });
