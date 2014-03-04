@@ -33,6 +33,8 @@
 }
 - (void)setRepairForm:(RepairForm *)repairForm
 {
+    [self setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_sand"]]];
+
     _repairForm = repairForm;
     CGRect cellFrame = [self frame];
     

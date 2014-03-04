@@ -63,10 +63,15 @@
     [self initArrays];
     [self setupSegmentedControl];
     [self setupTableView];
+    if (isWorker) {
+        [self getUserRepairsWithStatus:@"4"];
+    }
+    else
+        [self getUserRepairsWithStatus:@"1"];
 }
 - (void)setupTableView{
     
-    self.baseView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 30, Screen_width, Screen_height - HeightOfStatusBar - HeightOfNavigationBar - 30)];
+    self.baseView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 30, Screen_width, Screen_height - HeightOfStatusBar - HeightOfNavigationBar - 30 - HeightOfTabBar)];
     self.baseView.scrollEnabled = NO;
     self.baseView.backgroundColor = [UIColor clearColor];
     if (!isWorker) {
@@ -116,11 +121,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if (isWorker) {
-        [self getUserRepairsWithStatus:@"4"];
-    }
-    else
-        [self getUserRepairsWithStatus:@"1"];
+  
 }
 
 - (void)initArrays

@@ -26,6 +26,8 @@
 
 - (void)setComplainForm:(ComplainForm *)complainForm
 {
+    
+    [self setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_sand"]]];
     _complainForm = complainForm;
     CGRect cellFrame = [self frame];
     

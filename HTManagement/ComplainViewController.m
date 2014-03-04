@@ -47,6 +47,7 @@
     
 
     _complainForm = [ComplainForm new];
+    self.navigationItem.title = @"投诉";
     if (ios7) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
         
@@ -59,11 +60,17 @@
     [self initArrays];
     [self setupSegmentedControl];
     [self setupTableView];
+    if (isWorker) {
+        [self getUserComplainsWithStatus:@"4"];
+    }
+    else
+        [self getUserComplainsWithStatus:@"1"];
+
 }
 - (void)setupTableView{
     
     
-    self.baseView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 30, Screen_width, Screen_height - HeightOfStatusBar - HeightOfNavigationBar - 30)];
+    self.baseView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 30, Screen_width, Screen_height - HeightOfStatusBar - HeightOfNavigationBar - 30 - HeightOfTabBar)];
     self.baseView.scrollEnabled = NO;
     self.baseView.backgroundColor = [UIColor clearColor];
     if (!isWorker) {
@@ -113,12 +120,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if (isWorker) {
-        [self getUserComplainsWithStatus:@"4"];
-    }
-    else
-        [self getUserComplainsWithStatus:@"1"];
-
+  
 }
 - (void)initArrays
 {
@@ -475,7 +477,7 @@ else
     manager.responseSerializer = [AFJSONResponseSerializer new];
     manager.requestSerializer = [AFJSONRequestSerializer new];
     NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:[NSString stringWithFormat:@"%d",form.complainId], @"complains_id_string",nil];
-    NSLog(@"dict %@",dict);
+    
     [manager POST:api_complain_accept parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject objectForKey:@"success"]) {
             [self getUserComplainsWithStatus:@"4"];

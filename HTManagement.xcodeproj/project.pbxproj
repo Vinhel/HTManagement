@@ -20,6 +20,12 @@
 		180BECC018C472A7004B336D /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 180BECB818C472A7004B336D /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		180BECC118C472A7004B336D /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 180BECBA18C472A7004B336D /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		180BECC218C472A7004B336D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 180BECBC18C472A7004B336D /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		180BECC418C56D95004B336D /* qqqqq.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BECC318C56D95004B336D /* qqqqq.png */; };
+		180BECCC18C597ED004B336D /* 投诉.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BECCA18C597ED004B336D /* 投诉.png */; };
+		180BECCE18C5B75D004B336D /* 报修.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BECCD18C5B75D004B336D /* 报修.png */; };
+		180BECD018C5B7CC004B336D /* tab_select_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BECCF18C5B7CC004B336D /* tab_select_indicator.png */; };
+		180BECD218C5B8F5004B336D /* tab_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BECD118C5B8F5004B336D /* tab_bg.png */; };
+		180BECD418C5BC4C004B336D /* 快递.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BECD318C5BC4C004B336D /* 快递.png */; };
 		1811F30718ADC017001EAAB6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1811F30618ADC017001EAAB6 /* QuartzCore.framework */; };
 		181B22E5186174AA007584AC /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 181B22D3186174AA007584AC /* AFHTTPRequestOperation.m */; };
 		181B22E6186174AA007584AC /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 181B22D5186174AA007584AC /* AFHTTPRequestOperationManager.m */; };
@@ -54,8 +60,6 @@
 		183DF0D718BEDA2F00197F84 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 183DF0D418BEDA2F00197F84 /* SVProgressHUD.bundle */; };
 		183DF0D818BEDA2F00197F84 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 183DF0D618BEDA2F00197F84 /* SVProgressHUD.m */; };
 		1843126E18A5C6D8002BE6E5 /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1843126D18A5C6D8002BE6E5 /* CommunityViewController.m */; };
-		1848900818724EB9001356CB /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 18488FED18724EB9001356CB /* background.png */; };
-		1848900918724EB9001356CB /* 报修.png in Resources */ = {isa = PBXBuildFile; fileRef = 18488FEE18724EB9001356CB /* 报修.png */; };
 		1848900A18724EB9001356CB /* 报修2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18488FEF18724EB9001356CB /* 报修2.png */; };
 		1848900B18724EB9001356CB /* 本地生活.png in Resources */ = {isa = PBXBuildFile; fileRef = 18488FF018724EB9001356CB /* 本地生活.png */; };
 		1848900C18724EB9001356CB /* 登录条1.png in Resources */ = {isa = PBXBuildFile; fileRef = 18488FF118724EB9001356CB /* 登录条1.png */; };
@@ -75,7 +79,6 @@
 		1848901B18724EB9001356CB /* 停车费.png in Resources */ = {isa = PBXBuildFile; fileRef = 1848900018724EB9001356CB /* 停车费.png */; };
 		1848901C18724EB9001356CB /* 停车费2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1848900118724EB9001356CB /* 停车费2.png */; };
 		1848901D18724EB9001356CB /* 通知.png in Resources */ = {isa = PBXBuildFile; fileRef = 1848900218724EB9001356CB /* 通知.png */; };
-		1848901E18724EB9001356CB /* 投诉.png in Resources */ = {isa = PBXBuildFile; fileRef = 1848900318724EB9001356CB /* 投诉.png */; };
 		1848901F18724EB9001356CB /* 投诉2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1848900418724EB9001356CB /* 投诉2.png */; };
 		1848902018724EB9001356CB /* 物业费.png in Resources */ = {isa = PBXBuildFile; fileRef = 1848900518724EB9001356CB /* 物业费.png */; };
 		1848902118724EB9001356CB /* 物业费2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1848900618724EB9001356CB /* 物业费2.png */; };
@@ -173,6 +176,12 @@
 		180BECBA18C472A7004B336D /* OpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUDID.m; sourceTree = "<group>"; };
 		180BECBB18C472A7004B336D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		180BECBC18C472A7004B336D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		180BECC318C56D95004B336D /* qqqqq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qqqqq.png; sourceTree = "<group>"; };
+		180BECCA18C597ED004B336D /* 投诉.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "投诉.png"; sourceTree = "<group>"; };
+		180BECCD18C5B75D004B336D /* 报修.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "报修.png"; sourceTree = "<group>"; };
+		180BECCF18C5B7CC004B336D /* tab_select_indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_select_indicator.png; sourceTree = "<group>"; };
+		180BECD118C5B8F5004B336D /* tab_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_bg.png; sourceTree = "<group>"; };
+		180BECD318C5BC4C004B336D /* 快递.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "快递.png"; sourceTree = "<group>"; };
 		1811F30618ADC017001EAAB6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		181B22D2186174AA007584AC /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		181B22D3186174AA007584AC /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -232,8 +241,6 @@
 		183DF0D618BEDA2F00197F84 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		1843126C18A5C6D8002BE6E5 /* CommunityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityViewController.h; sourceTree = "<group>"; };
 		1843126D18A5C6D8002BE6E5 /* CommunityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityViewController.m; sourceTree = "<group>"; };
-		18488FED18724EB9001356CB /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
-		18488FEE18724EB9001356CB /* 报修.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "报修.png"; sourceTree = "<group>"; };
 		18488FEF18724EB9001356CB /* 报修2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "报修2.png"; sourceTree = "<group>"; };
 		18488FF018724EB9001356CB /* 本地生活.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "本地生活.png"; sourceTree = "<group>"; };
 		18488FF118724EB9001356CB /* 登录条1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录条1.png"; sourceTree = "<group>"; };
@@ -253,7 +260,6 @@
 		1848900018724EB9001356CB /* 停车费.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "停车费.png"; sourceTree = "<group>"; };
 		1848900118724EB9001356CB /* 停车费2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "停车费2.png"; sourceTree = "<group>"; };
 		1848900218724EB9001356CB /* 通知.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "通知.png"; sourceTree = "<group>"; };
-		1848900318724EB9001356CB /* 投诉.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "投诉.png"; sourceTree = "<group>"; };
 		1848900418724EB9001356CB /* 投诉2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "投诉2.png"; sourceTree = "<group>"; };
 		1848900518724EB9001356CB /* 物业费.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "物业费.png"; sourceTree = "<group>"; };
 		1848900618724EB9001356CB /* 物业费2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "物业费2.png"; sourceTree = "<group>"; };
@@ -684,16 +690,20 @@
 			isa = PBXGroup;
 			children = (
 				181DBAF318C1D29100BDBDB4 /* bg_sand.png */,
+				180BECC318C56D95004B336D /* qqqqq.png */,
 				181DBAE918C1C24700BDBDB4 /* appear_03.png */,
 				181DBAEA18C1C24700BDBDB4 /* appear_05.png */,
+				180BECD118C5B8F5004B336D /* tab_bg.png */,
+				180BECCD18C5B75D004B336D /* 报修.png */,
+				180BECCF18C5B7CC004B336D /* tab_select_indicator.png */,
 				181DBAEB18C1C24700BDBDB4 /* appear_08.png */,
+				180BECCA18C597ED004B336D /* 投诉.png */,
 				181DBAEC18C1C24700BDBDB4 /* appear_65.png */,
 				181DBAED18C1C24700BDBDB4 /* appear_80.png */,
 				18BA8581188D65890092BDCE /* backgroundStar@2x.png */,
 				18BA8582188D65890092BDCE /* foregroundStar@2x.png */,
-				18488FED18724EB9001356CB /* background.png */,
-				18488FEE18724EB9001356CB /* 报修.png */,
 				18488FEF18724EB9001356CB /* 报修2.png */,
+				180BECD318C5BC4C004B336D /* 快递.png */,
 				18488FF018724EB9001356CB /* 本地生活.png */,
 				18488FF118724EB9001356CB /* 登录条1.png */,
 				187A6DC318B72B4D00410706 /* 登录条2.png */,
@@ -716,7 +726,6 @@
 				1848900018724EB9001356CB /* 停车费.png */,
 				1848900118724EB9001356CB /* 停车费2.png */,
 				1848900218724EB9001356CB /* 通知.png */,
-				1848900318724EB9001356CB /* 投诉.png */,
 				1848900418724EB9001356CB /* 投诉2.png */,
 				1848900518724EB9001356CB /* 物业费.png */,
 				1848900618724EB9001356CB /* 物业费2.png */,
@@ -891,9 +900,13 @@
 				1848901918724EB9001356CB /* 首页.png in Resources */,
 				1848901218724EB9001356CB /* 更多.png in Resources */,
 				1848901518724EB9001356CB /* 快递领取.png in Resources */,
+				180BECCC18C597ED004B336D /* 投诉.png in Resources */,
+				180BECCE18C5B75D004B336D /* 报修.png in Resources */,
 				184890341872B4D3001356CB /* CreateRepairViewController.xib in Resources */,
+				180BECD018C5B7CC004B336D /* tab_select_indicator.png in Resources */,
 				1848901618724EB9001356CB /* 快递领取2.png in Resources */,
 				1848901F18724EB9001356CB /* 投诉2.png in Resources */,
+				180BECC418C56D95004B336D /* qqqqq.png in Resources */,
 				1848900B18724EB9001356CB /* 本地生活.png in Resources */,
 				187A6DC918B72B4D00410706 /* login.png in Resources */,
 				1852E69918867991005E8646 /* HouseKeepingCell.xib in Resources */,
@@ -902,14 +915,12 @@
 				181DBAF418C1D29100BDBDB4 /* bg_sand.png in Resources */,
 				1848900E18724EB9001356CB /* 底部本地生活.png in Resources */,
 				1848902118724EB9001356CB /* 物业费2.png in Resources */,
-				1848900818724EB9001356CB /* background.png in Resources */,
 				187A6DC718B72B4D00410706 /* 登录条2.png in Resources */,
 				18D1071A1888D08600042857 /* ExpressCell.xib in Resources */,
 				181DBAF018C1C24700BDBDB4 /* appear_08.png in Resources */,
 				184890321872A997001356CB /* RepairCell.xib in Resources */,
 				18BA857C188D1F500092BDCE /* ChooseTypeViewController.xib in Resources */,
 				187B6E531860299D004959DF /* InfoPlist.strings in Resources */,
-				1848900918724EB9001356CB /* 报修.png in Resources */,
 				181DBAEF18C1C24700BDBDB4 /* appear_05.png in Resources */,
 				180142C3187E3F18002F5F02 /* FeedbackViewController.xib in Resources */,
 				18751CF7187BDCAE002454F7 /* ScanRepairFormViewController.xib in Resources */,
@@ -917,6 +928,7 @@
 				1848902218724EB9001356CB /* 物业服务.png in Resources */,
 				18299F76187993BB00FD4133 /* ChooseHouseKeepingCell.xib in Resources */,
 				187A6DCA18B72B4D00410706 /* logo.png in Resources */,
+				180BECD418C5BC4C004B336D /* 快递.png in Resources */,
 				1852E6A1188681EE005E8646 /* ComplainCell.xib in Resources */,
 				1848901418724EB9001356CB /* 家政2.png in Resources */,
 				1848900A18724EB9001356CB /* 报修2.png in Resources */,
@@ -931,13 +943,13 @@
 				1848901018724EB9001356CB /* 底部物业服务.png in Resources */,
 				1848901C18724EB9001356CB /* 停车费2.png in Resources */,
 				1848900C18724EB9001356CB /* 登录条1.png in Resources */,
-				1848901E18724EB9001356CB /* 投诉.png in Resources */,
 				1848901318724EB9001356CB /* 家政.png in Resources */,
 				18BA8583188D65890092BDCE /* backgroundStar@2x.png in Resources */,
 				187A6DC818B72B4D00410706 /* input.png in Resources */,
 				1848901B18724EB9001356CB /* 停车费.png in Resources */,
 				1848900F18724EB9001356CB /* 底部首页.png in Resources */,
 				181DBAF118C1C24700BDBDB4 /* appear_65.png in Resources */,
+				180BECD218C5B8F5004B336D /* tab_bg.png in Resources */,
 				1848901818724EB9001356CB /* 框2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

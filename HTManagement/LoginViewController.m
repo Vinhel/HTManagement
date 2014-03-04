@@ -11,6 +11,10 @@
 #import "AFNetworking.h"
 #import "FirstViewController.h"
 #import "SecondViewController.h"
+#import "RepairViewController.h"
+#import "ComplainViewController.h"
+#import "ExpressViewController.h"
+
 
 @interface LoginViewController ()
 
@@ -97,7 +101,32 @@
         }
         NSLog(@"community id %@",[[[NSUserDefaults standardUserDefaults] objectForKey:@"user_profile"] objectForKey:@"community_id"]);
         if ([[responseObject objectForKey:@"info"]isEqualToString:@"login successful"]) {
-            [self presentViewController:nav animated:YES completion:nil];
+           // [self presentViewController:nav animated:YES completion:nil];
+            
+            //tabbarcontrol
+            
+            UITabBarController *tab = [UITabBarController new];
+            
+            RepairViewController *repair = [RepairViewController new];
+            ComplainViewController *complain = [ComplainViewController new];
+            ExpressViewController *express = [ExpressViewController new];
+            
+            UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:repair];
+            UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:complain];
+            UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:express];
+            tab.viewControllers = @[nav1,nav2,nav3];
+            
+            [tab.tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"tab_select_indicator"]];
+            [tab.tabBar setBackgroundImage:[UIImage imageNamed:@"tab_bg"]];
+            nav1.tabBarItem.title = @"报修";
+            nav2.tabBarItem.title = @"投诉";
+            nav3.tabBarItem.title = @"快递";
+          
+            nav1.tabBarItem.image = [UIImage imageNamed:@"报修"];
+            nav2.tabBarItem.image = [UIImage imageNamed:@"投诉"];
+            nav3.tabBarItem.image = [UIImage imageNamed:@"快递"];
+            [self presentViewController:tab animated:YES completion:nil];
+            
             //[self presentViewController];
             
         }

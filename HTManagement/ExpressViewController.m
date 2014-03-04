@@ -11,17 +11,18 @@
 #import "ExpressForm.h"
 #import "ChooseTypeViewController.h"
 #import "FeedbackViewController.h"
+#import "HMSegmentedControl.h"
 
 @interface ExpressViewController ()
 
-@property (nonatomic, assign) NSInteger pageCount;
 @property (nonatomic, strong) NSMutableArray *receivedArray;
 @property (nonatomic, strong) NSMutableArray *unreceivedArray;
 @property (nonatomic, strong) NSMutableArray *array;
-@property (nonatomic, strong) UITableView *expressTable;
-@property (nonatomic, strong) UISegmentedControl *segmented_status;
+@property (nonatomic, strong) UITableView *unreceivedTable;
+@property (nonatomic, strong) UITableView *receivedTable;
 @property (nonatomic, strong) ExpressForm *expressForm;
-
+@property (nonatomic, strong) HMSegmentedControl *segmentedControl;
+@property (nonatomic, strong) UIScrollView *baseView;
 @end
 
 @implementation ExpressViewController
@@ -38,26 +39,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (ios7) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-
-    }
-    self.navigationItem.title = @"快递领取";
-	// Do any additional setup after loading the view.
-    _expressForm = [ExpressForm new];
+    if (ios7) self.edgesForExtendedLayout = UIRectEdgeNone;
     
+    self.navigationItem.title = @"快递领取";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshTableView)];
+    
+    _expressForm = [ExpressForm new];
     [self initArrays];
     [self setupTableView];
     [self setupSegmentedControl];
+    [self getUserExpressWithStatus:@"未领取"];
 
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)refreshTableView
 {
-    [super viewWillAppear:animated];
-    
-    [self getUserExpress];
-    
+    switch (self.segmentedControl.selectedIndex) {
+            case 0:
+                [_unreceivedArray removeAllObjects];
+                [self getUserExpressWithStatus:@"未领取"];
+                break;
+            case 1:
+                [_receivedArray removeAllObjects];
+                [self getUserExpressWithStatus:@"领取"];
+                break;
+            default:
+                break;
+    }
     
 }
 
@@ -65,53 +73,90 @@
 {
     _array = [NSMutableArray array];
     _unreceivedArray = [ NSMutableArray array];
-    _receivedArray = [NSMutableArray array];
-
-
+   
 }
 
 - (void)setupTableView
 {
-    _expressTable = [[UITableView alloc]initWithFrame:CGRectMake(5, 30, 310, iPhone5?474:386)style:UITableViewStylePlain];
-    _expressTable.delegate = self;
-    _expressTable.dataSource = self;
-    [self.view addSubview:_expressTable];
+    self.baseView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 30, Screen_width, Screen_height - HeightOfStatusBar - HeightOfNavigationBar - 30 - HeightOfTabBar)];
+    self.baseView.scrollEnabled = NO;
+    self.baseView.backgroundColor = [UIColor clearColor];
+    self.unreceivedTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Screen_width, self.baseView.frame.size.height) style:UITableViewStylePlain];
+    self.unreceivedTable.dataSource = self;
+    self.unreceivedTable.delegate = self;
+    [self.baseView addSubview:self.unreceivedTable];
+    
+    self.receivedTable = [[UITableView alloc]initWithFrame:CGRectMake(Screen_width, 0, Screen_width, self.baseView.frame.size.height) style:UITableViewStylePlain];
+    self.receivedTable.dataSource = self;
+    self.receivedTable.delegate = self;
+    [self.baseView addSubview:self.receivedTable];
+    
+    [self.view addSubview:self.baseView];
+
 
 }
 - (void)setupSegmentedControl
 {
-    
-    _segmented_status = [[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"未领取", @"已领取", nil]];
-    _segmented_status.frame = CGRectMake(0, 0, 320, 30);
-    _segmented_status.selectedSegmentIndex = 0;
-    _segmented_status.segmentedControlStyle = UISegmentedControlStyleBar;
-    _segmented_status.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    [_segmented_status addTarget:self action:@selector(refreshTableViewWithStatus) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:_segmented_status];
-    
+    self.segmentedControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 0, Screen_width, 30)];
+    [self.segmentedControl setSectionTitles:@[@"未领取",@"已领取"]];
+    [self.segmentedControl setSelectedIndex:0];
+    [self.segmentedControl setFont:[UIFont fontWithName:@"Avenir-Light" size:17.0f]];
+    [self.segmentedControl setBackgroundColor:[UIColor whiteColor]];
+    [self.segmentedControl setTextColor:[UIColor blackColor]];
+    [self.segmentedControl setSelectionIndicatorColor:[UIColor greenColor]];
+    [self.view addSubview:self.segmentedControl];
+    [self.segmentedControl addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
 }
 
-- (void)getUserExpress
+- (void)valueChanged:(HMSegmentedControl *)control
 {
-    if ([_receivedArray count]||[_unreceivedArray count]) {
-        [_receivedArray removeAllObjects];
-        [_unreceivedArray removeAllObjects];
-        
+    switch (control.selectedIndex) {
+        case 0:
+            if (!_unreceivedArray) {
+                [self getUserExpressWithStatus:@"未领取"];
+            }
+            break;
+        default:
+            if (!_receivedArray) {
+                _receivedArray = [NSMutableArray array];
+                [self getUserExpressWithStatus:@"领取"];
+            }
+            break;
     }
+
+    [self.baseView setContentOffset:CGPointMake(Screen_width * self.segmentedControl.selectedIndex, 0)];
+
+}
+
+- (void)refreshTableViewWithStatus
+{
+    switch (self.segmentedControl.selectedIndex) {
+        case 0:
+            [_unreceivedTable reloadData];
+            break;
+        default:
+            [_receivedTable reloadData];
+            break;
+    }
+}
+
+- (void)getUserExpressWithStatus:(NSString *)statusstring
+{
+  
    
-    NSString *idstring;
-    if (isAdmin)
-        idstring = [NSString stringWithFormat:@"%d",_info.community_id];
-    
-    else
-        idstring = [[[NSUserDefaults standardUserDefaults]objectForKey:@"user_profile"] objectForKey:@"community_id"];
+    NSString *idstring = [[[NSUserDefaults standardUserDefaults]objectForKey:@"user_profile"] objectForKey:@"community_id"];
+ 
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *status = [@"未领取" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        _unreceivedArray  = [NSMutableArray arrayWithArray:[_expressForm getExpressesFormWith:api_get_expresses_by_status communityID:idstring expressesStatus:status]] ;
+        NSString *status = [statusstring stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        _array = [NSMutableArray arrayWithArray:[_expressForm getExpressesFormWith:api_get_expresses_by_status communityID:idstring expressesStatus:status]] ;
+        if ([statusstring isEqualToString:@"未领取"]) {
+            _unreceivedArray = _array;
+        }
+        else{
+            _receivedArray = _array;
+        }
         
-        status = [@"领取" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        _receivedArray  = [NSMutableArray arrayWithArray:[_expressForm getExpressesFormWith:api_get_expresses_by_status communityID:idstring expressesStatus:status]] ;
         dispatch_async(dispatch_get_main_queue(), ^{
             [self refreshTableViewWithStatus];
         });
@@ -125,23 +170,7 @@
 
 }
 
-- (void)refreshTableViewWithStatus
-{
-    switch (_segmented_status.selectedSegmentIndex) {
-        case 0:
-            _array = [NSMutableArray arrayWithArray:_unreceivedArray];
-            break;
-       
-        default:
-            _array = [NSMutableArray arrayWithArray:_receivedArray];
-            break;
-    }
-    
-    [_expressTable reloadData];
-    
 
-
-}
 
 
 #pragma mark - UITableviewDelegate methods
@@ -150,6 +179,10 @@
 #pragma mark - UITableviewDatasource methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (tableView == _unreceivedTable)
+        _array = _unreceivedArray;
+    else
+        _array = _receivedArray;
     return [_array count];
 }
 
@@ -163,9 +196,12 @@
         cell = [nib objectAtIndex:0];
         cell.delegate = self;
     }
-    ExpressForm *form = (ExpressForm*)[_array objectAtIndex:[indexPath row]];
-    
-
+   // ExpressForm *form = (ExpressForm*)[_array objectAtIndex:[indexPath row]];
+    ExpressForm *form ;
+    if (tableView == _unreceivedTable)
+        form = [_unreceivedArray objectAtIndex:[indexPath row]];
+    else
+        form = [_receivedArray objectAtIndex:[indexPath row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.expressForm = form;
     return cell;
@@ -214,7 +250,7 @@
     
     [manager POST:api_express_complete parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",responseObject);
-        [self getUserExpress];
+        [self getUserExpressWithStatus:@"未领取"];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error %@",error);
     }];

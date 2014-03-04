@@ -23,6 +23,9 @@
 
 - (void)setExpressForm:(ExpressForm *) expressForm
 {
+    
+    [self setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_sand"]]];
+
     _expressForm = expressForm;
     
     _userLabel.text = [NSString stringWithFormat:@"收件人: %@",_expressForm.express_author];

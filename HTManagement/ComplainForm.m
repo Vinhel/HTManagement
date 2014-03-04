@@ -97,9 +97,12 @@
     NSError *error = nil;
     
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    NSDictionary *dictionary;
+    if (data) {
+        dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    }
     
-    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-    NSLog(@"dictionary %@",dictionary);
+   
     return dictionary;
 }
 

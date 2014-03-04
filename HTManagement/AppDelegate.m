@@ -15,49 +15,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-   // self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-   // Override point for customization after application launch.
-   /* if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
-        [application setStatusBarStyle:UIStatusBarStyleDefault];
-
-        self.window.clipsToBounds = YES;
-        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-
-    }
-    else{
-        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    }
-    */
+    NSLog(@"lauchoptions %@",launchOptions);
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-/*
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
-        [application setStatusBarStyle:UIStatusBarStyleLightContent];
 
-        self.window.clipsToBounds = YES;
-        self.window.frame = CGRectMake(0, 20, self.window.frame.size.width, self.window.frame.size.height-20);
-
-        self.window.bounds = CGRectMake(0, 20, self.window.frame.size.width, self.window.frame.size.height);
-
-    }
-    
- */   NSLog(@"self window frame %@",NSStringFromCGRect(self.window.frame));
-    NSLog(@"self window bounds %@",NSStringFromCGRect(self.window.bounds));
-
-    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.window.backgroundColor = [UIColor whiteColor];
     LoginViewController *loginVC = [[LoginViewController alloc]init];
- //   FirstViewController *viewVC = [FirstViewController new];
-   // UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:viewVC];
+
 
     UINavigationController *nav1 =[[UINavigationController alloc]initWithRootViewController:loginVC];
+    //   FirstViewController *viewVC = [FirstViewController new];
+    // UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:viewVC];
     //UITabBarController *tab = [[UITabBarController alloc]init];
    // tab.viewControllers = [NSArray arrayWithObjects:nav,loginVC, nil];
-    nav1.tabBarItem.title = @"hello";
     
-  //  nav.tabBarItem.title = @"second";
+    nav1.tabBarItem.title = @"hello";
     self.window.rootViewController = loginVC;
-    [BPush unbindChannel];
     [BPush setupChannel:launchOptions];
     [BPush setDelegate:self];
     
@@ -102,7 +74,6 @@
         NSString *appid = [res valueForKey:BPushRequestAppIdKey];
         NSString *userid = [res valueForKey:BPushRequestUserIdKey];
         NSString *channelid = [res valueForKey:BPushRequestChannelIdKey];
-        NSString *requestid = [res valueForKey:BPushRequestRequestIdKey];
         NSLog(@"appid %@",appid);
         NSLog(@"channelid %@",channelid);
         NSLog(@"userid %@",userid);
