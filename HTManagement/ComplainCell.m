@@ -128,14 +128,14 @@
                 string = @"待评价";
                 break;
             case 1:
-                string = @"差";
+                string = @"满意";
                 break;
             case 2:
                 string = @"一般";
                 break;
                 
             default:
-                string = @"满意";
+                string = @"差";
                 break;
         }
         
