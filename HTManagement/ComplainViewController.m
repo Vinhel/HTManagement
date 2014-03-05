@@ -123,7 +123,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.baseView setContentOffset:CGPointMake(Screen_width * self.segmentedControl.selectedIndex, 0)];
   
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    NSLog(@"complain disappear baseview  %@",NSStringFromCGPoint(self.baseView.contentOffset));
+
+
 }
 - (void)initArrays
 {
@@ -181,9 +189,11 @@
             case 1:
                 [_acceptedArray removeAllObjects];
                 [self getUserComplainsWithStatus:@"4"];
+                break;
             case 2:
                 [_uncompletedArray removeAllObjects];
                 [self getUserComplainsWithStatus:@"2"];
+                break;
             default:
                 [_completedArray removeAllObjects];
                 [self getUserComplainsWithStatus:@"3"];
@@ -216,6 +226,7 @@
                     [self getUserComplainsWithStatus:@"3"];
                     
                 }
+                break;
             default:
                 break;
         }
@@ -233,6 +244,7 @@
                     _acceptedArray = [NSMutableArray array];
                     [self getUserComplainsWithStatus:@"4"];
                 }
+                break;
             case 2:
                 if (!_uncompletedArray) {
                     _uncompletedArray = [NSMutableArray array];
@@ -245,6 +257,7 @@
                     [self getUserComplainsWithStatus:@"3"];
                     
                 }
+                break;
             default:
                 break;
         }
@@ -289,6 +302,7 @@ else
             break;
         case 2:
             [_uncompletedTable reloadData];
+            break;
         default:
             [_completedTable reloadData];
             break;
@@ -313,6 +327,7 @@ else
                     break;
                 case 3:
                     _completedArray = _array;
+                    break;
                 default:
                     break;
             }
@@ -324,11 +339,13 @@ else
                     break;
                 case 2:
                     _acceptedArray = _array;
+                    break;
                 case 3:
                     _uncompletedArray = _array;
                     break;
                 case 4:
                     _completedArray = _array;
+                    break;
                 default:
                     break;
             }

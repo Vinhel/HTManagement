@@ -28,7 +28,7 @@
 
     _expressForm = expressForm;
     
-    _userLabel.text = [NSString stringWithFormat:@"收件人: %@",_expressForm.express_author];
+    _userLabel.text = [NSString stringWithFormat:@"收件人: %@   地址: %d 栋 %d 室",_expressForm.express_author,_expressForm.author_floor,_expressForm.author_room];
     _arriveTimeLabel.text = [NSString stringWithFormat:@"到达时间: %@",_expressForm.arrive_time];
     if ([_expressForm.get_express_type isEqualToString:@""]&&[[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"resident"]&& (_expressForm.deal_status == 0)) {
         [_typeButton setTitle:@"点击选择" forState:UIControlStateNormal];
@@ -36,7 +36,7 @@
     }
     else
     {
-        [_typeButton setTitle:_expressForm.get_express_type forState:UIControlStateNormal];
+        [_typeButton setTitle:@"物业配送" forState:UIControlStateNormal];
         _typeButton.enabled = NO;
     
     }
@@ -47,21 +47,48 @@
         getTimeLable.text = [NSString stringWithFormat:@"领取时间: %@",_expressForm.get_time];
         [self addSubview:getTimeLable];
         
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 110, 58, 21)];
+        UILabel *express_signer = [[UILabel alloc]initWithFrame:CGRectMake(0, 110, 320, 21)];
+        express_signer.font = [UIFont systemFontOfSize:13];
+        express_signer.text = [NSString stringWithFormat:@"领取人: %@",_expressForm.express_signer];
+        [self addSubview:express_signer];
+        
+        
+        
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 143, 58, 21)];
         label.font = [UIFont systemFontOfSize:13];
         label.text = @"满意度";
         
         [self addSubview:label];
-        
-        UIButton *feedBack = [[UIButton alloc]initWithFrame:CGRectMake(74, 110, 60, 30)];
+    
+        UIButton *feedBack = [[UIButton alloc]initWithFrame:CGRectMake(74, 143, 60, 30)];
         feedBack.enabled = NO;
-        [feedBack setTitle:_expressForm.pleased ? [NSString stringWithFormat:@"%d",_expressForm.pleased]:@"点击评价" forState:UIControlStateNormal];
+        
+        NSString *string;
+        
+        switch (_expressForm.pleased) {
+            case 0:
+                string = @"待评价";
+                break;
+            case 1:
+                string = @"差";
+                break;
+            case 2:
+                string = @"一般";
+                break;
+                
+            default:
+                string = @"满意";
+                break;
+        }
+        
+        [feedBack setTitle:string forState:UIControlStateNormal];
+       
         [feedBack addTarget:self action:@selector(feedBack:) forControlEvents:UIControlEventTouchUpInside];
         feedBack.titleLabel.font = [UIFont systemFontOfSize:13];
         if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"resident"]&&_expressForm.pleased ==0) {
             feedBack.enabled = YES;
         }
-        [feedBack setBackgroundColor:[UIColor greenColor]];
+        [feedBack setBackgroundColor:RGBA(111, 235, 255, 1)];
         [self addSubview:feedBack];
     }
     if (!isResident &&_expressForm.deal_status ==0) {

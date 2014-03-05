@@ -71,6 +71,7 @@ typedef enum {
 #define api_user_obtain_express [prefix stringByAppendingString:@"/api/user/obtain/express/"]
 #define api_express_response [prefix stringByAppendingString:@"/api/express/response/"]
 #define api_express_complete [prefix stringByAppendingString:@"/api/express/complete/"]
+#define api_express_sign [prefix stringByAppendingString:@"/api_user/sign_express/"]
 
 
 

@@ -78,7 +78,7 @@
        
         UIButton *button = [[UIButton alloc]initWithFrame:rect];
         button.titleLabel.font = [UIFont systemFontOfSize:13];
-        button.backgroundColor = [UIColor greenColor];
+        button.backgroundColor = RGBA(111, 235, 255, 1);
         [button setTitle:@"分配人员" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(chooseComplainWorkerClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
@@ -89,7 +89,7 @@
         rect.origin.x = 173;
         UIButton *button = [[UIButton alloc]initWithFrame:rect];
         button.titleLabel.font = [UIFont systemFontOfSize:13];
-        button.backgroundColor = [UIColor greenColor];
+        button.backgroundColor = RGBA(111, 235, 255, 1);
         [button setTitle:@"接受受理" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(acceptComplainClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
@@ -101,7 +101,7 @@
         rect.origin.x = 173;
         UIButton *button = [[UIButton alloc]initWithFrame:rect];
         button.titleLabel.font = [UIFont systemFontOfSize:13];
-        button.backgroundColor = [UIColor greenColor];
+        button.backgroundColor = RGBA(111, 235, 255, 1);
         [button setTitle:@"完成" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(finishComplainItemClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
@@ -121,7 +121,25 @@
         [button addTarget:self action:@selector(feedBackClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         button.enabled = NO;
-        [button setTitle:_complainForm.pleased ?[NSString stringWithFormat:@"%d",_complainForm.pleased]:@"评价" forState:UIControlStateNormal];
+        NSString *string;
+        
+        switch (_complainForm.pleased) {
+            case 0:
+                string = @"待评价";
+                break;
+            case 1:
+                string = @"差";
+                break;
+            case 2:
+                string = @"一般";
+                break;
+                
+            default:
+                string = @"满意";
+                break;
+        }
+        
+        [button setTitle:string forState:UIControlStateNormal];
         
         
         if (_complainForm.pleased == 0 && [[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"resident"]) {
@@ -132,9 +150,9 @@
     
     cellHeight += _timeLabel.frame.size.height;
     cellFrame.size.height = cellHeight;
-    self.layer.borderWidth = 0.5;
-    self.layer.borderColor = [[UIColor redColor]CGColor];
-    self.layer.cornerRadius = 5;
+//    self.layer.borderWidth = 0.5;
+//    self.layer.borderColor = [[UIColor redColor]CGColor];
+//    self.layer.cornerRadius = 5;
     [self setFrame:cellFrame];
     
 }

@@ -10,7 +10,7 @@
 #import "ExpressCell.h"
 #import "CommunityInfo.h"
 
-@interface ExpressViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,ExpressCellDelegate>
+@interface ExpressViewController : UIViewController<UITableViewDataSource,UITableViewDelegate, ExpressCellDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) CommunityInfo *info;
 @end

@@ -150,8 +150,6 @@
   
    
     NSString *idstring = [[[NSUserDefaults standardUserDefaults]objectForKey:@"user_profile"] objectForKey:@"community_id"];
-  
-    //_HUD.detailsLabelText = @"加载中，请稍候。。。。";
     [_HUD show:YES];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSString *status = [statusstring stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -211,7 +209,7 @@
         return 94;
     }
   else
-    return 140;
+    return 173;
     
 }
 
@@ -237,18 +235,39 @@
 
 - (void)finishExpress:(ExpressForm *)expressForm
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer new];
-    manager.requestSerializer = [AFJSONRequestSerializer new];
-    NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:[NSString stringWithFormat:@"%d",expressForm.express_id], @"express_id_string",nil];
-    
-    [manager POST:api_express_complete parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
-        [self getUserExpressWithStatus:@"未领取"];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"error %@",error);
-    }];
+
+    _expressForm = expressForm;
+   UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"收件人" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alert.alertViewStyle =UIAlertViewStylePlainTextInput;
+   [alert show];
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"buttonindex %d",buttonIndex);
+    UITextField *tf=[alertView textFieldAtIndex:0];
+    if (buttonIndex == 1 ) {
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        manager.responseSerializer = [AFJSONResponseSerializer new];
+        manager.requestSerializer = [AFJSONRequestSerializer new];
+        NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:[NSString stringWithFormat:@"%d",_expressForm.express_id], @"selected_express_string",[NSString stringWithFormat:@"%@",tf.text],@"signer",nil];
+        
+        [manager POST:api_express_sign parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"%@",responseObject);
+            [self getUserExpressWithStatus:@"未领取"];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"error %@",error);
+        }];
+    }
+
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.baseView setContentOffset:CGPointMake(Screen_width * self.segmentedControl.selectedIndex, 0)];
+}
+
 
 - (void)didReceiveMemoryWarning
 {

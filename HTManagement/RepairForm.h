@@ -27,6 +27,9 @@
 @property (nonatomic, strong) NSString *repair_author;
 @property (nonatomic, assign) NSInteger pleased;
 @property (nonatomic, strong) NSString *handler;
+@property (nonatomic, assign) NSInteger author_floor;
+@property (nonatomic, assign) NSInteger author_room;
+
 @property (nonatomic, strong) NSMutableArray *array;
 @property (nonatomic) NSInteger pageCount;
 

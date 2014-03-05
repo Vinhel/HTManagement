@@ -37,8 +37,12 @@
 @property (nonatomic, strong) NSString *express_author;
 @property (nonatomic, strong) NSString *get_time;
 @property (nonatomic, strong) NSString *get_express_type;
+@property (nonatomic, strong) NSString *express_signer;
 @property (nonatomic, assign) NSInteger express_id;
 @property (nonatomic, strong) NSMutableArray *array;
+@property (nonatomic, assign) NSInteger author_floor;
+@property (nonatomic, assign) NSInteger author_room;
+
 @property (nonatomic) NSInteger pageCount;
 
 - (id)initWithDictionary:(NSDictionary *)dict;

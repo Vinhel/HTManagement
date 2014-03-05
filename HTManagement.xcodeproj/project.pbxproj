@@ -26,6 +26,7 @@
 		180BECD018C5B7CC004B336D /* tab_select_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BECCF18C5B7CC004B336D /* tab_select_indicator.png */; };
 		180BECD218C5B8F5004B336D /* tab_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BECD118C5B8F5004B336D /* tab_bg.png */; };
 		180BECD418C5BC4C004B336D /* 快递.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BECD318C5BC4C004B336D /* 快递.png */; };
+		180BECDA18C6B6CF004B336D /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BECD918C6B6CF004B336D /* Icon@2x.png */; };
 		1811F30718ADC017001EAAB6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1811F30618ADC017001EAAB6 /* QuartzCore.framework */; };
 		181B22E5186174AA007584AC /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 181B22D3186174AA007584AC /* AFHTTPRequestOperation.m */; };
 		181B22E6186174AA007584AC /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 181B22D5186174AA007584AC /* AFHTTPRequestOperationManager.m */; };
@@ -182,6 +183,7 @@
 		180BECCF18C5B7CC004B336D /* tab_select_indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_select_indicator.png; sourceTree = "<group>"; };
 		180BECD118C5B8F5004B336D /* tab_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_bg.png; sourceTree = "<group>"; };
 		180BECD318C5BC4C004B336D /* 快递.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "快递.png"; sourceTree = "<group>"; };
+		180BECD918C6B6CF004B336D /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		1811F30618ADC017001EAAB6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		181B22D2186174AA007584AC /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		181B22D3186174AA007584AC /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -689,6 +691,7 @@
 		187B6E7A1860328B004959DF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				180BECD918C6B6CF004B336D /* Icon@2x.png */,
 				181DBAF318C1D29100BDBDB4 /* bg_sand.png */,
 				180BECC318C56D95004B336D /* qqqqq.png */,
 				181DBAE918C1C24700BDBDB4 /* appear_03.png */,
@@ -943,6 +946,7 @@
 				1848901018724EB9001356CB /* 底部物业服务.png in Resources */,
 				1848901C18724EB9001356CB /* 停车费2.png in Resources */,
 				1848900C18724EB9001356CB /* 登录条1.png in Resources */,
+				180BECDA18C6B6CF004B336D /* Icon@2x.png in Resources */,
 				1848901318724EB9001356CB /* 家政.png in Resources */,
 				18BA8583188D65890092BDCE /* backgroundStar@2x.png in Resources */,
 				187A6DC818B72B4D00410706 /* input.png in Resources */,

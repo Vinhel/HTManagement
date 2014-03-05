@@ -43,8 +43,9 @@
     
     _typeLabel.text = [NSString stringWithFormat:@"报修类型: %@",_repairForm.repair_type];
     _workerLabel.text = [NSString stringWithFormat:@"处理人员: %@",_repairForm.handler];
-    _workerLabel.alpha = [_repairForm.handler isEqualToString:@"None"] ? 0 : 1;
-    _ownerLabel.text = [NSString stringWithFormat:@"投诉人员: %@",_repairForm.repair_author];
+    //_workerLabel.alpha = [_repairForm.handler isEqualToString:@"None"] ? 0 : 1;
+    _workerLabel.alpha = 0;
+    _ownerLabel.text = [NSString stringWithFormat:@"报修人员: %@    地址: %d 栋 %d 室",_repairForm.repair_author,_repairForm.author_floor,_repairForm.author_room];
     
     CGRect rect = _contentLabel.frame;
     rect.origin.y = cellHeight;
@@ -84,7 +85,7 @@
         
         UIButton *button = [[UIButton alloc]initWithFrame:rect];
         button.titleLabel.font = [UIFont systemFontOfSize:13];
-        button.backgroundColor = [UIColor greenColor];
+        button.backgroundColor = RGBA(111, 235, 255, 1);
         [button setTitle:@"分配人员" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(chooseRepairWorkerClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
@@ -96,7 +97,7 @@
         rect.origin.x = 173;
         UIButton *button = [[UIButton alloc]initWithFrame:rect];
         button.titleLabel.font = [UIFont systemFontOfSize:13];
-        button.backgroundColor = [UIColor greenColor];
+        button.backgroundColor = RGBA(111, 235, 255, 1);
         [button setTitle:@"完成" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(finishRepairItemClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
@@ -107,7 +108,7 @@
         rect.origin.x = 173;
         UIButton *button = [[UIButton alloc]initWithFrame:rect];
         button.titleLabel.font = [UIFont systemFontOfSize:13];
-        button.backgroundColor = [UIColor greenColor];
+        button.backgroundColor = RGBA(111, 235, 255, 1);
         [button setTitle:@"接受受理" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(acceptRepairClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
@@ -127,9 +128,25 @@
         [button addTarget:self action:@selector(feedBackClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         button.enabled = NO;
-        [button setTitle:_repairForm.pleased ?[NSString stringWithFormat:@"%d",_repairForm.pleased]:@"评价" forState:UIControlStateNormal];
+        NSString *string;
         
+        switch (_repairForm.pleased) {
+            case 0:
+                string = @"待评价";
+                break;
+            case 1:
+                string = @"差";
+                break;
+            case 2:
+                string = @"一般";
+                break;
+                
+            default:
+                string = @"满意";
+                break;
+        }
         
+        [button setTitle:string forState:UIControlStateNormal];
         if (_repairForm.pleased == 0 && isResident) {
             
             button.enabled = YES;
@@ -138,10 +155,7 @@
     
     cellHeight += _timeLabel.frame.size.height;
     cellFrame.size.height = cellHeight;
-    self.layer.borderWidth = 0.5;
-    self.layer.borderColor = [[UIColor redColor]CGColor];
-    self.layer.cornerRadius = 5;
-    self.clipsToBounds = YES;
+
     [self setFrame:cellFrame];
     
 }

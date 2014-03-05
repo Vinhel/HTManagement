@@ -65,6 +65,9 @@
             form.get_time = [dict objectForKey:@"get_time"];
             form.get_express_type = [dict objectForKey:@"get_express_type"];
             form.express_id = [[dict objectForKey:@"id"] integerValue];
+            form.express_signer = [dict objectForKey:@"express_signer"];
+            form.author_floor = [[dict objectForKey:@"author_floor"] integerValue];
+            form.author_room = [[dict objectForKey:@"author_room"] integerValue];
             [_array addObject:form];
             
         }
@@ -84,6 +87,7 @@
     NSDictionary *dictionary;
     if (data) {
         dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+        NSLog(@"dictionary %@",dictionary);
     }
     
     return dictionary;

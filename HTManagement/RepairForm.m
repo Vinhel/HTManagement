@@ -69,6 +69,8 @@
             form.idNum = [[dict objectForKey:@"id"] integerValue];
             form.repair_author = [dict objectForKey:@"repair_author"];
             form.pleased = [[dict objectForKey:@"pleased"] integerValue];
+            form.author_floor = [[dict objectForKey:@"author_floor"] integerValue];
+            form.author_room = [[dict objectForKey:@"author_room"] integerValue];
             [_array addObject:form];
             
         }

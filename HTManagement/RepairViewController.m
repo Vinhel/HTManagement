@@ -121,11 +121,6 @@
 }
 
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-  
-}
 
 - (void)initArrays
 {
@@ -180,9 +175,12 @@
             case 1:
                 [_acceptedArray removeAllObjects];
                 [self getUserRepairsWithStatus:@"4"];
+                break;
             case 2:
                 [_uncompletedArray removeAllObjects];
                 [self getUserRepairsWithStatus:@"2"];
+                break;
+
             default:
                 [_completedArray removeAllObjects];
                 [self getUserRepairsWithStatus:@"3"];
@@ -215,6 +213,8 @@
                     [self getUserRepairsWithStatus:@"3"];
                     
                 }
+                break;
+
             default:
                 break;
         }
@@ -232,6 +232,8 @@
                     _acceptedArray = [NSMutableArray array];
                     [self getUserRepairsWithStatus:@"4"];
                 }
+                break;
+
             case 2:
                 if (!_uncompletedArray) {
                     _uncompletedArray = [NSMutableArray array];
@@ -244,6 +246,8 @@
                     [self getUserRepairsWithStatus:@"3"];
                     
                 }
+                break;
+
             default:
                 break;
         }
@@ -264,7 +268,7 @@
         switch (self.segmentedControl.selectedIndex) {
             case 0:
                 [_unacceptedTable reloadData ];
-            break;
+                break;
             case 1:
                 [_uncompletedTable reloadData];
                 break;
@@ -285,6 +289,8 @@
               break;
           case 2:
               [_uncompletedTable reloadData];
+              break;
+
           default:
               [_completedTable reloadData];
               break;
@@ -308,6 +314,8 @@
                     break;
                 case 3:
                     _completedArray = _array;
+                    break;
+
                 default:
                     break;
             }
@@ -319,11 +327,15 @@
                     break;
                 case 2:
                     _acceptedArray = _array;
+                    break;
+
                 case 3:
                     _uncompletedArray = _array;
                     break;
                 case 4:
                     _completedArray = _array;
+                    break;
+
                 default:
                     break;
             }
@@ -447,6 +459,14 @@
 
 
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.baseView setContentOffset:CGPointMake(Screen_width * self.segmentedControl.selectedIndex, 0)];
+}
+
+
 #pragma mark -
 
 - (void)didReceiveMemoryWarning
