@@ -77,6 +77,8 @@
     
 }
 
+/*
+
 - (void)createPopView
 {
     _tabArray = [[NSMutableArray alloc]initWithCapacity:0];
@@ -121,7 +123,7 @@
 
 }
 
-
+*/
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

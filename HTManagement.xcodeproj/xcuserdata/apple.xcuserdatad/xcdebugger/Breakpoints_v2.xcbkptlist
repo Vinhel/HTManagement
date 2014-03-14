@@ -23,50 +23,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HTManagement/LoginViewController.m"
-            timestampString = "414657200.241698"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "10"
-            endingLineNumber = "10">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[LoginViewController contentView]"
-                  moduleName = "HTManagement"
-                  urlString = "file://localhost/Users/apple/Desktop/HTManagement/HTManagement/LoginViewController.m"
-                  timestampString = "410154761.383125"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "24">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[LoginViewController setContentView:]"
-                  moduleName = "HTManagement"
-                  urlString = "file://localhost/Users/apple/Desktop/HTManagement/HTManagement/LoginViewController.m"
-                  timestampString = "410154761.383641"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "31">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "HTManagement/ExpressViewController.m"
             timestampString = "415635709.903932"
             startingColumnNumber = "9223372036854775807"
@@ -131,7 +87,7 @@
                   symbolName = "__55-[CreateHouseKeepingViewController getHouseKeepingItem]_block_invoke"
                   moduleName = "HTManagement"
                   urlString = "file:///Users/apple/Desktop/HTManagement/HTManagement/CreateHouseKeepingViewController.m"
-                  timestampString = "415681736.023147"
+                  timestampString = "416364997.054376"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "117"
@@ -145,7 +101,7 @@
                   symbolName = "__copy_helper_block_140"
                   moduleName = "HTManagement"
                   urlString = "file:///Users/apple/Desktop/HTManagement/HTManagement/CreateHouseKeepingViewController.m"
-                  timestampString = "415681736.023617"
+                  timestampString = "416364997.054643"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "117"
@@ -159,7 +115,7 @@
                   symbolName = "__destroy_helper_block_141"
                   moduleName = "HTManagement"
                   urlString = "file:///Users/apple/Desktop/HTManagement/HTManagement/CreateHouseKeepingViewController.m"
-                  timestampString = "415681736.024008"
+                  timestampString = "416364997.054844"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "117"
@@ -173,7 +129,7 @@
                   symbolName = "__55-[CreateHouseKeepingViewController getHouseKeepingItem]_block_invoke143"
                   moduleName = "HTManagement"
                   urlString = "file:///Users/apple/Desktop/HTManagement/HTManagement/CreateHouseKeepingViewController.m"
-                  timestampString = "415681736.024403"
+                  timestampString = "416364997.055055"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "117"
@@ -1383,11 +1339,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HTManagement/AppDelegate.m"
-            timestampString = "415600916.622749"
+            timestampString = "416307967.129454"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "-application:didReceiveRemoteNotification:"
             landmarkType = "5">
          </BreakpointContent>

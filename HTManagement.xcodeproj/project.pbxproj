@@ -10,6 +10,8 @@
 		180142C2187E3F18002F5F02 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180142C0187E3F18002F5F02 /* FeedbackViewController.m */; };
 		180142C3187E3F18002F5F02 /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180142C1187E3F18002F5F02 /* FeedbackViewController.xib */; };
 		1801631C186813BA00DEDEEC /* RepairViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801631B186813BA00DEDEEC /* RepairViewController.m */; };
+		1804F79618D2E8CD005811E3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804F79518D2E8CD005811E3 /* HomeViewController.m */; };
+		1804F79918D2E9A3005811E3 /* ServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804F79818D2E9A3005811E3 /* ServicesViewController.m */; };
 		180BECA718C471DF004B336D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 180BECA618C471DF004B336D /* libz.dylib */; };
 		180BECA918C471F5004B336D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180BECA818C471F5004B336D /* SystemConfiguration.framework */; };
 		180BECAB18C471FF004B336D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180BECAA18C471FF004B336D /* CoreTelephony.framework */; };
@@ -55,11 +57,9 @@
 		18299F76187993BB00FD4133 /* ChooseHouseKeepingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18299F75187993BB00FD4133 /* ChooseHouseKeepingCell.xib */; };
 		18299F79187997A600FD4133 /* HouseKeepItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18299F78187997A600FD4133 /* HouseKeepItem.m */; };
 		182F677718C0202B00D5FB44 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182F677618C0202B00D5FB44 /* FirstViewController.m */; };
-		182F677A18C0203C00D5FB44 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182F677918C0203C00D5FB44 /* SecondViewController.m */; };
+		182F677A18C0203C00D5FB44 /* ResidentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182F677918C0203C00D5FB44 /* ResidentViewController.m */; };
 		18324E111876A22300E0E131 /* ExpressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18324E101876A22300E0E131 /* ExpressCell.m */; };
 		183DF0D118BED9C000197F84 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 183DF0D018BED9C000197F84 /* HMSegmentedControl.m */; };
-		183DF0D718BEDA2F00197F84 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 183DF0D418BEDA2F00197F84 /* SVProgressHUD.bundle */; };
-		183DF0D818BEDA2F00197F84 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 183DF0D618BEDA2F00197F84 /* SVProgressHUD.m */; };
 		1843126E18A5C6D8002BE6E5 /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1843126D18A5C6D8002BE6E5 /* CommunityViewController.m */; };
 		1848900A18724EB9001356CB /* 报修2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18488FEF18724EB9001356CB /* 报修2.png */; };
 		1848900B18724EB9001356CB /* 本地生活.png in Resources */ = {isa = PBXBuildFile; fileRef = 18488FF018724EB9001356CB /* 本地生活.png */; };
@@ -90,6 +90,10 @@
 		184890321872A997001356CB /* RepairCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184890311872A997001356CB /* RepairCell.xib */; };
 		184890341872B4D3001356CB /* CreateRepairViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184890331872B4D3001356CB /* CreateRepairViewController.xib */; };
 		184890371872B689001356CB /* UITextView+InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184890361872B689001356CB /* UITextView+InputView.m */; };
+		184C4A4018D2988400A2E9B5 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C4A3F18D2988400A2E9B5 /* PersonalViewController.m */; };
+		18522D7918D04C5800218DAC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18522D7818D04C5800218DAC /* CoreData.framework */; };
+		18522D7C18D04D4200218DAC /* HTManagement.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18522D7A18D04D4200218DAC /* HTManagement.xcdatamodeld */; };
+		18522D7F18D050FD00218DAC /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 18522D7E18D050FD00218DAC /* UserProfile.m */; };
 		1852E69918867991005E8646 /* HouseKeepingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1852E69818867991005E8646 /* HouseKeepingCell.xib */; };
 		1852E69C188679FE005E8646 /* HouseKeepingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1852E69B188679FE005E8646 /* HouseKeepingCell.m */; };
 		1852E69F188681DC005E8646 /* ComplainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1852E69E188681DC005E8646 /* ComplainCell.m */; };
@@ -160,6 +164,10 @@
 		180142C1187E3F18002F5F02 /* FeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
 		1801631A186813BA00DEDEEC /* RepairViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepairViewController.h; sourceTree = "<group>"; };
 		1801631B186813BA00DEDEEC /* RepairViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepairViewController.m; sourceTree = "<group>"; };
+		1804F79418D2E8CD005811E3 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		1804F79518D2E8CD005811E3 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		1804F79718D2E9A3005811E3 /* ServicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesViewController.h; sourceTree = "<group>"; };
+		1804F79818D2E9A3005811E3 /* ServicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesViewController.m; sourceTree = "<group>"; };
 		180BECA618C471DF004B336D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		180BECA818C471F5004B336D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		180BECAA18C471FF004B336D /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -232,15 +240,12 @@
 		18299F78187997A600FD4133 /* HouseKeepItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HouseKeepItem.m; sourceTree = "<group>"; };
 		182F677518C0202B00D5FB44 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		182F677618C0202B00D5FB44 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		182F677818C0203C00D5FB44 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		182F677918C0203C00D5FB44 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		182F677818C0203C00D5FB44 /* ResidentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResidentViewController.h; sourceTree = "<group>"; };
+		182F677918C0203C00D5FB44 /* ResidentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResidentViewController.m; sourceTree = "<group>"; };
 		18324E0F1876A22300E0E131 /* ExpressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpressCell.h; sourceTree = "<group>"; };
 		18324E101876A22300E0E131 /* ExpressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpressCell.m; sourceTree = "<group>"; };
 		183DF0CF18BED9C000197F84 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		183DF0D018BED9C000197F84 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
-		183DF0D418BEDA2F00197F84 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
-		183DF0D518BEDA2F00197F84 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
-		183DF0D618BEDA2F00197F84 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		1843126C18A5C6D8002BE6E5 /* CommunityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityViewController.h; sourceTree = "<group>"; };
 		1843126D18A5C6D8002BE6E5 /* CommunityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityViewController.m; sourceTree = "<group>"; };
 		18488FEF18724EB9001356CB /* 报修2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "报修2.png"; sourceTree = "<group>"; };
@@ -276,6 +281,12 @@
 		184890331872B4D3001356CB /* CreateRepairViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateRepairViewController.xib; sourceTree = "<group>"; };
 		184890351872B689001356CB /* UITextView+InputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+InputView.h"; sourceTree = "<group>"; };
 		184890361872B689001356CB /* UITextView+InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+InputView.m"; sourceTree = "<group>"; };
+		184C4A3E18D2988400A2E9B5 /* PersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
+		184C4A3F18D2988400A2E9B5 /* PersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
+		18522D7818D04C5800218DAC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		18522D7B18D04D4200218DAC /* HTManagement.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HTManagement.xcdatamodel; sourceTree = "<group>"; };
+		18522D7D18D050FD00218DAC /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
+		18522D7E18D050FD00218DAC /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
 		1852E69818867991005E8646 /* HouseKeepingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HouseKeepingCell.xib; sourceTree = "<group>"; };
 		1852E69A188679FE005E8646 /* HouseKeepingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HouseKeepingCell.h; sourceTree = "<group>"; };
 		1852E69B188679FE005E8646 /* HouseKeepingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HouseKeepingCell.m; sourceTree = "<group>"; };
@@ -368,6 +379,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18522D7918D04C5800218DAC /* CoreData.framework in Frameworks */,
 				180BECAB18C471FF004B336D /* CoreTelephony.framework in Frameworks */,
 				180BECA918C471F5004B336D /* SystemConfiguration.framework in Frameworks */,
 				180BECA718C471DF004B336D /* libz.dylib in Frameworks */,
@@ -401,6 +413,17 @@
 				180142C1187E3F18002F5F02 /* FeedbackViewController.xib */,
 			);
 			name = FeedbackViewController;
+			sourceTree = "<group>";
+		};
+		1804F79318D2E885005811E3 /* common user */ = {
+			isa = PBXGroup;
+			children = (
+				1804F79418D2E8CD005811E3 /* HomeViewController.h */,
+				1804F79518D2E8CD005811E3 /* HomeViewController.m */,
+				1804F79718D2E9A3005811E3 /* ServicesViewController.h */,
+				1804F79818D2E9A3005811E3 /* ServicesViewController.m */,
+			);
+			name = "common user";
 			sourceTree = "<group>";
 		};
 		180BEC9218C46FBC004B336D /* push */ = {
@@ -442,7 +465,6 @@
 		181B22CF18617477007584AC /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
-				183DF0D318BEDA2F00197F84 /* SVProgressHUD */,
 				183DF0CE18BED99D00197F84 /* HMSegmentedControl */,
 				18FF54F418AA0EC5009701AD /* SDWebImage */,
 				18BA857D188D63F50092BDCE /* StarRatingView */,
@@ -494,16 +516,6 @@
 				183DF0D018BED9C000197F84 /* HMSegmentedControl.m */,
 			);
 			name = HMSegmentedControl;
-			sourceTree = "<group>";
-		};
-		183DF0D318BEDA2F00197F84 /* SVProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				183DF0D418BEDA2F00197F84 /* SVProgressHUD.bundle */,
-				183DF0D518BEDA2F00197F84 /* SVProgressHUD.h */,
-				183DF0D618BEDA2F00197F84 /* SVProgressHUD.m */,
-			);
-			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		18489026187268D7001356CB /* categories */ = {
@@ -614,6 +626,7 @@
 		187B6E471860299D004959DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18522D7818D04C5800218DAC /* CoreData.framework */,
 				180BECAA18C471FF004B336D /* CoreTelephony.framework */,
 				180BECA818C471F5004B336D /* SystemConfiguration.framework */,
 				180BECA618C471DF004B336D /* libz.dylib */,
@@ -630,19 +643,25 @@
 		187B6E4E1860299D004959DF /* HTManagement */ = {
 			isa = PBXGroup;
 			children = (
-				180BEC9218C46FBC004B336D /* push */,
 				187B6E571860299D004959DF /* AppDelegate.h */,
 				187B6E581860299D004959DF /* AppDelegate.m */,
 				187B6E7718603219004959DF /* LoginViewController.h */,
 				187B6E7818603219004959DF /* LoginViewController.m */,
 				182F677518C0202B00D5FB44 /* FirstViewController.h */,
 				182F677618C0202B00D5FB44 /* FirstViewController.m */,
-				182F677818C0203C00D5FB44 /* SecondViewController.h */,
-				182F677918C0203C00D5FB44 /* SecondViewController.m */,
+				182F677818C0203C00D5FB44 /* ResidentViewController.h */,
+				182F677918C0203C00D5FB44 /* ResidentViewController.m */,
 				18489027187272B3001356CB /* RootsViewController.h */,
 				18489028187272B3001356CB /* RootsViewController.m */,
+				184C4A3E18D2988400A2E9B5 /* PersonalViewController.h */,
+				184C4A3F18D2988400A2E9B5 /* PersonalViewController.m */,
 				1843126C18A5C6D8002BE6E5 /* CommunityViewController.h */,
 				1843126D18A5C6D8002BE6E5 /* CommunityViewController.m */,
+				18522D7A18D04D4200218DAC /* HTManagement.xcdatamodeld */,
+				18522D7D18D050FD00218DAC /* UserProfile.h */,
+				18522D7E18D050FD00218DAC /* UserProfile.m */,
+				1804F79318D2E885005811E3 /* common user */,
+				180BEC9218C46FBC004B336D /* push */,
 				1848902D18729AEC001356CB /* HouseKeeping */,
 				1848902C18729A80001356CB /* Express */,
 				1848902B18729A65001356CB /* Complain */,
@@ -913,7 +932,6 @@
 				1848900B18724EB9001356CB /* 本地生活.png in Resources */,
 				187A6DC918B72B4D00410706 /* login.png in Resources */,
 				1852E69918867991005E8646 /* HouseKeepingCell.xib in Resources */,
-				183DF0D718BEDA2F00197F84 /* SVProgressHUD.bundle in Resources */,
 				180BECAD18C47238004B336D /* BPushConfig.plist in Resources */,
 				181DBAF418C1D29100BDBDB4 /* bg_sand.png in Resources */,
 				1848900E18724EB9001356CB /* 底部本地生活.png in Resources */,
@@ -973,7 +991,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				182F677A18C0203C00D5FB44 /* SecondViewController.m in Sources */,
+				182F677A18C0203C00D5FB44 /* ResidentViewController.m in Sources */,
 				18F844AA18697DF400D2B60B /* RepairForm.m in Sources */,
 				18BA8587188E6D4F0092BDCE /* WorkerInfo.m in Sources */,
 				18299F711879937100FD4133 /* CreateHouseKeepingViewController.m in Sources */,
@@ -983,7 +1001,6 @@
 				18BA858B188F9F180092BDCE /* WorkerListViewController.m in Sources */,
 				184890371872B689001356CB /* UITextView+InputView.m in Sources */,
 				181B22E5186174AA007584AC /* AFHTTPRequestOperation.m in Sources */,
-				183DF0D818BEDA2F00197F84 /* SVProgressHUD.m in Sources */,
 				183DF0D118BED9C000197F84 /* HMSegmentedControl.m in Sources */,
 				187B6E591860299D004959DF /* AppDelegate.m in Sources */,
 				18299F661879512B00FD4133 /* ComplainForm.m in Sources */,
@@ -991,15 +1008,18 @@
 				18FF551818AA0F0D009701AD /* SDWebImageDownloader.m in Sources */,
 				18FF551A18AA0F0D009701AD /* SDWebImageManager.m in Sources */,
 				18299F631879354200FD4133 /* HouseKeepingForm.m in Sources */,
+				184C4A4018D2988400A2E9B5 /* PersonalViewController.m in Sources */,
 				18FF551D18AA0F0D009701AD /* UIImage+GIF.m in Sources */,
 				18299F601879339C00FD4133 /* HouseKeepingViewController.m in Sources */,
 				180BECBF18C472A7004B336D /* GzipCompressor.m in Sources */,
 				180142C2187E3F18002F5F02 /* FeedbackViewController.m in Sources */,
+				1804F79918D2E9A3005811E3 /* ServicesViewController.m in Sources */,
 				18FF551C18AA0F0D009701AD /* UIButton+WebCache.m in Sources */,
 				18FF551918AA0F0D009701AD /* SDWebImageDownloaderOperation.m in Sources */,
 				18D76378187561A10043577E /* ExpressViewController.m in Sources */,
 				18BB8CE8186C0A7700579282 /* ScanRepairFormViewController.m in Sources */,
 				1843126E18A5C6D8002BE6E5 /* CommunityViewController.m in Sources */,
+				18522D7F18D050FD00218DAC /* UserProfile.m in Sources */,
 				181B22E8186174AA007584AC /* AFNetworkReachabilityManager.m in Sources */,
 				181B22EC186174AA007584AC /* AFURLResponseSerialization.m in Sources */,
 				180BECC118C472A7004B336D /* OpenUDID.m in Sources */,
@@ -1008,6 +1028,7 @@
 				18299F691879514A00FD4133 /* ComplainViewController.m in Sources */,
 				182F677718C0202B00D5FB44 /* FirstViewController.m in Sources */,
 				18FF552018AA0F0D009701AD /* UIImageView+WebCache.m in Sources */,
+				18522D7C18D04D4200218DAC /* HTManagement.xcdatamodeld in Sources */,
 				1848902518725CF1001356CB /* UITextField+AddInputView.m in Sources */,
 				18B38AA2187A412D000E0F18 /* MBProgressHUD.m in Sources */,
 				18D7637B187561C00043577E /* ExpressForm.m in Sources */,
@@ -1030,6 +1051,7 @@
 				181B22ED186174AA007584AC /* AFURLSessionManager.m in Sources */,
 				1852E69F188681DC005E8646 /* ComplainCell.m in Sources */,
 				18FF551E18AA0F0D009701AD /* UIImage+MultiFormat.m in Sources */,
+				1804F79618D2E8CD005811E3 /* HomeViewController.m in Sources */,
 				180BECBE18C472A7004B336D /* Base64.m in Sources */,
 				18489029187272B3001356CB /* RootsViewController.m in Sources */,
 				18324E111876A22300E0E131 /* ExpressCell.m in Sources */,
@@ -1163,7 +1185,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: lyn wu (47K7DU38VX)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HTManagement/HTManagement-Prefix.pch";
 				INFOPLIST_FILE = "HTManagement/HTManagement-Info.plist";
@@ -1174,7 +1196,7 @@
 					/Users/apple/Desktop/HTManagement/HTManagement/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7F54A38E-15CE-4786-9773-C98023C140C9";
 				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1197,7 +1219,7 @@
 					/Users/apple/Desktop/HTManagement/HTManagement/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7F54A38E-15CE-4786-9773-C98023C140C9";
 				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1280,6 +1302,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		18522D7A18D04D4200218DAC /* HTManagement.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				18522D7B18D04D4200218DAC /* HTManagement.xcdatamodel */,
+			);
+			currentVersion = 18522D7B18D04D4200218DAC /* HTManagement.xcdatamodel */;
+			path = HTManagement.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 187B6E3D1860299D004959DF /* Project object */;
 }

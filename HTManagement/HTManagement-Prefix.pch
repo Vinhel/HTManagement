@@ -108,12 +108,17 @@ typedef enum {
 #define api_repair_complete [prefix stringByAppendingString:@"/api/repair/complete/"]
 #define api_repair_accept [prefix stringByAppendingString:@"/api_worker/deal/repair/"]
 
+
+//绑定推送
+#define api_bind [prefix stringByAppendingString:@"/api/get_channel_user_id/"]
+
+
 /**********************/
 #import "UITextField+AddInputView.h"
 #import "UITextView+InputView.h"
 #import "MBProgressHUD.H"
 #import "SDWebImage/UIImageView+WebCache.h"
-
+#import <CoreData/CoreData.h>
 
 #ifndef __IPHONE_3_0
 #warning "This project uses features only available in iOS SDK 3.0 and later."

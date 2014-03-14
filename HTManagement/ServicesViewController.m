@@ -1,18 +1,18 @@
 //
-//  SecondViewController.m
+//  ServicesViewController.m
 //  HTManagement
 //
-//  Created by lyn on 14-2-28.
+//  Created by lyn on 14-3-14.
 //  Copyright (c) 2014年 SFI-china. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "ServicesViewController.h"
 
-@interface SecondViewController ()
+@interface ServicesViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation ServicesViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

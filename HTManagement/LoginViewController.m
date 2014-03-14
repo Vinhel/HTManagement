@@ -7,14 +7,13 @@
 //
 
 #import "LoginViewController.h"
-#import "RootsViewController.h"
 #import "AFNetworking.h"
 #import "FirstViewController.h"
-#import "SecondViewController.h"
+#import "ResidentViewController.h"
 #import "RepairViewController.h"
 #import "ComplainViewController.h"
 #import "ExpressViewController.h"
-
+#import "PersonalViewController.h"
 
 @interface LoginViewController ()
 
@@ -23,6 +22,7 @@
 @property (nonatomic, strong) UIButton *doneButton;
 @property (nonatomic, strong) UITextField *usernameTextField;
 @property (nonatomic, strong) UITextField *passwordTextField;
+@property (nonatomic, strong) NSManagedObjectContext *context;
 
 @end
 
@@ -93,41 +93,57 @@
     NSDictionary *dictionary = [[NSDictionary alloc]initWithObjectsAndKeys:nameString,@"username",passwordString,@"password",nil];
     [manager POST:api_user_login parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"response %@",responseObject);
-       // RootsViewController *roots = [RootsViewController new];
-       // UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:roots];
         [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"identity"] forKey:@"role"];
-        if (!isAdmin) {
-            [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"user_profile"][0]  forKey:@"user_profile"];
+        [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"user_profile"][0]  forKey:@"user_profile"];
+           // NSLog(@"user_profile %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"user_profile"]);
+       
+     //   NSLog(@"community id %@",[[[NSUserDefaults standardUserDefaults] objectForKey:@"user_profile"] objectForKey:@"community_id"]);
+        if ([[responseObject objectForKey:@"info"]isEqualToString:@"login successful"])
+        {
+            
+            [self bindBaiduPush];
+            
+            if ([[responseObject objectForKey:@"identity"]isEqualToString:@"worker"]) {
+                
+                UITabBarController *tab = [UITabBarController new];
+                RepairViewController *repair = [RepairViewController new];
+                ComplainViewController *complain = [ComplainViewController new];
+                ExpressViewController *express = [ExpressViewController new];
+                PersonalViewController *personal = [PersonalViewController new];
+                
+                UINavigationController *nav4 = [[UINavigationController alloc]initWithRootViewController:personal];
+                UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:repair];
+                UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:complain];
+                UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:express];
+                tab.viewControllers = @[nav1,nav2,nav3,nav4];
+                
+                [tab.tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"tab_select_indicator"]];
+                [tab.tabBar setBackgroundImage:[UIImage imageNamed:@"tab_bg"]];
+                nav1.tabBarItem.title = @"报修";
+                nav2.tabBarItem.title = @"投诉";
+                nav3.tabBarItem.title = @"快递";
+                
+                nav1.tabBarItem.image = [UIImage imageNamed:@"报修"];
+                nav2.tabBarItem.image = [UIImage imageNamed:@"投诉"];
+                nav3.tabBarItem.image = [UIImage imageNamed:@"快递"];
+                [self presentViewController:tab animated:YES completion:nil];
+               
+   
         }
-        NSLog(@"community id %@",[[[NSUserDefaults standardUserDefaults] objectForKey:@"user_profile"] objectForKey:@"community_id"]);
-        if ([[responseObject objectForKey:@"info"]isEqualToString:@"login successful"]) {
-           // [self presentViewController:nav animated:YES completion:nil];
+            if ([[responseObject objectForKey:@"identity"]isEqualToString:@"admin"]) {
+                [self alertShowWithMessage:@"不支持管理员登陆"];
+            }
             
-            //tabbarcontrol
+//            else
+//            {
+//                UITabBarController *tap = [[UITabBarController alloc]init];
+//                
+//                [self presentViewController:[UINavigationController alloc] animated:YES completion:nil];
+//                
+//            
+//            
+//            }
             
-            UITabBarController *tab = [UITabBarController new];
-            
-            RepairViewController *repair = [RepairViewController new];
-            ComplainViewController *complain = [ComplainViewController new];
-            ExpressViewController *express = [ExpressViewController new];
-            
-            UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:repair];
-            UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:complain];
-            UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:express];
-            tab.viewControllers = @[nav1,nav2,nav3];
-            
-            [tab.tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"tab_select_indicator"]];
-            [tab.tabBar setBackgroundImage:[UIImage imageNamed:@"tab_bg"]];
-            nav1.tabBarItem.title = @"报修";
-            nav2.tabBarItem.title = @"投诉";
-            nav3.tabBarItem.title = @"快递";
-          
-            nav1.tabBarItem.image = [UIImage imageNamed:@"报修"];
-            nav2.tabBarItem.image = [UIImage imageNamed:@"投诉"];
-            nav3.tabBarItem.image = [UIImage imageNamed:@"快递"];
-            [self presentViewController:tab animated:YES completion:nil];
-            
-            //[self presentViewController];
             
         }
         else{
@@ -142,13 +158,32 @@
     
 }
 
+- (void)bindBaiduPush
+{
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer new];
+    NSDictionary *dictionary = [[NSDictionary alloc]initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"channelid"],@"channel_id",[[NSUserDefaults standardUserDefaults] objectForKey:@"userid"],@"user_id",@"ios",@"device_type",nil];
+    [manager POST:api_bind parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+        NSLog(@"response %@",responseObject);
+    
+    }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         NSLog(@"error %@",error);
+     }
+     
+     ];
+
+}
+
 - (void)presentViewController
 {
     UINavigationController *nav =[ [UINavigationController alloc]initWithRootViewController:[FirstViewController new]];
-     UINavigationController *nav2 =[ [UINavigationController alloc]initWithRootViewController:[SecondViewController new]];
-    UITabBarController *tab = [[UITabBarController alloc]init];
-    tab.viewControllers = @[nav,nav2];
-    [self presentViewController:tab animated:YES completion:nil];
+//     UINavigationController *nav2 =[ [UINavigationController alloc]initWithRootViewController:[SecondViewController new]];
+//    UITabBarController *tab = [[UITabBarController alloc]init];
+//    tab.viewControllers = @[nav,nav2];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)alertShowWithMessage:(NSString *)message
