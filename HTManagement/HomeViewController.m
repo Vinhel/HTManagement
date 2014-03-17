@@ -11,9 +11,17 @@
 @interface HomeViewController ()
 
 @property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) UIPageControl *pageController;
+@property (nonatomic, strong) UIScrollView *contentView;
+@property (nonatomic, strong) UIPageControl *pageControl;
+@property (nonatomic, assign) int timeCount;
+@property (nonatomic, strong) NSTimer *timer;
 
-
+#define ScrollViewHeight 200
+#define PageNum 2
+#define ItemNum 4
+#define kSpace 20
+#define kButtonWidth 140
+#define kButtonHeight 140
 
 @end
 
@@ -34,9 +42,86 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.navigationController.title = @"亨通物业";
+    self.navigationItem.title = @"亨通物业";
+    if (ios7) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, Screen_width, ScrollViewHeight)];
+    _scrollView.contentSize = CGSizeMake(Screen_width * 2, ScrollViewHeight);
+    _scrollView.pagingEnabled = YES;
+    _scrollView.showsHorizontalScrollIndicator = YES;
+    _scrollView.bounces = NO;
+    _scrollView.delegate = self;
+    
+//    _contentView = [[UIScrollView alloc]initWithFrame:CGRectMake(kSpace, ScrollViewHeight + kSpace, kButtonWidth, kButtonHeight)];
+//    _contentView
+    
+    [self.view addSubview:_scrollView];
+    
+    UIImageView *imgView1 = [[UIImageView alloc]initWithFrame:_scrollView.frame];
+    [imgView1 setImage:[UIImage imageNamed:@"ad1"]];
+    [_scrollView addSubview:imgView1];
+    
+    UIImageView *imgView2 = [[UIImageView alloc]initWithFrame:CGRectMake(Screen_width, 0, Screen_width, ScrollViewHeight)];
+    [imgView2 setImage:[UIImage imageNamed:@"ad2"]];
+    [_scrollView addSubview:imgView2];
+    
+    _pageControl = [[UIPageControl alloc]init];
+    _pageControl.frame = CGRectMake(150, 180, 20, 20);
+    _pageControl.numberOfPages = PageNum;
+    _pageControl.currentPage = 0;
+    //[_pageControl addTarget:self action:@selector(pageTurn:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:_pageControl];
+    
+    _timeCount = 0;
+    _timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(scrollTimer) userInfo:nil repeats:YES];
+    
+//    NSArray *array = @[@"投诉", @"报修", @"快递", @"更多服务"];
+//    for (int i = 0; i < ItemNum; i++) {
+//        UIButton *button = [UIButton alloc]initWithFrame:(CGRect)
+//    }
+
     
 }
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [_timer setFireDate:[NSDate distantPast]];
+    
+
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [_timer setFireDate:[NSDate distantFuture]];
+}
+
+- (void)scrollTimer
+{
+    _timeCount ++;
+    if (_timeCount == PageNum) {
+        _timeCount = 0;
+    }
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3f];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [_scrollView setContentOffset:CGPointMake(Screen_width * _timeCount, 0) animated:YES];
+    
+    [UIView commitAnimations];
+
+}
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    
+    int page = _scrollView.contentOffset.x / Screen_width;
+    
+    _pageControl.currentPage = page;
+}
+
 
 - (void)didReceiveMemoryWarning
 {

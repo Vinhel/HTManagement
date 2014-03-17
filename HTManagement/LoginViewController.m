@@ -14,6 +14,9 @@
 #import "ComplainViewController.h"
 #import "ExpressViewController.h"
 #import "PersonalViewController.h"
+#import "HomeViewController.h"
+#import "ServicesViewController.h"
+
 
 @interface LoginViewController ()
 
@@ -95,9 +98,7 @@
         NSLog(@"response %@",responseObject);
         [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"identity"] forKey:@"role"];
         [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"user_profile"][0]  forKey:@"user_profile"];
-           // NSLog(@"user_profile %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"user_profile"]);
-       
-     //   NSLog(@"community id %@",[[[NSUserDefaults standardUserDefaults] objectForKey:@"user_profile"] objectForKey:@"community_id"]);
+  
         if ([[responseObject objectForKey:@"info"]isEqualToString:@"login successful"])
         {
             
@@ -134,15 +135,25 @@
                 [self alertShowWithMessage:@"不支持管理员登陆"];
             }
             
-//            else
-//            {
-//                UITabBarController *tap = [[UITabBarController alloc]init];
-//                
-//                [self presentViewController:[UINavigationController alloc] animated:YES completion:nil];
-//                
-//            
-//            
-//            }
+            else
+            {
+                UITabBarController *tab = [[UITabBarController alloc]init];
+                HomeViewController *home = [HomeViewController new];
+                ServicesViewController *services = [ServicesViewController new];
+                PersonalViewController *personal = [PersonalViewController new];
+                
+                UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:home];
+                UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:services];
+                UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:personal];
+                tab.viewControllers = @[nav1, nav2, nav3];
+                nav1.tabBarItem.title = @"首页";
+                nav2.tabBarItem.title = @"物业服务";
+                nav3.tabBarItem.title = @"个人中心";
+             
+                [self presentViewController:tab animated:YES completion:nil];
+            
+            
+            }
             
             
         }

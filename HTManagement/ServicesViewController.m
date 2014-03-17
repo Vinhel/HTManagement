@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title = @"物业服务";
 	// Do any additional setup after loading the view.
 }
 
