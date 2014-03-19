@@ -71,11 +71,9 @@
 		1848901218724EB9001356CB /* 更多.png in Resources */ = {isa = PBXBuildFile; fileRef = 18488FF718724EB9001356CB /* 更多.png */; };
 		1848901318724EB9001356CB /* 家政.png in Resources */ = {isa = PBXBuildFile; fileRef = 18488FF818724EB9001356CB /* 家政.png */; };
 		1848901418724EB9001356CB /* 家政2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18488FF918724EB9001356CB /* 家政2.png */; };
-		1848901518724EB9001356CB /* 快递领取.png in Resources */ = {isa = PBXBuildFile; fileRef = 18488FFA18724EB9001356CB /* 快递领取.png */; };
-		1848901618724EB9001356CB /* 快递领取2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18488FFB18724EB9001356CB /* 快递领取2.png */; };
+		1848901518724EB9001356CB /* 快递2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18488FFA18724EB9001356CB /* 快递2.png */; };
 		1848901718724EB9001356CB /* 框.png in Resources */ = {isa = PBXBuildFile; fileRef = 18488FFC18724EB9001356CB /* 框.png */; };
 		1848901818724EB9001356CB /* 框2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18488FFD18724EB9001356CB /* 框2.png */; };
-		1848901918724EB9001356CB /* 首页.png in Resources */ = {isa = PBXBuildFile; fileRef = 18488FFE18724EB9001356CB /* 首页.png */; };
 		1848901A18724EB9001356CB /* 提示标.png in Resources */ = {isa = PBXBuildFile; fileRef = 18488FFF18724EB9001356CB /* 提示标.png */; };
 		1848901B18724EB9001356CB /* 停车费.png in Resources */ = {isa = PBXBuildFile; fileRef = 1848900018724EB9001356CB /* 停车费.png */; };
 		1848901C18724EB9001356CB /* 停车费2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1848900118724EB9001356CB /* 停车费2.png */; };
@@ -83,7 +81,6 @@
 		1848901F18724EB9001356CB /* 投诉2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1848900418724EB9001356CB /* 投诉2.png */; };
 		1848902018724EB9001356CB /* 物业费.png in Resources */ = {isa = PBXBuildFile; fileRef = 1848900518724EB9001356CB /* 物业费.png */; };
 		1848902118724EB9001356CB /* 物业费2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1848900618724EB9001356CB /* 物业费2.png */; };
-		1848902218724EB9001356CB /* 物业服务.png in Resources */ = {isa = PBXBuildFile; fileRef = 1848900718724EB9001356CB /* 物业服务.png */; };
 		1848902518725CF1001356CB /* UITextField+AddInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1848902418725CF1001356CB /* UITextField+AddInputView.m */; };
 		18489029187272B3001356CB /* RootsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18489028187272B3001356CB /* RootsViewController.m */; };
 		184890301872A97D001356CB /* RepairCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1848902F1872A97D001356CB /* RepairCell.m */; };
@@ -91,7 +88,6 @@
 		184890341872B4D3001356CB /* CreateRepairViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184890331872B4D3001356CB /* CreateRepairViewController.xib */; };
 		184890371872B689001356CB /* UITextView+InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184890361872B689001356CB /* UITextView+InputView.m */; };
 		184C4A4018D2988400A2E9B5 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C4A3F18D2988400A2E9B5 /* PersonalViewController.m */; };
-		184EFA5018D68EFC00360477 /* ad1.png in Resources */ = {isa = PBXBuildFile; fileRef = 184EFA4E18D68EFC00360477 /* ad1.png */; };
 		184EFA5118D68EFC00360477 /* ad2.png in Resources */ = {isa = PBXBuildFile; fileRef = 184EFA4F18D68EFC00360477 /* ad2.png */; };
 		18522D7918D04C5800218DAC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18522D7818D04C5800218DAC /* CoreData.framework */; };
 		18522D7C18D04D4200218DAC /* HTManagement.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18522D7A18D04D4200218DAC /* HTManagement.xcdatamodeld */; };
@@ -118,6 +114,25 @@
 		187B6E6C1860299D004959DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 187B6E6A1860299D004959DF /* InfoPlist.strings */; };
 		187B6E6E1860299D004959DF /* HTManagementTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 187B6E6D1860299D004959DF /* HTManagementTests.m */; };
 		187B6E7918603219004959DF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187B6E7818603219004959DF /* LoginViewController.m */; };
+		189E1F2D18D9363400ABD902 /* WorkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189E1F2C18D9363400ABD902 /* WorkerViewController.m */; };
+		189E1F3018D960E600ABD902 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189E1F2F18D960E600ABD902 /* UserProfileViewController.m */; };
+		189E1F3818D96DDB00ABD902 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 189E1F3118D96DDB00ABD902 /* 11.png */; };
+		189E1F3918D96DDB00ABD902 /* 12.png in Resources */ = {isa = PBXBuildFile; fileRef = 189E1F3218D96DDB00ABD902 /* 12.png */; };
+		189E1F3B18D96DDB00ABD902 /* 14.png in Resources */ = {isa = PBXBuildFile; fileRef = 189E1F3418D96DDB00ABD902 /* 14.png */; };
+		189E1F3D18D96DDB00ABD902 /* 16.png in Resources */ = {isa = PBXBuildFile; fileRef = 189E1F3618D96DDB00ABD902 /* 16.png */; };
+		189E1F3E18D96DDB00ABD902 /* 17.png in Resources */ = {isa = PBXBuildFile; fileRef = 189E1F3718D96DDB00ABD902 /* 17.png */; };
+		189E1F4118D9715C00ABD902 /* 13.png in Resources */ = {isa = PBXBuildFile; fileRef = 189E1F3F18D9715C00ABD902 /* 13.png */; };
+		189E1F4218D9715C00ABD902 /* 15.png in Resources */ = {isa = PBXBuildFile; fileRef = 189E1F4018D9715C00ABD902 /* 15.png */; };
+		189E1F4418D9762200ABD902 /* 18.png in Resources */ = {isa = PBXBuildFile; fileRef = 189E1F4318D9762200ABD902 /* 18.png */; };
+		189E1F4718D97BCD00ABD902 /* UserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189E1F4618D97BCD00ABD902 /* UserInfoCell.m */; };
+		189E1F4918D97BFB00ABD902 /* UserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189E1F4818D97BFB00ABD902 /* UserInfoCell.xib */; };
+		189E1F4D18D97E7700ABD902 /* 个人资料.png in Resources */ = {isa = PBXBuildFile; fileRef = 189E1F4A18D97E7700ABD902 /* 个人资料.png */; };
+		189E1F4E18D97E7700ABD902 /* 修改密码.png in Resources */ = {isa = PBXBuildFile; fileRef = 189E1F4B18D97E7700ABD902 /* 修改密码.png */; };
+		189E1F4F18D97E7700ABD902 /* 注销.png in Resources */ = {isa = PBXBuildFile; fileRef = 189E1F4C18D97E7700ABD902 /* 注销.png */; };
+		189E1F5318D98A0A00ABD902 /* ad1.png in Resources */ = {isa = PBXBuildFile; fileRef = 189E1F5218D98A0A00ABD902 /* ad1.png */; };
+		189E1F5718D990DB00ABD902 /* person.png in Resources */ = {isa = PBXBuildFile; fileRef = 189E1F5618D990DB00ABD902 /* person.png */; };
+		189E1F5918D9935D00ABD902 /* 首页.png in Resources */ = {isa = PBXBuildFile; fileRef = 189E1F5818D9935D00ABD902 /* 首页.png */; };
+		189E1F5B18D9937900ABD902 /* 物业服务.png in Resources */ = {isa = PBXBuildFile; fileRef = 189E1F5A18D9937900ABD902 /* 物业服务.png */; };
 		18B38AA2187A412D000E0F18 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B38AA1187A412D000E0F18 /* MBProgressHUD.m */; };
 		18B38AA9187A54FD000E0F18 /* DropDownList.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B38AA8187A54FD000E0F18 /* DropDownList.m */; };
 		18BA857B188D1F500092BDCE /* ChooseTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BA8579188D1F500092BDCE /* ChooseTypeViewController.m */; };
@@ -260,11 +275,9 @@
 		18488FF718724EB9001356CB /* 更多.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多.png"; sourceTree = "<group>"; };
 		18488FF818724EB9001356CB /* 家政.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "家政.png"; sourceTree = "<group>"; };
 		18488FF918724EB9001356CB /* 家政2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "家政2.png"; sourceTree = "<group>"; };
-		18488FFA18724EB9001356CB /* 快递领取.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "快递领取.png"; sourceTree = "<group>"; };
-		18488FFB18724EB9001356CB /* 快递领取2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "快递领取2.png"; sourceTree = "<group>"; };
+		18488FFA18724EB9001356CB /* 快递2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "快递2.png"; sourceTree = "<group>"; };
 		18488FFC18724EB9001356CB /* 框.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "框.png"; sourceTree = "<group>"; };
 		18488FFD18724EB9001356CB /* 框2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "框2.png"; sourceTree = "<group>"; };
-		18488FFE18724EB9001356CB /* 首页.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页.png"; sourceTree = "<group>"; };
 		18488FFF18724EB9001356CB /* 提示标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "提示标.png"; sourceTree = "<group>"; };
 		1848900018724EB9001356CB /* 停车费.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "停车费.png"; sourceTree = "<group>"; };
 		1848900118724EB9001356CB /* 停车费2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "停车费2.png"; sourceTree = "<group>"; };
@@ -272,7 +285,6 @@
 		1848900418724EB9001356CB /* 投诉2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "投诉2.png"; sourceTree = "<group>"; };
 		1848900518724EB9001356CB /* 物业费.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "物业费.png"; sourceTree = "<group>"; };
 		1848900618724EB9001356CB /* 物业费2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "物业费2.png"; sourceTree = "<group>"; };
-		1848900718724EB9001356CB /* 物业服务.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "物业服务.png"; sourceTree = "<group>"; };
 		1848902318725CF1001356CB /* UITextField+AddInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+AddInputView.h"; sourceTree = "<group>"; };
 		1848902418725CF1001356CB /* UITextField+AddInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+AddInputView.m"; sourceTree = "<group>"; };
 		18489027187272B3001356CB /* RootsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootsViewController.h; sourceTree = "<group>"; };
@@ -285,7 +297,6 @@
 		184890361872B689001356CB /* UITextView+InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+InputView.m"; sourceTree = "<group>"; };
 		184C4A3E18D2988400A2E9B5 /* PersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
 		184C4A3F18D2988400A2E9B5 /* PersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
-		184EFA4E18D68EFC00360477 /* ad1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ad1.png; sourceTree = "<group>"; };
 		184EFA4F18D68EFC00360477 /* ad2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ad2.png; sourceTree = "<group>"; };
 		18522D7818D04C5800218DAC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		18522D7B18D04D4200218DAC /* HTManagement.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HTManagement.xcdatamodel; sourceTree = "<group>"; };
@@ -320,6 +331,28 @@
 		187B6E6D1860299D004959DF /* HTManagementTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTManagementTests.m; sourceTree = "<group>"; };
 		187B6E7718603219004959DF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		187B6E7818603219004959DF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		189E1F2B18D9363400ABD902 /* WorkerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkerViewController.h; sourceTree = "<group>"; };
+		189E1F2C18D9363400ABD902 /* WorkerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkerViewController.m; sourceTree = "<group>"; };
+		189E1F2E18D960E600ABD902 /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
+		189E1F2F18D960E600ABD902 /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
+		189E1F3118D96DDB00ABD902 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
+		189E1F3218D96DDB00ABD902 /* 12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 12.png; sourceTree = "<group>"; };
+		189E1F3418D96DDB00ABD902 /* 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 14.png; sourceTree = "<group>"; };
+		189E1F3618D96DDB00ABD902 /* 16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 16.png; sourceTree = "<group>"; };
+		189E1F3718D96DDB00ABD902 /* 17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 17.png; sourceTree = "<group>"; };
+		189E1F3F18D9715C00ABD902 /* 13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 13.png; sourceTree = "<group>"; };
+		189E1F4018D9715C00ABD902 /* 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15.png; sourceTree = "<group>"; };
+		189E1F4318D9762200ABD902 /* 18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 18.png; sourceTree = "<group>"; };
+		189E1F4518D97BCD00ABD902 /* UserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoCell.h; sourceTree = "<group>"; };
+		189E1F4618D97BCD00ABD902 /* UserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoCell.m; sourceTree = "<group>"; };
+		189E1F4818D97BFB00ABD902 /* UserInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoCell.xib; sourceTree = "<group>"; };
+		189E1F4A18D97E7700ABD902 /* 个人资料.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "个人资料.png"; sourceTree = "<group>"; };
+		189E1F4B18D97E7700ABD902 /* 修改密码.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "修改密码.png"; sourceTree = "<group>"; };
+		189E1F4C18D97E7700ABD902 /* 注销.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "注销.png"; sourceTree = "<group>"; };
+		189E1F5218D98A0A00ABD902 /* ad1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ad1.png; sourceTree = "<group>"; };
+		189E1F5618D990DB00ABD902 /* person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person.png; sourceTree = "<group>"; };
+		189E1F5818D9935D00ABD902 /* 首页.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页.png"; sourceTree = "<group>"; };
+		189E1F5A18D9937900ABD902 /* 物业服务.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "物业服务.png"; sourceTree = "<group>"; };
 		18B38AA0187A412D000E0F18 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		18B38AA1187A412D000E0F18 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		18B38AA7187A54FD000E0F18 /* DropDownList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownList.h; sourceTree = "<group>"; };
@@ -426,6 +459,13 @@
 				1804F79518D2E8CD005811E3 /* HomeViewController.m */,
 				1804F79718D2E9A3005811E3 /* ServicesViewController.h */,
 				1804F79818D2E9A3005811E3 /* ServicesViewController.m */,
+				184C4A3E18D2988400A2E9B5 /* PersonalViewController.h */,
+				184C4A3F18D2988400A2E9B5 /* PersonalViewController.m */,
+				189E1F2E18D960E600ABD902 /* UserProfileViewController.h */,
+				189E1F2F18D960E600ABD902 /* UserProfileViewController.m */,
+				189E1F4518D97BCD00ABD902 /* UserInfoCell.h */,
+				189E1F4618D97BCD00ABD902 /* UserInfoCell.m */,
+				189E1F4818D97BFB00ABD902 /* UserInfoCell.xib */,
 			);
 			name = "common user";
 			sourceTree = "<group>";
@@ -651,19 +691,7 @@
 				187B6E581860299D004959DF /* AppDelegate.m */,
 				187B6E7718603219004959DF /* LoginViewController.h */,
 				187B6E7818603219004959DF /* LoginViewController.m */,
-				182F677518C0202B00D5FB44 /* FirstViewController.h */,
-				182F677618C0202B00D5FB44 /* FirstViewController.m */,
-				182F677818C0203C00D5FB44 /* ResidentViewController.h */,
-				182F677918C0203C00D5FB44 /* ResidentViewController.m */,
-				18489027187272B3001356CB /* RootsViewController.h */,
-				18489028187272B3001356CB /* RootsViewController.m */,
-				184C4A3E18D2988400A2E9B5 /* PersonalViewController.h */,
-				184C4A3F18D2988400A2E9B5 /* PersonalViewController.m */,
-				1843126C18A5C6D8002BE6E5 /* CommunityViewController.h */,
-				1843126D18A5C6D8002BE6E5 /* CommunityViewController.m */,
-				18522D7A18D04D4200218DAC /* HTManagement.xcdatamodeld */,
-				18522D7D18D050FD00218DAC /* UserProfile.h */,
-				18522D7E18D050FD00218DAC /* UserProfile.m */,
+				189E1F2A18D935C100ABD902 /* unused */,
 				1804F79318D2E885005811E3 /* common user */,
 				180BEC9218C46FBC004B336D /* push */,
 				1848902D18729AEC001356CB /* HouseKeeping */,
@@ -714,6 +742,18 @@
 		187B6E7A1860328B004959DF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				189E1F4A18D97E7700ABD902 /* 个人资料.png */,
+				189E1F4B18D97E7700ABD902 /* 修改密码.png */,
+				189E1F4C18D97E7700ABD902 /* 注销.png */,
+				189E1F3118D96DDB00ABD902 /* 11.png */,
+				189E1F3218D96DDB00ABD902 /* 12.png */,
+				189E1F3F18D9715C00ABD902 /* 13.png */,
+				189E1F4318D9762200ABD902 /* 18.png */,
+				189E1F4018D9715C00ABD902 /* 15.png */,
+				189E1F5618D990DB00ABD902 /* person.png */,
+				189E1F3418D96DDB00ABD902 /* 14.png */,
+				189E1F3618D96DDB00ABD902 /* 16.png */,
+				189E1F3718D96DDB00ABD902 /* 17.png */,
 				180BECD918C6B6CF004B336D /* Icon@2x.png */,
 				181DBAF318C1D29100BDBDB4 /* bg_sand.png */,
 				180BECC318C56D95004B336D /* qqqqq.png */,
@@ -728,8 +768,8 @@
 				181DBAED18C1C24700BDBDB4 /* appear_80.png */,
 				18BA8581188D65890092BDCE /* backgroundStar@2x.png */,
 				18BA8582188D65890092BDCE /* foregroundStar@2x.png */,
-				184EFA4E18D68EFC00360477 /* ad1.png */,
 				184EFA4F18D68EFC00360477 /* ad2.png */,
+				189E1F5218D98A0A00ABD902 /* ad1.png */,
 				18488FEF18724EB9001356CB /* 报修2.png */,
 				180BECD318C5BC4C004B336D /* 快递.png */,
 				18488FF018724EB9001356CB /* 本地生活.png */,
@@ -745,21 +785,38 @@
 				18488FF718724EB9001356CB /* 更多.png */,
 				18488FF818724EB9001356CB /* 家政.png */,
 				18488FF918724EB9001356CB /* 家政2.png */,
-				18488FFA18724EB9001356CB /* 快递领取.png */,
-				18488FFB18724EB9001356CB /* 快递领取2.png */,
+				18488FFA18724EB9001356CB /* 快递2.png */,
 				18488FFC18724EB9001356CB /* 框.png */,
+				189E1F5818D9935D00ABD902 /* 首页.png */,
 				18488FFD18724EB9001356CB /* 框2.png */,
-				18488FFE18724EB9001356CB /* 首页.png */,
 				18488FFF18724EB9001356CB /* 提示标.png */,
+				189E1F5A18D9937900ABD902 /* 物业服务.png */,
 				1848900018724EB9001356CB /* 停车费.png */,
 				1848900118724EB9001356CB /* 停车费2.png */,
 				1848900218724EB9001356CB /* 通知.png */,
 				1848900418724EB9001356CB /* 投诉2.png */,
 				1848900518724EB9001356CB /* 物业费.png */,
 				1848900618724EB9001356CB /* 物业费2.png */,
-				1848900718724EB9001356CB /* 物业服务.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		189E1F2A18D935C100ABD902 /* unused */ = {
+			isa = PBXGroup;
+			children = (
+				1843126C18A5C6D8002BE6E5 /* CommunityViewController.h */,
+				1843126D18A5C6D8002BE6E5 /* CommunityViewController.m */,
+				18522D7A18D04D4200218DAC /* HTManagement.xcdatamodeld */,
+				18522D7D18D050FD00218DAC /* UserProfile.h */,
+				18522D7E18D050FD00218DAC /* UserProfile.m */,
+				182F677518C0202B00D5FB44 /* FirstViewController.h */,
+				182F677618C0202B00D5FB44 /* FirstViewController.m */,
+				182F677818C0203C00D5FB44 /* ResidentViewController.h */,
+				182F677918C0203C00D5FB44 /* ResidentViewController.m */,
+				18489027187272B3001356CB /* RootsViewController.h */,
+				18489028187272B3001356CB /* RootsViewController.m */,
+			);
+			name = unused;
 			sourceTree = "<group>";
 		};
 		18B38A9F187A3FED000E0F18 /* MBProgressHUD */ = {
@@ -792,6 +849,8 @@
 		18BA8588188F9C760092BDCE /* Workers */ = {
 			isa = PBXGroup;
 			children = (
+				189E1F2B18D9363400ABD902 /* WorkerViewController.h */,
+				189E1F2C18D9363400ABD902 /* WorkerViewController.m */,
 				18BA8589188F9F180092BDCE /* WorkerListViewController.h */,
 				18BA858A188F9F180092BDCE /* WorkerListViewController.m */,
 				18BA8585188E6D4F0092BDCE /* WorkerInfo.h */,
@@ -924,26 +983,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189E1F4218D9715C00ABD902 /* 15.png in Resources */,
 				1848901D18724EB9001356CB /* 通知.png in Resources */,
-				1848901918724EB9001356CB /* 首页.png in Resources */,
 				1848901218724EB9001356CB /* 更多.png in Resources */,
-				1848901518724EB9001356CB /* 快递领取.png in Resources */,
+				1848901518724EB9001356CB /* 快递2.png in Resources */,
 				180BECCC18C597ED004B336D /* 投诉.png in Resources */,
 				180BECCE18C5B75D004B336D /* 报修.png in Resources */,
 				184890341872B4D3001356CB /* CreateRepairViewController.xib in Resources */,
+				189E1F4918D97BFB00ABD902 /* UserInfoCell.xib in Resources */,
 				180BECD018C5B7CC004B336D /* tab_select_indicator.png in Resources */,
-				1848901618724EB9001356CB /* 快递领取2.png in Resources */,
 				1848901F18724EB9001356CB /* 投诉2.png in Resources */,
 				180BECC418C56D95004B336D /* qqqqq.png in Resources */,
+				189E1F3B18D96DDB00ABD902 /* 14.png in Resources */,
 				1848900B18724EB9001356CB /* 本地生活.png in Resources */,
 				187A6DC918B72B4D00410706 /* login.png in Resources */,
 				1852E69918867991005E8646 /* HouseKeepingCell.xib in Resources */,
+				189E1F5B18D9937900ABD902 /* 物业服务.png in Resources */,
 				180BECAD18C47238004B336D /* BPushConfig.plist in Resources */,
+				189E1F3D18D96DDB00ABD902 /* 16.png in Resources */,
 				181DBAF418C1D29100BDBDB4 /* bg_sand.png in Resources */,
-				184EFA5018D68EFC00360477 /* ad1.png in Resources */,
 				1848900E18724EB9001356CB /* 底部本地生活.png in Resources */,
 				1848902118724EB9001356CB /* 物业费2.png in Resources */,
 				187A6DC718B72B4D00410706 /* 登录条2.png in Resources */,
+				189E1F5718D990DB00ABD902 /* person.png in Resources */,
 				18D1071A1888D08600042857 /* ExpressCell.xib in Resources */,
 				181DBAF018C1C24700BDBDB4 /* appear_08.png in Resources */,
 				184890321872A997001356CB /* RepairCell.xib in Resources */,
@@ -953,16 +1015,20 @@
 				180142C3187E3F18002F5F02 /* FeedbackViewController.xib in Resources */,
 				18751CF7187BDCAE002454F7 /* ScanRepairFormViewController.xib in Resources */,
 				18299F6E18795DAA00FD4133 /* CreateComplainViewController.xib in Resources */,
-				1848902218724EB9001356CB /* 物业服务.png in Resources */,
 				18299F76187993BB00FD4133 /* ChooseHouseKeepingCell.xib in Resources */,
+				189E1F4E18D97E7700ABD902 /* 修改密码.png in Resources */,
 				187A6DCA18B72B4D00410706 /* logo.png in Resources */,
+				189E1F4418D9762200ABD902 /* 18.png in Resources */,
 				180BECD418C5BC4C004B336D /* 快递.png in Resources */,
 				1852E6A1188681EE005E8646 /* ComplainCell.xib in Resources */,
 				1848901418724EB9001356CB /* 家政2.png in Resources */,
+				189E1F3918D96DDB00ABD902 /* 12.png in Resources */,
+				189E1F4F18D97E7700ABD902 /* 注销.png in Resources */,
 				1848900A18724EB9001356CB /* 报修2.png in Resources */,
 				1848901118724EB9001356CB /* 底部应用.png in Resources */,
 				187B6E5B1860299D004959DF /* Images.xcassets in Resources */,
 				181DBAEE18C1C24700BDBDB4 /* appear_03.png in Resources */,
+				189E1F3E18D96DDB00ABD902 /* 17.png in Resources */,
 				1848901A18724EB9001356CB /* 提示标.png in Resources */,
 				18BA8584188D65890092BDCE /* foregroundStar@2x.png in Resources */,
 				1848901718724EB9001356CB /* 框.png in Resources */,
@@ -970,14 +1036,19 @@
 				181DBAF218C1C24700BDBDB4 /* appear_80.png in Resources */,
 				1848901018724EB9001356CB /* 底部物业服务.png in Resources */,
 				1848901C18724EB9001356CB /* 停车费2.png in Resources */,
+				189E1F5318D98A0A00ABD902 /* ad1.png in Resources */,
 				1848900C18724EB9001356CB /* 登录条1.png in Resources */,
+				189E1F3818D96DDB00ABD902 /* 11.png in Resources */,
 				180BECDA18C6B6CF004B336D /* Icon@2x.png in Resources */,
+				189E1F5918D9935D00ABD902 /* 首页.png in Resources */,
 				1848901318724EB9001356CB /* 家政.png in Resources */,
+				189E1F4118D9715C00ABD902 /* 13.png in Resources */,
 				18BA8583188D65890092BDCE /* backgroundStar@2x.png in Resources */,
 				187A6DC818B72B4D00410706 /* input.png in Resources */,
 				184EFA5118D68EFC00360477 /* ad2.png in Resources */,
 				1848901B18724EB9001356CB /* 停车费.png in Resources */,
 				1848900F18724EB9001356CB /* 底部首页.png in Resources */,
+				189E1F4D18D97E7700ABD902 /* 个人资料.png in Resources */,
 				181DBAF118C1C24700BDBDB4 /* appear_65.png in Resources */,
 				180BECD218C5B8F5004B336D /* tab_bg.png in Resources */,
 				1848901818724EB9001356CB /* 框2.png in Resources */,
@@ -1011,6 +1082,7 @@
 				181B22E5186174AA007584AC /* AFHTTPRequestOperation.m in Sources */,
 				183DF0D118BED9C000197F84 /* HMSegmentedControl.m in Sources */,
 				187B6E591860299D004959DF /* AppDelegate.m in Sources */,
+				189E1F4718D97BCD00ABD902 /* UserInfoCell.m in Sources */,
 				18299F661879512B00FD4133 /* ComplainForm.m in Sources */,
 				181B22E6186174AA007584AC /* AFHTTPRequestOperationManager.m in Sources */,
 				18FF551818AA0F0D009701AD /* SDWebImageDownloader.m in Sources */,
@@ -1043,6 +1115,7 @@
 				18299F6D18795DAA00FD4133 /* CreateComplainViewController.m in Sources */,
 				180BECC218C472A7004B336D /* Reachability.m in Sources */,
 				18BA858E188FA6750092BDCE /* CommunityInfo.m in Sources */,
+				189E1F2D18D9363400ABD902 /* WorkerViewController.m in Sources */,
 				181B22EA186174AA007584AC /* AFURLConnectionOperation.m in Sources */,
 				18FF551418AA0F0D009701AD /* NSData+GIF.m in Sources */,
 				181B22E9186174AA007584AC /* AFSecurityPolicy.m in Sources */,
@@ -1055,6 +1128,7 @@
 				1801631C186813BA00DEDEEC /* RepairViewController.m in Sources */,
 				18299F741879939700FD4133 /* ChooseHouseKeepingCell.m in Sources */,
 				181B22E7186174AA007584AC /* AFHTTPSessionManager.m in Sources */,
+				189E1F3018D960E600ABD902 /* UserProfileViewController.m in Sources */,
 				181B22EB186174AA007584AC /* AFURLRequestSerialization.m in Sources */,
 				181B22ED186174AA007584AC /* AFURLSessionManager.m in Sources */,
 				1852E69F188681DC005E8646 /* ComplainCell.m in Sources */,
@@ -1143,11 +1217,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "7F54A38E-15CE-4786-9773-C98023C140C9";
-				SDKROOT = iphoneos7.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1179,10 +1253,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PROVISIONING_PROFILE = "7F54A38E-15CE-4786-9773-C98023C140C9";
-				SDKROOT = iphoneos7.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

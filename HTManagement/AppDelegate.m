@@ -23,7 +23,7 @@
 {
     NSLog(@"lauchoptions %@",launchOptions);
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
+    NSLog(@"self window %@",NSStringFromCGRect([[UIScreen mainScreen]bounds]));
     self.window.backgroundColor = [UIColor whiteColor];
     LoginViewController *loginVC = [[LoginViewController alloc]init];
 

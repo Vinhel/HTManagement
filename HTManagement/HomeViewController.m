@@ -16,12 +16,14 @@
 @property (nonatomic, assign) int timeCount;
 @property (nonatomic, strong) NSTimer *timer;
 
-#define ScrollViewHeight 200
+#define ScrollViewHeight 180
 #define PageNum 2
 #define ItemNum 4
 #define kSpace 20
-#define kButtonWidth 140
-#define kButtonHeight 140
+#define kButtonWidth 120
+#define kButtonHeight 120
+
+
 
 @end
 
@@ -46,28 +48,42 @@
     if (ios7) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
-    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, Screen_width, ScrollViewHeight)];
+    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, Screen_width, Screen_height - HeightOfNavigationBar - HeightOfStatusBar -HeightOfTabBar)];
     _scrollView.contentSize = CGSizeMake(Screen_width * 2, ScrollViewHeight);
     _scrollView.pagingEnabled = YES;
     _scrollView.showsHorizontalScrollIndicator = YES;
     _scrollView.bounces = NO;
     _scrollView.delegate = self;
-    
-//    _contentView = [[UIScrollView alloc]initWithFrame:CGRectMake(kSpace, ScrollViewHeight + kSpace, kButtonWidth, kButtonHeight)];
-//    _contentView
-    
     [self.view addSubview:_scrollView];
+    
+    _contentView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, ScrollViewHeight , Screen_width, Screen_height - _scrollView.frame.size.height - HeightOfNavigationBar - HeightOfStatusBar - HeightOfTabBar)];
+    
+    NSArray *array = @[@"投诉", @"报修", @"快递", @"更多服务"];
+    NSArray *imgArray =[NSArray arrayWithObjects:[UIImage imageNamed:@"投诉2"],[UIImage imageNamed:@"报修2"],
+                        [UIImage imageNamed:@"快递2"],[UIImage imageNamed:@"更多"], nil];
+    for (int i = 0; i < ItemNum; i++) {
+        UIButton *button = [[UIButton alloc]init];
+        button.bounds = CGRectMake(0, 0, kButtonWidth, kButtonHeight);
+        button.tag = i;
+        button.center = CGPointMake(80 + 160 * (i % 2), 65 + 125 * (i / 2));
+        [button setBackgroundImage:[imgArray objectAtIndex:i] forState:UIControlStateNormal];
+       // [button setTitle:[array objectAtIndex:i] forState:UIControlStateNormal];
+        [_contentView addSubview:button];
+    }
+    _contentView.contentSize = CGSizeMake(Screen_width, 290);
+   // [self.view addSubview:_contentView];
+    
     
     UIImageView *imgView1 = [[UIImageView alloc]initWithFrame:_scrollView.frame];
     [imgView1 setImage:[UIImage imageNamed:@"ad1"]];
     [_scrollView addSubview:imgView1];
     
-    UIImageView *imgView2 = [[UIImageView alloc]initWithFrame:CGRectMake(Screen_width, 0, Screen_width, ScrollViewHeight)];
+    UIImageView *imgView2 = [[UIImageView alloc]initWithFrame:CGRectMake(Screen_width, 0, Screen_width, Screen_height - HeightOfNavigationBar - HeightOfStatusBar -HeightOfTabBar)];
     [imgView2 setImage:[UIImage imageNamed:@"ad2"]];
     [_scrollView addSubview:imgView2];
     
     _pageControl = [[UIPageControl alloc]init];
-    _pageControl.frame = CGRectMake(150, 180, 20, 20);
+    _pageControl.frame = CGRectMake(150, 160, 20, 20);
     _pageControl.numberOfPages = PageNum;
     _pageControl.currentPage = 0;
     //[_pageControl addTarget:self action:@selector(pageTurn:) forControlEvents:UIControlEventValueChanged];
@@ -76,10 +92,6 @@
     _timeCount = 0;
     _timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(scrollTimer) userInfo:nil repeats:YES];
     
-//    NSArray *array = @[@"投诉", @"报修", @"快递", @"更多服务"];
-//    for (int i = 0; i < ItemNum; i++) {
-//        UIButton *button = [UIButton alloc]initWithFrame:(CGRect)
-//    }
 
     
 }

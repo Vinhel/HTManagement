@@ -98,6 +98,7 @@
         manager.responseSerializer = [AFJSONResponseSerializer new];
         NSString *param = [@"个人" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [manager GET:[api_get_repair_item stringByAppendingString:param] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"items_list %@",[responseObject objectForKey:@"items_list"]);
             for (NSDictionary *dict in [responseObject objectForKey:@"items_list"]) {
                 [_personalArray addObject:dict];
             }
@@ -207,13 +208,18 @@
     NSString *item_id;
    
     if ([category isEqualToString:@"个人报修"]) {
-        NSDictionary *dict = [_personalArray objectAtIndex:[_selectedIndex row]];
-        item_id = [dict objectForKey:@"item_id"] ;
+        if ([_personalArray count] > 0) {
+            NSDictionary *dict = [_personalArray objectAtIndex:[_selectedIndex row]];
+            item_id = [dict objectForKey:@"item_id"] ;
+        }
+    
     }
     if ([category isEqualToString:@"公共报修"])
     {
-        NSDictionary *dict = [_publicArray objectAtIndex:[_selectedIndex row]];
-        item_id = [dict objectForKey:@"item_id"] ;
+        if ([_personalArray count] > 0) {
+            NSDictionary *dict = [_publicArray objectAtIndex:[_selectedIndex row]];
+            item_id = [dict objectForKey:@"item_id"] ;
+        }
         
     }
     if ([category isEqualToString:@"个人报修"]||[category isEqualToString:@"公共报修"]) {

@@ -42,10 +42,10 @@ typedef enum {
 #define isResident [[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"resident"]
 #define isWorker [[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"worker"]
 #define isAdmin [[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"admin"]
+#define kUserProfile [[NSUserDefaults standardUserDefaults] objectForKey:@"user_profile"]
 
-
-#define prefix @"http://192.168.1.113:8000"
-#define imagePath @"http://192.168.1.113:8000/media/"
+#define prefix @"http://222.92.147.11"
+#define imagePath @"http://222.92.147.11/media/"
 
 //获取工作人员list,获取小区
 // /api/get/worker/list/?community_id=(小区id号)
@@ -65,6 +65,9 @@ typedef enum {
 //登录相关
 #define api_user_login [prefix stringByAppendingString:@"/api/user/login/"]
 
+
+//修改个人资料
+#define api_user_update [prefix stringByAppendingString:@"/api/user/update/"]
 
 //快递相关
 #define api_user_express [prefix stringByAppendingString:@"/api/get/user/express/"]

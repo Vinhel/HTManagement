@@ -11,12 +11,16 @@
 #import "RepairViewController.h"
 #import "ExpressViewController.h"
 #import "HouseKeepingViewController.h"
-
+#import "UserProfileViewController.h"
 
 @interface PersonalViewController ()
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *array;
 @property (nonatomic, strong) NSDictionary *dict;
+@property (nonatomic, strong) NSArray *imgArray;
+@property (nonatomic, strong) NSArray *img1Array;
+@property (nonatomic, strong) NSArray *img2Array;
+
 
 @end
 
@@ -48,10 +52,15 @@
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
     
-    _array = @[@"个人中心", @"缴费记录", @"物业", @"设置"];
+    _imgArray = @[[UIImage imageNamed:@"个人资料"],[UIImage imageNamed:@"修改密码"]];
+    _img1Array = @[[UIImage imageNamed:@"13"],[UIImage imageNamed:@"16"],[UIImage imageNamed:@"15"],[UIImage imageNamed:@"14"],[UIImage imageNamed:@"18"]];
+    _img2Array = @[[UIImage imageNamed:@"11"],[UIImage imageNamed:@"12"]];
+
+    
+    _array = @[@"个人中心", @"缴费记录", @"物业记录", @"设置"];
     _dict = @{@"个人中心":@[@"个人资料", @"修改密码"],
               @"缴费记录":@[@"物业费", @"停车费"],
-              @"物业":@[@"投诉", @"报修", @"快递", @"家政", @"微水洗车"],
+              @"物业记录":@[@"报修",@"投诉", @"家政", @"快递", @"微水洗车"],
               @"设置":@[@"注销"]};
     NSLog(@"allkeys %@",[_dict allKeys]);
     
@@ -74,7 +83,30 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     cell.textLabel.text = [[_dict objectForKey:[_array objectAtIndex:[indexPath section]]] objectAtIndex:[indexPath row]];
-                           
+//    
+//    if ([indexPath section] == 2) {
+//        cell.imageView.image = [_img1Array objectAtIndex:[indexPath row]];
+//    }
+//    if ([indexPath section] == 1) {
+//        cell.imageView.image = [_img2Array objectAtIndex:[indexPath row]];
+//    }
+    switch ([indexPath section]) {
+        
+        case 0:
+            cell.imageView.image = [_imgArray objectAtIndex:[indexPath row]];
+            break;
+        case 1:
+            cell.imageView.image = [_img2Array objectAtIndex:[indexPath row]];
+            break;
+        case 2:
+            cell.imageView.image = [_img1Array objectAtIndex:[indexPath row]];
+            break;
+        
+        default:
+            cell.imageView.image = [UIImage imageNamed:@"注销"];
+            break;
+    }
+    
     return cell;
 
 }
@@ -99,13 +131,13 @@
 {
     if ([indexPath section] == 2) {
         switch ([indexPath row]) {
-            case 0:
+            case 1:
             {
                 ComplainViewController *complain = [ComplainViewController new];
                 [self.navigationController pushViewController:complain animated:YES];
                 break;
             }
-            case 1:
+            case 0:
             {
                 RepairViewController *repair = [RepairViewController new];
                 [self.navigationController pushViewController:repair animated:YES];
@@ -139,7 +171,18 @@
                 break;
         }
     }
-    
+    if ([indexPath section] == 0 ) {
+        switch ([indexPath row]) {
+            case 0:
+            {
+                UserProfileViewController *profile = [UserProfileViewController new];
+                [self.navigationController pushViewController:profile animated:YES];
+                break;
+            }
+            default:
+                break;
+        }
+    }
     
 }
 

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ServicesViewController : UIViewController
+@interface ServicesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

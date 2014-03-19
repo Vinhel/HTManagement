@@ -16,7 +16,7 @@
 #import "PersonalViewController.h"
 #import "HomeViewController.h"
 #import "ServicesViewController.h"
-
+#import "WorkerViewController.h"
 
 @interface LoginViewController ()
 
@@ -110,7 +110,7 @@
                 RepairViewController *repair = [RepairViewController new];
                 ComplainViewController *complain = [ComplainViewController new];
                 ExpressViewController *express = [ExpressViewController new];
-                PersonalViewController *personal = [PersonalViewController new];
+                WorkerViewController *personal = [WorkerViewController new];
                 
                 UINavigationController *nav4 = [[UINavigationController alloc]initWithRootViewController:personal];
                 UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:repair];
@@ -123,10 +123,13 @@
                 nav1.tabBarItem.title = @"报修";
                 nav2.tabBarItem.title = @"投诉";
                 nav3.tabBarItem.title = @"快递";
+                nav4.tabBarItem.title = @"个人中心";
+                
                 
                 nav1.tabBarItem.image = [UIImage imageNamed:@"报修"];
                 nav2.tabBarItem.image = [UIImage imageNamed:@"投诉"];
                 nav3.tabBarItem.image = [UIImage imageNamed:@"快递"];
+                nav4.tabBarItem.image = [UIImage imageNamed:@"person"];
                 [self presentViewController:tab animated:YES completion:nil];
                
    
@@ -146,11 +149,19 @@
                 UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:services];
                 UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:personal];
                 tab.viewControllers = @[nav1, nav2, nav3];
+                [tab.tabBar setBackgroundImage:[UIImage imageNamed:@"tab_bg"]];
+                [tab.tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"tab_select_indicator"]];
+
+                
                 nav1.tabBarItem.title = @"首页";
                 nav2.tabBarItem.title = @"物业服务";
                 nav3.tabBarItem.title = @"个人中心";
+                
+                nav1.tabBarItem.image = [UIImage imageNamed:@"首页"];
+                nav2.tabBarItem.image = [UIImage imageNamed:@"物业服务"];
+                nav3.tabBarItem.image = [UIImage imageNamed:@"person"];
              
-                [self presentViewController:tab animated:YES completion:nil];
+                [self presentViewController:tab animated:NO completion:nil];
             
             
             }
