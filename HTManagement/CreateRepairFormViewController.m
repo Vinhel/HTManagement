@@ -42,14 +42,19 @@
     }
     
     [_content setupDoneToolBar:YES];
+    
+    _content.layer.borderWidth = 0.5;
+    _content.layer.borderColor = [[UIColor grayColor]CGColor];
+    _content.layer.cornerRadius = 5;
+    
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_sand"]];
-
+    
     _imageView.layer.borderWidth = 1;
     _imageView.layer.borderColor = [[UIColor grayColor] CGColor];
     _imageView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(chooseImg)];
     [_imageView addGestureRecognizer:tap];
-
+    
     self.picker = [[UIImagePickerController alloc]init];
     self.picker.allowsEditing = YES;
     self.picker.delegate = self;
@@ -57,12 +62,12 @@
     [_typeButton addTarget:self action:@selector(chooseType:) forControlEvents:UIControlEventTouchUpInside];
     [_priceButton addTarget:self action:@selector(choosePrice:) forControlEvents:UIControlEventTouchUpInside];
     [_submitButton addTarget:self action:@selector(submitForm:) forControlEvents:UIControlEventTouchUpInside];
-
+    [_addButton addTarget:self action:@selector(chooseImg) forControlEvents:UIControlEventTouchUpInside];
     _personalArray = [NSMutableArray array];
     _publicArray = [NSMutableArray array];
     _publicNameArray = [NSMutableArray array];
     _personalNameArray = [NSMutableArray array];
-
+    
 }
 
 
@@ -70,7 +75,7 @@
 
 - (void)dropDownListDelegateMethod:(id)sender WithIndex:(NSIndexPath *)index
 {
-   NSString *string = (NSString *)sender;
+    NSString *string = (NSString *)sender;
     if ([string isEqualToString:@"个人报修"]||[string isEqualToString:@"公共报修"]) {
         [_typeButton setTitle:string forState:UIControlStateNormal];
         [self addRepairContentWithString:string];
@@ -79,8 +84,8 @@
         [_priceButton setTitle:string forState:UIControlStateNormal];
         _selectedIndex = index;
     }
-   _dropDownList = nil;
-
+    _dropDownList = nil;
+    
     
 }
 
@@ -120,9 +125,9 @@
         }
              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                  NSLog(@"error %@",error);
-        }];
+             }];
     }
-
+    
 }
 
 /*
@@ -133,18 +138,18 @@
     for (NSDictionary *dict in _personalArray) {
         [_personalNameArray addObject:[dict objectForKey:@"item_name"]];
     }
-
+    
 }
 /*
  填充公共报修器材
  */
 - (void)preparePublicNameArray
 {
-
+    
     for (NSDictionary *dict in _publicArray) {
         [_publicNameArray addObject:[dict objectForKey:@"item_name"]];
     }
-
+    
 }
 
 #pragma mark - Button click methods
@@ -185,19 +190,38 @@
         [_dropDownList hideDropDownList:sender];
         _dropDownList = nil;
     }
-
+    
 }
 
 - (void)chooseImg
 {
+    //_imageView.hidden = NO;
     UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从手机相册选择", nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [actionSheet showInView:self.imageView];
 }
 
+- (void)showAlertWithMessage:(NSString *)message
+{
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提醒" message:message delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
+    [alert show];
+
+
+}
+
 - (void)submitForm:(id)sender
 {
-   
+    
+    
+    if ([self.typeButton.titleLabel.text isEqualToString:@"选择类型"]) {
+        [self showAlertWithMessage:@"请选择报修类型"];
+        return;
+    }
+    if ([self.priceButton.titleLabel.text isEqualToString:@"选择器材"]) {
+        [self showAlertWithMessage:@"请选择报修器材"];
+        return;
+    }
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer new];
     manager.requestSerializer = [AFJSONRequestSerializer new];
@@ -206,13 +230,13 @@
     NSString *contentString = _content.text;
     NSString *category = _typeButton.titleLabel.text;
     NSString *item_id;
-   
+    
     if ([category isEqualToString:@"个人报修"]) {
         if ([_personalArray count] > 0) {
             NSDictionary *dict = [_personalArray objectAtIndex:[_selectedIndex row]];
             item_id = [dict objectForKey:@"item_id"] ;
         }
-    
+        
     }
     if ([category isEqualToString:@"公共报修"])
     {
@@ -225,10 +249,10 @@
     if ([category isEqualToString:@"个人报修"]||[category isEqualToString:@"公共报修"]) {
         NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:contentString,@"content",category,@"category",item_id,@"category_item_id", nil];
         [manager POST:api_repair_create parameters:dict constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
-        {
+         {
              NSData *data;
              NSString *typeString ;
-            NSString *filename ;
+             NSString *filename ;
              if (UIImagePNGRepresentation(_imageView.image))
              {
                  data = UIImagePNGRepresentation(_imageView.image);
@@ -240,16 +264,17 @@
                  data = UIImageJPEGRepresentation(_imageView.image, 1);
                  typeString = @"image/jpeg";
                  filename = @"img.jpg";
-
+                 
              }
-             [formData appendPartWithFileData:data  name:@"upload_repair_img" fileName:filename mimeType:typeString];
+             
+             if (data)    [formData appendPartWithFileData:data  name:@"upload_repair_img" fileName:filename mimeType:typeString];
              
          } success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"responseObject %@",responseObject);
              _HUD = [[MBProgressHUD alloc] initWithView:self.view];
              
              [self.view addSubview:_HUD];
-             _HUD.labelText = @"提交完成";
+             _HUD.labelText = @"报修提交完成";
              _HUD.mode = MBProgressHUDModeText;
              [_HUD showAnimated:YES whileExecutingBlock:^{
                  sleep(1.5);
@@ -259,15 +284,15 @@
                  
                  
              }];
-
+             
          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"error %@",error);
          }];
     }
-   
     
     
-
+    
+    
 }
 
 
@@ -280,14 +305,14 @@
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
             self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
             [self presentViewController:self.picker animated:YES completion:nil];
-
+            
         }
     }
     else if (buttonIndex == 1) {
         
         self.picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self presentViewController:self.picker animated:YES completion:nil];
-
+        
     }
     
 }
@@ -295,7 +320,7 @@
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet
 {
     [self.picker dismissViewControllerAnimated:YES completion:nil];
-
+    
 }
 
 
@@ -305,6 +330,7 @@
 {
     NSLog(@"info %@",info);
     UIImage *edit = [info objectForKey:UIImagePickerControllerEditedImage];
+    self.imageView.hidden = NO;
     self.imageView.image = edit;
     [self.picker dismissViewControllerAnimated:YES completion:nil];
 }
@@ -312,7 +338,7 @@
 - (void)hideKeyboard
 {
     [self.content resignFirstResponder];
-
+    
 }
 
 
@@ -337,16 +363,16 @@
     NSString *editedString = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if ([editedString isEqualToString:@""]) {
         self.placeLabel.alpha = 1;
-
+        
     }
     
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-
+    
     self.placeLabel.alpha = 0;
-
+    
 }
 
 

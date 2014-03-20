@@ -57,6 +57,7 @@
         NSString *string = [NSString stringWithFormat:urlstring,i,[communityID integerValue],status];
         
         for (NSDictionary *dict in [[self connectWithURLString:string] objectForKey:@"express_list"]) {
+            NSLog(@"express list %@",dict);
             ExpressForm *form = [[ExpressForm alloc]init];
             form.arrive_time = [dict objectForKey:@"arrive_time"];
             form.deal_status = [[dict objectForKey:@"deal_status"] integerValue];

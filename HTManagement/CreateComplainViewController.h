@@ -11,12 +11,13 @@
 
 @interface CreateComplainViewController : UIViewController < UITextViewDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, DropDownListDelegate >
 
-@property (nonatomic, strong) IBOutlet UIButton *typeBtn;
+@property (nonatomic, weak) IBOutlet UIButton *typeBtn;
 @property (nonatomic, weak) IBOutlet UITextView *contentView;
 @property (nonatomic, weak) IBOutlet UIImageView *imgView;
 @property (nonatomic, strong) UIImagePickerController *imgPicker;
 @property (nonatomic, weak) IBOutlet UIButton *submitBtn;
 @property (nonatomic, weak) IBOutlet UILabel *placeLabel;
+@property (nonatomic, weak) IBOutlet UIButton *addButton;
 @property (nonatomic, weak) IBOutlet UIView *backgroundView;
 - (IBAction)submit:(id)sender;
 - (IBAction)chooseComplainType;

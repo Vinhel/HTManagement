@@ -34,6 +34,9 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     [_contentView setupDoneToolBar:YES];
+    _contentView.layer.borderWidth = 0.5;
+    _contentView.layer.borderColor = [[UIColor grayColor]CGColor];
+    _contentView.layer.cornerRadius = 5;
     _ratingView = [[StarRatingView alloc]initWithFrame:CGRectMake(10, 30, 250, 50)];
     // Do any additional setup after loading the view from its nib.
     [self.view addSubview:_ratingView];

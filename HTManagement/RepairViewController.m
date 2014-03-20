@@ -51,10 +51,9 @@
    
     self.navigationItem.title = @"报修";
     _repairForm = [RepairForm new];
-    if (ios7) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
+    if (ios7) self.edgesForExtendedLayout = UIRectEdgeNone;
         
-    }
+    
 	// Do any additional setup after loading the view.
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshTableView)];
@@ -255,12 +254,7 @@
     [self.baseView setContentOffset:CGPointMake(Screen_width * self.segmentedControl.selectedIndex, 0)];
 
 }
-- (void)addRepairForm
-{
-    CreateRepairFormViewController *createForm = [[CreateRepairFormViewController alloc]initWithNibName:@"CreateRepairViewController" bundle:nil];
-    [self.navigationController pushViewController:createForm animated:YES];
-    
-}
+
 - (void)refreshTableViewWithStatus
 {
     
@@ -325,14 +319,14 @@
                 case 1:
                     _unacceptedArray = _array;
                     break;
-                case 2:
+                case 4:
                     _acceptedArray = _array;
                     break;
 
-                case 3:
+                case 2:
                     _uncompletedArray = _array;
                     break;
-                case 4:
+                case 3:
                     _completedArray = _array;
                     break;
 
@@ -400,7 +394,7 @@
     
     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
 	return cell.frame.size.height;
-   // return 256;
+   
 }
 
 #pragma mark - repairCell delegate methods

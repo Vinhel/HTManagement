@@ -144,14 +144,14 @@
                 break;
             
             }
-            case 2:
+            case 3:
             {
                 ExpressViewController *express = [ExpressViewController new];
                 [self.navigationController pushViewController:express animated:YES];
                 break;
             
             }
-            case 3:
+            case 2:
             {
                 HouseKeepingViewController *housekeeping = [HouseKeepingViewController new];
                 [self.navigationController pushViewController:housekeeping animated:YES];

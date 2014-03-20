@@ -33,17 +33,15 @@
     if (ios7)
         self.edgesForExtendedLayout = UIRectEdgeNone;
     [_contentView setupDoneToolBar:YES];
-    
-   // _typeBtn.layer.borderWidth = 1;
-   // _typeBtn.layer.borderColor = [[UIColor grayColor] CGColor];
-  //  [_typeBtn addTarget:self action:@selector(chooseComplainType) forControlEvents:UIControlEventTouchUpInside];
-    
+    _contentView.layer.borderWidth = 0.5;
+    _contentView.layer.borderColor = [[UIColor grayColor] CGColor];
+    _contentView.layer.cornerRadius = 5;
+
+
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_sand"]];
-   // _contentView.layer.borderWidth = 1;
-   // _contentView.layer.borderColor = [[UIColor grayColor] CGColor];
+
+    [_addButton addTarget:self action:@selector(chooseImg) forControlEvents:UIControlEventTouchUpInside];
     
-   // _imgView.layer.borderWidth = 0.5;
-   // _imgView.layer.borderColor = [[UIColor grayColor] CGColor];
     _imgView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(chooseImg)];
     [_imgView addGestureRecognizer:tap];
@@ -86,10 +84,24 @@
     [actionSheet showInView:self.view];
 }
 
+- (void)showAlertWithMessage:(NSString *)message
+{
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提醒" message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
+
+}
+
+
 #pragma mark - sumbit methods
 
 - (IBAction)submit:(id)sender
 {
+    if ([self.typeBtn.titleLabel.text isEqualToString:@"投诉类型"]) {
+        [self showAlertWithMessage:@"请选择投诉类型"];
+        return;
+    }
+    
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:[NSString stringWithFormat:@"%@",_contentView.text],@"content",[NSString stringWithFormat:@"%@",_typeBtn.titleLabel.text],@"category", nil];
     NSLog(@"dict %@,content:%@",[dict objectForKey:@"category"],[dict objectForKey:@"content"]);
@@ -107,13 +119,13 @@
             data = UIImageJPEGRepresentation(_imgView.image, 1);
             typeString = @"image/jpeg";
         }
-        [formData appendPartWithFileData:data  name:@"upload_complain_img" fileName:@"img" mimeType:typeString];
+        if (data) [formData appendPartWithFileData:data  name:@"upload_complain_img" fileName:@"img" mimeType:typeString];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"response %@",[responseObject objectForKey:@"info"]);
         _HUD = [[MBProgressHUD alloc] initWithView:self.view];
         
         [self.view addSubview:_HUD];
-        _HUD.labelText = @"提交完成";
+        _HUD.labelText = @"投诉提交完成";
         _HUD.mode = MBProgressHUDModeText;
         [_HUD showAnimated:YES whileExecutingBlock:^{
             sleep(1.5);
@@ -163,6 +175,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     NSLog(@"info %@",info);
+    _imgView.hidden = NO;
     UIImage *edit = [info objectForKey:UIImagePickerControllerEditedImage];
     self.imgView.image = edit;
     [self.imgPicker dismissViewControllerAnimated:YES completion:nil];

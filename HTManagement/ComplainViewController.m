@@ -337,13 +337,13 @@ else
                 case 1:
                     _unacceptedArray = _array;
                     break;
-                case 2:
+                case 4:
                     _acceptedArray = _array;
                     break;
-                case 3:
+                case 2:
                     _uncompletedArray = _array;
                     break;
-                case 4:
+                case 3:
                     _completedArray = _array;
                     break;
                 default:

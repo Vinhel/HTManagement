@@ -21,7 +21,7 @@
 @property (nonatomic, strong) UIImagePickerController *picker;
 @property (nonatomic, assign) IBOutlet UIButton *submitButton;
 @property (nonatomic, weak)   IBOutlet UILabel *placeLabel;
-
+@property (nonatomic, weak)   IBOutlet UIButton *addButton;
 
 
 @end

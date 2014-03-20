@@ -45,10 +45,10 @@ typedef enum {
 #define kUserProfile [[NSUserDefaults standardUserDefaults] objectForKey:@"user_profile"]
 
 #define prefix @"http://222.92.147.11"
-#define imagePath @"http://222.92.147.11/media/"
+#define imagePath [prefix stringByAppendingString:@"/media/"]
 
 //获取工作人员list,获取小区
-// /api/get/worker/list/?community_id=(小区id号)
+// api/get/worker/list/?community_id=(小区id号)
 #define api_get_workers [prefix stringByAppendingString:@"/api/get/worker/list/?community_id="]
 #define api_get_community [prefix stringByAppendingString:@"/api/get/community/"]
 

@@ -30,13 +30,13 @@
     
     _userLabel.text = [NSString stringWithFormat:@"收件人: %@   地址: %d 栋 %d 室",_expressForm.express_author,_expressForm.author_floor,_expressForm.author_room];
     _arriveTimeLabel.text = [NSString stringWithFormat:@"到达时间: %@",_expressForm.arrive_time];
-    if ([_expressForm.get_express_type isEqualToString:@""]&&[[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"resident"]&& (_expressForm.deal_status == 0)) {
+    if ([_expressForm.get_express_type isEqualToString:@""] && isResident && (_expressForm.deal_status == 0)) {
         [_typeButton setTitle:@"点击选择" forState:UIControlStateNormal];
         [_typeButton addTarget:self action:@selector(chooseType:) forControlEvents:UIControlEventTouchUpInside];
     }
     else
     {
-        [_typeButton setTitle:@"物业配送" forState:UIControlStateNormal];
+        [_typeButton setTitle:expressForm.get_express_type forState:UIControlStateNormal];
         _typeButton.enabled = NO;
     
     }
