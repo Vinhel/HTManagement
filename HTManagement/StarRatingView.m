@@ -8,7 +8,7 @@
 
 #import "StarRatingView.h"
 
-#define starsnum 5
+#define starsnum 3
 #define kBACKGROUND_STAR @"backgroundStar"
 #define kFOREGROUND_STAR @"foregroundStar"
 
@@ -49,6 +49,7 @@
     {
         UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
         imageView.frame = CGRectMake(i * frame.size.width / starsnum, 0, frame.size.width / starsnum, frame.size.height);
+			NSLog(@"imageview frame %@",NSStringFromCGRect(imageView.frame));
         [view addSubview:imageView];
     }
     return view;
@@ -96,7 +97,7 @@
     NSInteger num = p.x*starsnum/self.frame.size.width;
     NSLog(@"num %d",num);
 
-    self.starForegroundView.frame = CGRectMake(0, 0, (num+1)*50, self.frame.size.height);
+    self.starForegroundView.frame = CGRectMake(0, 0, (num+1)* self.bounds.size.width/ starsnum, self.frame.size.height);
     _ratingNum = num+1;
 }
 

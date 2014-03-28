@@ -22,6 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     NSLog(@"lauchoptions %@",launchOptions);
+	NSLog(@"home directory %@",NSHomeDirectory());
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     NSLog(@"self window %@",NSStringFromCGRect([[UIScreen mainScreen]bounds]));
     self.window.backgroundColor = [UIColor whiteColor];

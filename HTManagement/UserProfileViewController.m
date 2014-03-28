@@ -36,7 +36,7 @@
     _array = @[@"姓名", @"小区", @"楼栋", @"门牌号", @"电子邮箱" , @"联系电话", @"详细地址"];
     _detailArray =[NSArray arrayWithObjects:[kUserProfile objectForKey:@"username"],[kUserProfile objectForKey:@"community_name"],[kUserProfile objectForKey:@"floor"],[kUserProfile objectForKey:@"room"],[kUserProfile objectForKey:@"email"],[kUserProfile objectForKey:@"phone_num"],[kUserProfile objectForKey:@"address"], nil];
     
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, 0, Screen_width - 20, 348) style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, 0, Screen_width - 20, 348) style:UITableViewStylePlain];
     _tableView.layer.cornerRadius = 5.0;
    // _tableView.layer.borderWidth = 0.5;
     _tableView.delegate = self;

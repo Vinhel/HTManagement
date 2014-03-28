@@ -44,76 +44,78 @@ typedef enum {
 #define isAdmin [[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"admin"]
 #define kUserProfile [[NSUserDefaults standardUserDefaults] objectForKey:@"user_profile"]
 
-#define prefix @"http://222.92.147.11"
-#define imagePath [prefix stringByAppendingString:@"/media/"]
+#define kprefix @"http://222.92.147.11"
+//#define kprefix @"http://192.168.1.113:8001"
+
+#define imagePath [kprefix stringByAppendingString:@"/media/"]
 
 //获取工作人员list,获取小区
 // api/get/worker/list/?community_id=(小区id号)
-#define api_get_workers [prefix stringByAppendingString:@"/api/get/worker/list/?community_id="]
-#define api_get_community [prefix stringByAppendingString:@"/api/get/community/"]
+#define api_get_workers [kprefix stringByAppendingString:@"/api/get/worker/list/?community_id="]
+#define api_get_community [kprefix stringByAppendingString:@"/api/get/community/"]
 
 /*根据状态获取*/
 
-#define api_get_complains_by_status [prefix stringByAppendingString:@"/api/show/complains_by_status/?page=%d&community_id=%d&status=%@"]
+#define api_get_complains_by_status [kprefix stringByAppendingString:@"/api/show/complains_by_status/?page=%d&community_id=%d&status=%@"]
 
-#define api_get_repairs_by_status [prefix stringByAppendingString:@"/api/show/repair_by_status/?page=%d&community_id=%d&status=%@"]
+#define api_get_repairs_by_status [kprefix stringByAppendingString:@"/api/show/repair_by_status/?page=%d&community_id=%d&status=%@"]
 
-#define api_get_housekeepings_by_status [prefix stringByAppendingString:@"/api/show/housekeeping_by_status/?page=%d&community_id=%d&status=%@"]
+#define api_get_housekeepings_by_status [kprefix stringByAppendingString:@"/api/show/housekeeping_by_status/?page=%d&community_id=%d&status=%@"]
 
-#define api_get_expresses_by_status [prefix stringByAppendingString:@"/api/show/express_by_status/?page=%d&community_id=%d&status=%@"]
+#define api_get_expresses_by_status [kprefix stringByAppendingString:@"/api/show/express_by_status/?page=%d&community_id=%d&status=%@"]
 
 //登录相关
-#define api_user_login [prefix stringByAppendingString:@"/api/user/login/"]
+#define api_user_login [kprefix stringByAppendingString:@"/api/user/login/"]
 
 
 //修改个人资料
-#define api_user_update [prefix stringByAppendingString:@"/api/user/update/"]
+#define api_user_update [kprefix stringByAppendingString:@"/api/user/update/"]
 
 //快递相关
-#define api_user_express [prefix stringByAppendingString:@"/api/get/user/express/"]
-#define api_user_obtain_express [prefix stringByAppendingString:@"/api/user/obtain/express/"]
-#define api_express_response [prefix stringByAppendingString:@"/api/express/response/"]
-#define api_express_complete [prefix stringByAppendingString:@"/api/express/complete/"]
-#define api_express_sign [prefix stringByAppendingString:@"/api_user/sign_express/"]
+#define api_user_express [kprefix stringByAppendingString:@"/api/get/user/express/"]
+#define api_user_obtain_express [kprefix stringByAppendingString:@"/api/user/obtain/express/"]
+#define api_express_response [kprefix stringByAppendingString:@"/api/express/response/"]
+#define api_express_complete [kprefix stringByAppendingString:@"/api/express/complete/"]
+#define api_express_sign [kprefix stringByAppendingString:@"/api_user/sign_express/"]
 
 
 
 //家政相关
-#define api_get_all_housekeepingItem [prefix stringByAppendingString:@"/api/get/housekeeping_item/"]
-#define api_own_housekeeping [prefix stringByAppendingString:@"/api/own/housekeeping/"]
-#define api_user_submit_housekeeping [prefix stringByAppendingString:@"/api/user/submit_housekeeping/"]
-#define api_housekeeping_response [prefix stringByAppendingString:@"/api/housekeeping/response/"]
-#define api_housekeeping_deal [prefix stringByAppendingString:@"/api/housekeeping/deal/"]
-#define api_housekeeping_complete [prefix stringByAppendingString:@"/api/housekeeping/complete/"]
+#define api_get_all_housekeepingItem [kprefix stringByAppendingString:@"/api/get/housekeeping_item/"]
+#define api_own_housekeeping [kprefix stringByAppendingString:@"/api/own/housekeeping/"]
+#define api_user_submit_housekeeping [kprefix stringByAppendingString:@"/api/user/submit_housekeeping/"]
+#define api_housekeeping_response [kprefix stringByAppendingString:@"/api/housekeeping/response/"]
+#define api_housekeeping_deal [kprefix stringByAppendingString:@"/api/housekeeping/deal/"]
+#define api_housekeeping_complete [kprefix stringByAppendingString:@"/api/housekeeping/complete/"]
 
-#define api_get_all_housekeeping [prefix stringByAppendingString:@"/api/show/all_housekeeping/?page=%d&community_id=%d"]
+#define api_get_all_housekeeping [kprefix stringByAppendingString:@"/api/show/all_housekeeping/?page=%d&community_id=%d"]
 
 
 
 //投诉相关
-#define api_own_complain [prefix stringByAppendingString:@"/api/own/complain/"]
-#define api_complain_create [prefix stringByAppendingString:@"/api/complain/create/"]
-#define api_complain_response [prefix stringByAppendingString:@"/api/complain/response/"]
-#define api_complain_deal [prefix stringByAppendingString:@"/api/complain/deal/"]
-#define api_complain_complete [prefix stringByAppendingString:@"/api/complain/complete/"]
-#define api_complain_accept [prefix stringByAppendingString:@"/api_worker/deal/complain/"]
+#define api_own_complain [kprefix stringByAppendingString:@"/api/own/complain/"]
+#define api_complain_create [kprefix stringByAppendingString:@"/api/complain/create/"]
+#define api_complain_response [kprefix stringByAppendingString:@"/api/complain/response/"]
+#define api_complain_deal [kprefix stringByAppendingString:@"/api/complain/deal/"]
+#define api_complain_complete [kprefix stringByAppendingString:@"/api/complain/complete/"]
+#define api_complain_accept [kprefix stringByAppendingString:@"/api_worker/deal/complain/"]
 
 
-#define api_get_all_complains [prefix stringByAppendingString:@"/api/show/all_complains/?page=%d&community_id=%d"]
+#define api_get_all_complains [kprefix stringByAppendingString:@"/api/show/all_complains/?page=%d&community_id=%d"]
 
 
 //报修相关
-#define api_own_repair [prefix stringByAppendingString:@"/api/own/repair/"]
-#define api_get_repair_item [prefix stringByAppendingString:@"/api/get/repair/item/?type="]
-#define api_repair_create [prefix stringByAppendingString:@"/api/repair/create/"]
-#define api_repair_response [prefix stringByAppendingString:@"/api/repair/response/"]
-#define api_repair_deal [prefix stringByAppendingString:@"/api/repair/deal/"]
-#define api_repair_complete [prefix stringByAppendingString:@"/api/repair/complete/"]
-#define api_repair_accept [prefix stringByAppendingString:@"/api_worker/deal/repair/"]
+#define api_own_repair [kprefix stringByAppendingString:@"/api/own/repair/"]
+#define api_get_repair_item [kprefix stringByAppendingString:@"/api/get/repair/item/?type="]
+#define api_repair_create [kprefix stringByAppendingString:@"/api/repair/create/"]
+#define api_repair_response [kprefix stringByAppendingString:@"/api/repair/response/"]
+#define api_repair_deal [kprefix stringByAppendingString:@"/api/repair/deal/"]
+#define api_repair_complete [kprefix stringByAppendingString:@"/api/repair/complete/"]
+#define api_repair_accept [kprefix stringByAppendingString:@"/api_worker/deal/repair/"]
 
 
 //绑定推送
-#define api_bind [prefix stringByAppendingString:@"/api/get_channel_user_id/"]
+#define api_bind [kprefix stringByAppendingString:@"/api/get_channel_user_id/"]
 
 
 /**********************/

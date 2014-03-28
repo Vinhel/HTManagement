@@ -10,6 +10,8 @@
 #import "StarRatingView.h"
 #import "AFNetworking.h"
 
+#define kBaseNum 4
+
 @interface FeedbackViewController ()
 
 @property (nonatomic, strong) StarRatingView *ratingView;
@@ -58,7 +60,7 @@
              
              */
             //self.form = (ExpressForm *)self.form;
-            dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",[_form express_id]],@"express_id",[NSString stringWithFormat:@"%@",_contentView.text],@"response_content",[NSString stringWithFormat:@"%d",_ratingView.ratingNum] ,@"selected_pleased",nil];
+            dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",[_form express_id]],@"express_id",[NSString stringWithFormat:@"%@",_contentView.text],@"response_content",[NSString stringWithFormat:@"%d",kBaseNum -_ratingView.ratingNum] ,@"selected_pleased",nil];
             string = api_express_response;
             break;
         case HThousekeeping:
@@ -68,7 +70,7 @@
              'selected_pleased': '满意度（ 1,2,3,4,5）',
              
              */
-            dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",[_form housekeeping_id]],@"housekeeping_id",[NSString stringWithFormat:@"%@",_contentView.text],@"response_content",[NSString stringWithFormat:@"%d",_ratingView.ratingNum] ,@"selected_pleased",nil];
+            dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",[_form housekeeping_id]],@"housekeeping_id",[NSString stringWithFormat:@"%@",_contentView.text],@"response_content",[NSString stringWithFormat:@"%d",kBaseNum - _ratingView.ratingNum] ,@"selected_pleased",nil];
             string = api_housekeeping_response;
             break;
        
@@ -80,7 +82,7 @@
              'selected_pleased':'满意度'（1,2,3,4,5）5个数字选一个(默认是0)
              
              */
-            dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",[_form complainId]],@"complain_id",[NSString stringWithFormat:@"%@",_contentView.text],@"response_content",[NSString stringWithFormat:@"%d",_ratingView.ratingNum] ,@"selected_pleased",nil];
+            dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",[_form complainId]],@"complain_id",[NSString stringWithFormat:@"%@",_contentView.text],@"response_content",[NSString stringWithFormat:@"%d",kBaseNum - _ratingView.ratingNum] ,@"selected_pleased",nil];
             string = api_complain_response;
             break;
             
@@ -90,7 +92,7 @@
              'response_content': '反馈内容',
              'selected_pleased':'满意度'（1,2,3,4,5）5个数字选一个(默认是0)
              */
-            dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",[_form idNum]],@"repair_id",[NSString stringWithFormat:@"%@",_contentView.text],@"response_content",[NSString stringWithFormat:@"%d",_ratingView.ratingNum] ,@"selected_pleased",nil];
+            dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",[_form idNum]],@"repair_id",[NSString stringWithFormat:@"%@",_contentView.text],@"response_content",[NSString stringWithFormat:@"%d",kBaseNum - _ratingView.ratingNum] ,@"selected_pleased",nil];
             string = api_repair_response;
             break;
         default:

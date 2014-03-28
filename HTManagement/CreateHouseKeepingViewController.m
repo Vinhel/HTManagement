@@ -37,10 +37,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     _array = [NSMutableArray array];
-    if (ios7) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        
-    }
+    if (ios7) self.edgesForExtendedLayout = UIRectEdgeNone;
+	
+	
+  
 	// Do any additional setup after loading the view.
     //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(submitForm)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"提交" style:UIBarButtonItemStyleDone target:self action:@selector(submitForm)];

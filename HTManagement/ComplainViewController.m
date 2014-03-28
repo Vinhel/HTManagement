@@ -277,7 +277,8 @@
 }
 
 - (void)refreshTableViewWithStatus
-{if (isWorker) {
+{
+	if (isWorker) {
     switch (self.segmentedControl.selectedIndex) {
         case 0:
             [_unacceptedTable reloadData ];

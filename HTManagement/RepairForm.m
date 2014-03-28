@@ -89,6 +89,7 @@
     NSDictionary *dictionary;
     if (data) {
         dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+			NSLog(@"error %@",error);
          NSLog(@"dictionary %@",dictionary);
     }
    

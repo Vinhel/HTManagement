@@ -108,11 +108,6 @@
 		187B6E551860299D004959DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 187B6E541860299D004959DF /* main.m */; };
 		187B6E591860299D004959DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 187B6E581860299D004959DF /* AppDelegate.m */; };
 		187B6E5B1860299D004959DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187B6E5A1860299D004959DF /* Images.xcassets */; };
-		187B6E621860299D004959DF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187B6E611860299D004959DF /* XCTest.framework */; };
-		187B6E631860299D004959DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187B6E481860299D004959DF /* Foundation.framework */; };
-		187B6E641860299D004959DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187B6E4C1860299D004959DF /* UIKit.framework */; };
-		187B6E6C1860299D004959DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 187B6E6A1860299D004959DF /* InfoPlist.strings */; };
-		187B6E6E1860299D004959DF /* HTManagementTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 187B6E6D1860299D004959DF /* HTManagementTests.m */; };
 		187B6E7918603219004959DF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187B6E7818603219004959DF /* LoginViewController.m */; };
 		189E1F2D18D9363400ABD902 /* WorkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189E1F2C18D9363400ABD902 /* WorkerViewController.m */; };
 		189E1F3018D960E600ABD902 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189E1F2F18D960E600ABD902 /* UserProfileViewController.m */; };
@@ -164,16 +159,6 @@
 		18FF552018AA0F0D009701AD /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FF551218AA0F0D009701AD /* UIImageView+WebCache.m */; };
 		18FF552218AA0F35009701AD /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FF552118AA0F35009701AD /* ImageIO.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		187B6E651860299D004959DF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 187B6E3D1860299D004959DF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 187B6E441860299D004959DF;
-			remoteInfo = HTManagement;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		180142BF187E3F18002F5F02 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
@@ -324,7 +309,6 @@
 		187B6E571860299D004959DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		187B6E581860299D004959DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		187B6E5A1860299D004959DF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		187B6E601860299D004959DF /* HTManagementTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HTManagementTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		187B6E611860299D004959DF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		187B6E691860299D004959DF /* HTManagementTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HTManagementTests-Info.plist"; sourceTree = "<group>"; };
 		187B6E6B1860299D004959DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -426,16 +410,6 @@
 				187B6E4D1860299D004959DF /* UIKit.framework in Frameworks */,
 				180BECBD18C472A7004B336D /* libBPush.a in Frameworks */,
 				187B6E491860299D004959DF /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		187B6E5D1860299D004959DF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				187B6E621860299D004959DF /* XCTest.framework in Frameworks */,
-				187B6E641860299D004959DF /* UIKit.framework in Frameworks */,
-				187B6E631860299D004959DF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,7 +636,6 @@
 			isa = PBXGroup;
 			children = (
 				187B6E451860299D004959DF /* HTManagement.app */,
-				187B6E601860299D004959DF /* HTManagementTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -925,24 +898,6 @@
 			productReference = 187B6E451860299D004959DF /* HTManagement.app */;
 			productType = "com.apple.product-type.application";
 		};
-		187B6E5F1860299D004959DF /* HTManagementTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 187B6E741860299D004959DF /* Build configuration list for PBXNativeTarget "HTManagementTests" */;
-			buildPhases = (
-				187B6E5C1860299D004959DF /* Sources */,
-				187B6E5D1860299D004959DF /* Frameworks */,
-				187B6E5E1860299D004959DF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				187B6E661860299D004959DF /* PBXTargetDependency */,
-			);
-			name = HTManagementTests;
-			productName = HTManagementTests;
-			productReference = 187B6E601860299D004959DF /* HTManagementTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -954,9 +909,6 @@
 				TargetAttributes = {
 					187B6E441860299D004959DF = {
 						DevelopmentTeam = 2E6C2XSJVV;
-					};
-					187B6E5F1860299D004959DF = {
-						TestTargetID = 187B6E441860299D004959DF;
 					};
 				};
 			};
@@ -973,7 +925,6 @@
 			projectRoot = "";
 			targets = (
 				187B6E441860299D004959DF /* HTManagement */,
-				187B6E5F1860299D004959DF /* HTManagementTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1052,14 +1003,6 @@
 				181DBAF118C1C24700BDBDB4 /* appear_65.png in Resources */,
 				180BECD218C5B8F5004B336D /* tab_bg.png in Resources */,
 				1848901818724EB9001356CB /* 框2.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		187B6E5E1860299D004959DF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				187B6E6C1860299D004959DF /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1145,23 +1088,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		187B6E5C1860299D004959DF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				187B6E6E1860299D004959DF /* HTManagementTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		187B6E661860299D004959DF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 187B6E441860299D004959DF /* HTManagement */;
-			targetProxy = 187B6E651860299D004959DF /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		187B6E511860299D004959DF /* InfoPlist.strings */ = {
@@ -1220,7 +1147,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "7F54A38E-15CE-4786-9773-C98023C140C9";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1254,8 +1181,9 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "7F54A38E-15CE-4786-9773-C98023C140C9";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1264,6 +1192,7 @@
 		187B6E721860299D004959DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1271,7 +1200,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HTManagement/HTManagement-Prefix.pch";
 				INFOPLIST_FILE = "HTManagement/HTManagement-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/apple/Desktop/HTManagement/HTManagement,
@@ -1279,7 +1208,9 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7F54A38E-15CE-4786-9773-C98023C140C9";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.1;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1287,69 +1218,27 @@
 		187B6E731860299D004959DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: lyn wu (47K7DU38VX)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HTManagement/HTManagement-Prefix.pch";
 				INFOPLIST_FILE = "HTManagement/HTManagement-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/apple/Desktop/HTManagement/HTManagement,
 					/Users/apple/Desktop/HTManagement/HTManagement/lib,
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7F54A38E-15CE-4786-9773-C98023C140C9";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.1;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		187B6E751860299D004959DF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HTManagement.app/HTManagement";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "HTManagement/HTManagement-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "HTManagementTests/HTManagementTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos7.0;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		187B6E761860299D004959DF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HTManagement.app/HTManagement";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "HTManagement/HTManagement-Prefix.pch";
-				INFOPLIST_FILE = "HTManagementTests/HTManagementTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos7.0;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -1370,15 +1259,6 @@
 			buildConfigurations = (
 				187B6E721860299D004959DF /* Debug */,
 				187B6E731860299D004959DF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		187B6E741860299D004959DF /* Build configuration list for PBXNativeTarget "HTManagementTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				187B6E751860299D004959DF /* Debug */,
-				187B6E761860299D004959DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

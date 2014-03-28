@@ -329,7 +329,6 @@
                 case 3:
                     _completedArray = _array;
                     break;
-
                 default:
                     break;
             }
@@ -350,7 +349,7 @@
         _array = _acceptedArray;
     else if (tableView == _uncompletedTable)
         _array = _uncompletedArray;
-    else
+    else if (tableView == _completedTable)
         _array = _completedArray;
     return [_array count];
         

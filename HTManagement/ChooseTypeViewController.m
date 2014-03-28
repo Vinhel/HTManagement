@@ -52,7 +52,7 @@
             manager.requestSerializer = [AFJSONRequestSerializer new];
             manager.responseSerializer = [AFJSONResponseSerializer new];
         
-            NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:[NSString stringWithFormat:@"%d",self.form.express_id],@"express_id", [_typeControl titleForSegmentAtIndex:_typeControl.selectedSegmentIndex],@"express_type"   ,[_timeControl titleForSegmentAtIndex:_timeControl.selectedSegmentIndex],
+            NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:[NSString stringWithFormat:@"%d",self.form.express_id],@"express_id", [NSString stringWithFormat:@"%d",_typeControl.selectedSegmentIndex + 1],@"express_type" ,[_timeControl titleForSegmentAtIndex:_timeControl.selectedSegmentIndex] ,
                 @"allowable_get_express_time",nil];
             
             [manager POST:api_user_obtain_express parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {

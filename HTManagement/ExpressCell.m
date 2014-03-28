@@ -36,8 +36,10 @@
     }
     else
     {
-        [_typeButton setTitle:expressForm.get_express_type forState:UIControlStateNormal];
-        _typeButton.enabled = NO;
+		//	[_typeButton setTitle:([expressForm.get_express_type isEqualToString:@"1"] ? @"物业配送":@"自取") ;
+			 [_typeButton setTitle:[expressForm.get_express_type isEqualToString:@"1"] ? @"物业配送":@"自取" forState:UIControlStateNormal];
+			 
+			 _typeButton.enabled = NO;
     
     }
     
