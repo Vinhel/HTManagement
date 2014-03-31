@@ -13,7 +13,7 @@
 #import "WorkerListViewController.h"
 #import "FeedbackViewController.h"
 #import "HMSegmentedControl.h"
-
+#import "SJAvatarBrowser.h"
 
 @interface RepairViewController ()
 @property (nonatomic, strong) RepairForm *repairForm;
@@ -379,13 +379,22 @@
         form = [_completedArray objectAtIndex:[indexPath row]];
     
     cell.repairForm = form;
+	UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapEvent:)];
+	[cell.imgView addGestureRecognizer:tapGesture];
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
 }
 
+#pragma mark - cell imageview tap gesture
 
+- (void)tapEvent:(UITapGestureRecognizer *)gesture{
+
+	//UIImageView *imageView = (UIImageView *)gesture.view;
+	[SJAvatarBrowser showImage:(UIImageView*)gesture.view];
+
+}
 
 #pragma mark - tableview delegate methods
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -8,7 +8,7 @@
 
 #import "CreateRepairFormViewController.h"
 #import "AFNetworking.h"
-
+#import "UIImage+Resize.h"
 @interface CreateRepairFormViewController ()
 
 @property (nonatomic, strong) NSMutableArray *personalArray;
@@ -330,6 +330,7 @@
 {
     NSLog(@"info %@",info);
     UIImage *edit = [info objectForKey:UIImagePickerControllerEditedImage];
+	edit = [UIImage imageWithImageSimple:edit scaledToSize:CGSizeMake(100, 100)];
     self.imageView.hidden = NO;
     self.imageView.image = edit;
     [self.picker dismissViewControllerAnimated:YES completion:nil];

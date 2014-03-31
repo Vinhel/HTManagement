@@ -11,7 +11,7 @@
 #import "AFNetworking.h"
 #import "CreateComplainViewController.h"
 #import "HMSegmentedControl.h"
-
+#import "SJAvatarBrowser.h"
 
 @interface ComplainViewController ()
 
@@ -395,20 +395,21 @@ else
         form = [_completedArray objectAtIndex:[indexPath row]];
     
     cell.complainForm = form;
-
+	UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapEvent:)];
+	[cell.imgView addGestureRecognizer:tapGesture];
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
 }
 
-- (void)click:(id)sender
-{
+#pragma mark - cell imageview tap gesture
 
-
-    NSLog(@"hello");
-
-
+- (void)tapEvent:(UITapGestureRecognizer *)gesture{
+	
+	//UIImageView *imageView = (UIImageView *)gesture.view;
+	[SJAvatarBrowser showImage:(UIImageView*)gesture.view];
+	
 }
 
 

@@ -58,8 +58,8 @@
         cellHeight += _imgView.frame.size.height;
         
         [_imgView setImageWithURL:[NSURL URLWithString:[imagePath stringByAppendingString:_complainForm.imgSrc]] placeholderImage:[UIImage imageNamed:@"投诉"]];
-        
-        
+			_imgView.userInteractionEnabled = YES;
+      
         cellHeight += marginHeight;
     }
 

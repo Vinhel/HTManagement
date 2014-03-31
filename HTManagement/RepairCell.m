@@ -68,6 +68,7 @@
         
         [_imgView setImageWithURL:[NSURL URLWithString:[imagePath stringByAppendingString:_repairForm.imgSrc]] placeholderImage:[UIImage imageNamed:@"报修"]];
         NSLog(@"downloaded %f",_imgView.frame.size.height);
+			_imgView.userInteractionEnabled = YES;
         cellHeight += marginHeight;
     }
     
