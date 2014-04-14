@@ -43,8 +43,8 @@ typedef enum {
 #define isWorker [[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"worker"]
 #define isAdmin [[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"admin"]
 #define kUserProfile [[NSUserDefaults standardUserDefaults] objectForKey:@"user_profile"]
-//#define kprefix @"http://222.92.147.11"
-#define kprefix @"http://192.168.1.113:8001"
+#define kprefix @"http://222.92.147.11"
+//#define kprefix @"http://192.168.1.113:8001"
 
 #define imagePath [kprefix stringByAppendingString:@"/media/"]
 

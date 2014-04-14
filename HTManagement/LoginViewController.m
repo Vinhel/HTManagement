@@ -61,13 +61,13 @@
     
     _usernameTextField = [[UITextField alloc]initWithFrame:CGRectMake(20, 0, 240, 30)];
     _usernameTextField.placeholder = @"用户名";
-    _usernameTextField.clearButtonMode = UITextFieldViewModeUnlessEditing;
+    _usernameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     _usernameTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     
     _passwordTextField = [[UITextField alloc]initWithFrame:CGRectMake(20, 30, 240, 30)];
     _passwordTextField.placeholder = @"密码";
     _passwordTextField.secureTextEntry = YES;
-    _passwordTextField.clearButtonMode = UITextFieldViewModeAlways;
+    _passwordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     _passwordTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     
     [_inputView addSubview:_usernameTextField];

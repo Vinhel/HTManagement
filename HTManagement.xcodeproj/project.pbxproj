@@ -21,7 +21,7 @@
 		180BECC018C472A7004B336D /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 180BECB818C472A7004B336D /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		180BECC118C472A7004B336D /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 180BECBA18C472A7004B336D /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		180BECC218C472A7004B336D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 180BECBC18C472A7004B336D /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		180BECC418C56D95004B336D /* qqqqq.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BECC318C56D95004B336D /* qqqqq.png */; };
+		180BECC418C56D95004B336D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BECC318C56D95004B336D /* Default@2x.png */; };
 		180BECCC18C597ED004B336D /* 投诉.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BECCA18C597ED004B336D /* 投诉.png */; };
 		180BECCE18C5B75D004B336D /* 报修.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BECCD18C5B75D004B336D /* 报修.png */; };
 		180BECD018C5B7CC004B336D /* tab_select_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BECCF18C5B7CC004B336D /* tab_select_indicator.png */; };
@@ -159,6 +159,7 @@
 		18FF551F18AA0F0D009701AD /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FF551018AA0F0D009701AD /* UIImage+WebP.m */; };
 		18FF552018AA0F0D009701AD /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FF551218AA0F0D009701AD /* UIImageView+WebCache.m */; };
 		18FF552218AA0F35009701AD /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FF552118AA0F35009701AD /* ImageIO.framework */; };
+		3C5ACB7718FBD35900B6C048 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5ACB7618FBD35900B6C048 /* Default-568h@2x.png */; };
 		3C76FF0618FA22A000E630C1 /* libBPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 180BECB018C472A7004B336D /* libBPush.a */; };
 		3CC3867D18FAA47400CEC991 /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC3867C18FAA47400CEC991 /* ChangePasswordViewController.m */; };
 /* End PBXBuildFile section */
@@ -190,7 +191,7 @@
 		180BECBA18C472A7004B336D /* OpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUDID.m; sourceTree = "<group>"; };
 		180BECBB18C472A7004B336D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		180BECBC18C472A7004B336D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		180BECC318C56D95004B336D /* qqqqq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qqqqq.png; sourceTree = "<group>"; };
+		180BECC318C56D95004B336D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		180BECCA18C597ED004B336D /* 投诉.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "投诉.png"; sourceTree = "<group>"; };
 		180BECCD18C5B75D004B336D /* 报修.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "报修.png"; sourceTree = "<group>"; };
 		180BECCF18C5B7CC004B336D /* tab_select_indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_select_indicator.png; sourceTree = "<group>"; };
@@ -400,6 +401,7 @@
 		18FF551118AA0F0D009701AD /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		18FF551218AA0F0D009701AD /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		18FF552118AA0F35009701AD /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
+		3C5ACB7618FBD35900B6C048 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		3CC3867B18FAA47400CEC991 /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
 		3CC3867C18FAA47400CEC991 /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -743,7 +745,8 @@
 				189E1F3718D96DDB00ABD902 /* 17.png */,
 				180BECD918C6B6CF004B336D /* Icon@2x.png */,
 				181DBAF318C1D29100BDBDB4 /* bg_sand.png */,
-				180BECC318C56D95004B336D /* qqqqq.png */,
+				180BECC318C56D95004B336D /* Default@2x.png */,
+				3C5ACB7618FBD35900B6C048 /* Default-568h@2x.png */,
 				181DBAE918C1C24700BDBDB4 /* appear_03.png */,
 				181DBAEA18C1C24700BDBDB4 /* appear_05.png */,
 				180BECD118C5B8F5004B336D /* tab_bg.png */,
@@ -967,7 +970,7 @@
 				189E1F4918D97BFB00ABD902 /* UserInfoCell.xib in Resources */,
 				180BECD018C5B7CC004B336D /* tab_select_indicator.png in Resources */,
 				1848901F18724EB9001356CB /* 投诉2.png in Resources */,
-				180BECC418C56D95004B336D /* qqqqq.png in Resources */,
+				180BECC418C56D95004B336D /* Default@2x.png in Resources */,
 				189E1F3B18D96DDB00ABD902 /* 14.png in Resources */,
 				1848900B18724EB9001356CB /* 本地生活.png in Resources */,
 				187A6DC918B72B4D00410706 /* login.png in Resources */,
@@ -979,6 +982,7 @@
 				1848900E18724EB9001356CB /* 底部本地生活.png in Resources */,
 				1848902118724EB9001356CB /* 物业费2.png in Resources */,
 				187A6DC718B72B4D00410706 /* 登录条2.png in Resources */,
+				3C5ACB7718FBD35900B6C048 /* Default-568h@2x.png in Resources */,
 				189E1F5718D990DB00ABD902 /* person.png in Resources */,
 				18D1071A1888D08600042857 /* ExpressCell.xib in Resources */,
 				181DBAF018C1C24700BDBDB4 /* appear_08.png in Resources */,
@@ -1153,7 +1157,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: lyn wu (47K7DU38VX)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Silicon Federation International (Suzhou) Limited (2E6C2XSJVV)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: lyn wu (47K7DU38VX)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1172,7 +1176,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "7F54A38E-15CE-4786-9773-C98023C140C9";
+				PROVISIONING_PROFILE = "798BEADC-14B3-45F9-BEB4-25D320858BD0";
 				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1196,7 +1200,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: lyn wu (47K7DU38VX)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Silicon Federation International (Suzhou) Limited (2E6C2XSJVV)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1208,7 +1212,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = NO;
-				PROVISIONING_PROFILE = "7F54A38E-15CE-4786-9773-C98023C140C9";
+				PROVISIONING_PROFILE = "798BEADC-14B3-45F9-BEB4-25D320858BD0";
 				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -1222,7 +1226,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: lyn wu (47K7DU38VX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HTManagement/HTManagement-Prefix.pch";
 				INFOPLIST_FILE = "HTManagement/HTManagement-Info.plist";
@@ -1234,7 +1238,7 @@
 					"$(PROJECT_DIR)/HTManagement/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7F54A38E-15CE-4786-9773-C98023C140C9";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos7.1;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
@@ -1249,7 +1253,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: lyn wu (47K7DU38VX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HTManagement/HTManagement-Prefix.pch";
 				INFOPLIST_FILE = "HTManagement/HTManagement-Info.plist";
@@ -1262,7 +1266,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7F54A38E-15CE-4786-9773-C98023C140C9";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos7.1;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";

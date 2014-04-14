@@ -58,7 +58,6 @@
     
     _contentView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, ScrollViewHeight , Screen_width, Screen_height - _scrollView.frame.size.height - HeightOfNavigationBar - HeightOfStatusBar - HeightOfTabBar)];
     
-    NSArray *array = @[@"投诉", @"报修", @"快递", @"更多服务"];
     NSArray *imgArray =[NSArray arrayWithObjects:[UIImage imageNamed:@"投诉2"],[UIImage imageNamed:@"报修2"],
                         [UIImage imageNamed:@"快递2"],[UIImage imageNamed:@"更多"], nil];
     for (int i = 0; i < ItemNum; i++) {
