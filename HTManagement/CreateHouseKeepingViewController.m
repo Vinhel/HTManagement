@@ -38,11 +38,7 @@
 	// Do any additional setup after loading the view.
     _array = [NSMutableArray array];
     if (ios7) self.edgesForExtendedLayout = UIRectEdgeNone;
-	
-	
-  
-	// Do any additional setup after loading the view.
-    //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(submitForm)];
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"提交" style:UIBarButtonItemStyleDone target:self action:@selector(submitForm)];
     [self setupTableView];
     [self getHouseKeepingItem];
@@ -84,7 +80,7 @@
 
 }
 /*
- 延时两秒
+ 延时两秒 480 - 20- 49 -44
  */
 - (void)doTask
 {
@@ -94,7 +90,7 @@
 
 - (void)setupTableView
 {
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, iPhone5?504:416)style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, iPhone5?455:367)style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];

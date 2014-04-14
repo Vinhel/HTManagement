@@ -26,7 +26,8 @@
 @property (nonatomic, strong) UITextField *usernameTextField;
 @property (nonatomic, strong) UITextField *passwordTextField;
 @property (nonatomic, strong) NSManagedObjectContext *context;
-
+@property (nonatomic, assign) BOOL  CENTERCHANGED;
+@property (nonatomic, strong) UIView *backView;
 @end
 
 @implementation LoginViewController
@@ -45,17 +46,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor colorWithRed:7 / 255.0 green:178 / 255.0 blue:230 / 255.0 alpha:1]];
-    
+    self.backView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 300)];
+    [self.backView setBackgroundColor:[UIColor colorWithRed:7 / 255.0 green:178 / 255.0 blue:230 / 255.0 alpha:1]];
     _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
     _logoView.image = [UIImage imageNamed:@"logo"];
     _logoView.center = CGPointMake(160, 100);
-    [self.view addSubview:_logoView];
+    [self.backView addSubview:_logoView];
     
     _inputView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 280, 60)];
     _inputView.center = CGPointMake(160, 210);
     _inputView.image = [UIImage imageNamed:@"input"];
     _inputView.userInteractionEnabled = YES;
-    [self.view addSubview:_inputView];
+    [self.backView addSubview:_inputView];
     
     _usernameTextField = [[UITextField alloc]initWithFrame:CGRectMake(20, 0, 240, 30)];
     _usernameTextField.placeholder = @"用户名";
@@ -79,13 +81,47 @@
     _doneButton = [[UIButton alloc]initWithFrame:CGRectMake(20, 260, 280, 30)];
     [_doneButton addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
     [_doneButton setBackgroundImage:[UIImage imageNamed:@"login"] forState:UIControlStateNormal];
-    [self.view addSubview:_doneButton];
+    [self.backView addSubview:_doneButton];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(resignKeyboard)];
     [self.view addGestureRecognizer:tap];
+    if (iPhone5) {
+        CGPoint center = CGPointMake(160, 200);
+        self.backView.center = center;
+    }
+    [self.view addSubview:self.backView];
+    _CENTERCHANGED = NO;
     
 }
 
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if (!iPhone5) {
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    }
+  
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    [UIView animateWithDuration:0.2 animations:^{
+        CGPoint center = self.backView.center;
+        center.y = center.y + 30;
+        self.backView.center = center;
+        _CENTERCHANGED = NO;
+    } completion:nil];
+
+}
 - (void)login:(id)sender
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -202,9 +238,6 @@
 - (void)presentViewController
 {
     UINavigationController *nav =[ [UINavigationController alloc]initWithRootViewController:[FirstViewController new]];
-//     UINavigationController *nav2 =[ [UINavigationController alloc]initWithRootViewController:[SecondViewController new]];
-//    UITabBarController *tab = [[UITabBarController alloc]init];
-//    tab.viewControllers = @[nav,nav2];
     [self presentViewController:nav animated:YES completion:nil];
 }
 
@@ -223,12 +256,28 @@
     [_usernameTextField resignFirstResponder];
     
 }
+#pragma mark -  TextFiledDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     [textField resignFirstResponder];
     
     return YES;
 }
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if (!_CENTERCHANGED && !iPhone5) {
+        [UIView animateWithDuration:0.2 animations:^{
+            CGPoint center = self.backView.center;
+            center.y = center.y - 30;
+            self.backView.center = center;
+            _CENTERCHANGED = YES;
+        } completion:nil];
+    }
+   
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {

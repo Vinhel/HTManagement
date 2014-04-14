@@ -14,7 +14,7 @@
 
 @protocol  FeedbackSubmitDelegate;
 
-@interface FeedbackViewController : UIViewController
+@interface FeedbackViewController : UIViewController <UITextViewDelegate>
 
 
 @property (nonatomic, weak) id<FeedbackSubmitDelegate> delegate;

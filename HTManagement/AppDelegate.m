@@ -27,15 +27,7 @@
     NSLog(@"self window %@",NSStringFromCGRect([[UIScreen mainScreen]bounds]));
     self.window.backgroundColor = [UIColor whiteColor];
     LoginViewController *loginVC = [[LoginViewController alloc]init];
-
-
-    UINavigationController *nav1 =[[UINavigationController alloc]initWithRootViewController:loginVC];
-    //   FirstViewController *viewVC = [FirstViewController new];
-    // UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:viewVC];
-    //UITabBarController *tab = [[UITabBarController alloc]init];
-   // tab.viewControllers = [NSArray arrayWithObjects:nav,loginVC, nil];
-    
-    nav1.tabBarItem.title = @"hello";
+   
     self.window.rootViewController = loginVC;
     [BPush setupChannel:launchOptions];
     [BPush setDelegate:self];

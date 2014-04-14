@@ -16,7 +16,6 @@
 		180BECA918C471F5004B336D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180BECA818C471F5004B336D /* SystemConfiguration.framework */; };
 		180BECAB18C471FF004B336D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180BECAA18C471FF004B336D /* CoreTelephony.framework */; };
 		180BECAD18C47238004B336D /* BPushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 180BECAC18C47238004B336D /* BPushConfig.plist */; };
-		180BECBD18C472A7004B336D /* libBPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 180BECB018C472A7004B336D /* libBPush.a */; };
 		180BECBE18C472A7004B336D /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 180BECB318C472A7004B336D /* Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		180BECBF18C472A7004B336D /* GzipCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 180BECB618C472A7004B336D /* GzipCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		180BECC018C472A7004B336D /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 180BECB818C472A7004B336D /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -160,6 +159,8 @@
 		18FF551F18AA0F0D009701AD /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FF551018AA0F0D009701AD /* UIImage+WebP.m */; };
 		18FF552018AA0F0D009701AD /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FF551218AA0F0D009701AD /* UIImageView+WebCache.m */; };
 		18FF552218AA0F35009701AD /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FF552118AA0F35009701AD /* ImageIO.framework */; };
+		3C76FF0618FA22A000E630C1 /* libBPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 180BECB018C472A7004B336D /* libBPush.a */; };
+		3CC3867D18FAA47400CEC991 /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC3867C18FAA47400CEC991 /* ChangePasswordViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -399,6 +400,8 @@
 		18FF551118AA0F0D009701AD /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		18FF551218AA0F0D009701AD /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		18FF552118AA0F35009701AD /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
+		3CC3867B18FAA47400CEC991 /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
+		3CC3867C18FAA47400CEC991 /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -406,6 +409,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C76FF0618FA22A000E630C1 /* libBPush.a in Frameworks */,
 				18522D7918D04C5800218DAC /* CoreData.framework in Frameworks */,
 				180BECAB18C471FF004B336D /* CoreTelephony.framework in Frameworks */,
 				180BECA918C471F5004B336D /* SystemConfiguration.framework in Frameworks */,
@@ -414,7 +418,6 @@
 				18FF552218AA0F35009701AD /* ImageIO.framework in Frameworks */,
 				187B6E4B1860299D004959DF /* CoreGraphics.framework in Frameworks */,
 				187B6E4D1860299D004959DF /* UIKit.framework in Frameworks */,
-				180BECBD18C472A7004B336D /* libBPush.a in Frameworks */,
 				187B6E491860299D004959DF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,6 +449,8 @@
 				189E1F4518D97BCD00ABD902 /* UserInfoCell.h */,
 				189E1F4618D97BCD00ABD902 /* UserInfoCell.m */,
 				189E1F4818D97BFB00ABD902 /* UserInfoCell.xib */,
+				3CC3867B18FAA47400CEC991 /* ChangePasswordViewController.h */,
+				3CC3867C18FAA47400CEC991 /* ChangePasswordViewController.m */,
 			);
 			name = "common user";
 			sourceTree = "<group>";
@@ -1059,6 +1064,7 @@
 				18FF551C18AA0F0D009701AD /* UIButton+WebCache.m in Sources */,
 				18FF551918AA0F0D009701AD /* SDWebImageDownloaderOperation.m in Sources */,
 				18D76378187561A10043577E /* ExpressViewController.m in Sources */,
+				3CC3867D18FAA47400CEC991 /* ChangePasswordViewController.m in Sources */,
 				18BB8CE8186C0A7700579282 /* ScanRepairFormViewController.m in Sources */,
 				1843126E18A5C6D8002BE6E5 /* CommunityViewController.m in Sources */,
 				18522D7F18D050FD00218DAC /* UserProfile.m in Sources */,
@@ -1225,6 +1231,7 @@
 					"$(inherited)",
 					/Users/apple/Desktop/HTManagement/HTManagement,
 					/Users/apple/Desktop/HTManagement/HTManagement/lib,
+					"$(PROJECT_DIR)/HTManagement/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7F54A38E-15CE-4786-9773-C98023C140C9";
@@ -1251,6 +1258,7 @@
 					"$(inherited)",
 					/Users/apple/Desktop/HTManagement/HTManagement,
 					/Users/apple/Desktop/HTManagement/HTManagement/lib,
+					"$(PROJECT_DIR)/HTManagement/lib",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -43,9 +43,8 @@ typedef enum {
 #define isWorker [[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"worker"]
 #define isAdmin [[[NSUserDefaults standardUserDefaults] objectForKey:@"role"] isEqualToString:@"admin"]
 #define kUserProfile [[NSUserDefaults standardUserDefaults] objectForKey:@"user_profile"]
-
-#define kprefix @"http://222.92.147.11"
-//#define kprefix @"http://192.168.1.113:8001"
+//#define kprefix @"http://222.92.147.11"
+#define kprefix @"http://192.168.1.113:8001"
 
 #define imagePath [kprefix stringByAppendingString:@"/media/"]
 
@@ -70,6 +69,8 @@ typedef enum {
 
 //修改个人资料
 #define api_user_update [kprefix stringByAppendingString:@"/api/user/update/"]
+#define api_user_changepassword [kprefix stringByAppendingString:@"/api/ios/user/change_password/"]
+
 
 //快递相关
 #define api_user_express [kprefix stringByAppendingString:@"/api/get/user/express/"]

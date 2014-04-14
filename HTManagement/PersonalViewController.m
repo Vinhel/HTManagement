@@ -12,6 +12,10 @@
 #import "ExpressViewController.h"
 #import "HouseKeepingViewController.h"
 #import "UserProfileViewController.h"
+#import "ChangePasswordViewController.h"
+/**
+ *  普通用户的个人中心设置页面
+ */
 
 @interface PersonalViewController ()
 @property (nonatomic, strong) UITableView *tableView;
@@ -179,6 +183,12 @@
 				[self.navigationController pushViewController:profile animated:YES];
 				break;
 			}
+            case 1:
+            {
+                ChangePasswordViewController *vc = [ChangePasswordViewController new];
+                [self.navigationController pushViewController:vc animated:YES];
+                break;
+            }
 			default:
 				break;
 		}

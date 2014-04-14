@@ -135,7 +135,6 @@
         
     }
 
-
 }
 
 - (void)doTask
@@ -143,6 +142,32 @@
     sleep(1.5);
 }
 
+
+#pragma mark - UITextViewDelegate
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+        [UIView animateWithDuration:0.2 animations:^{
+            
+            //self.view.center.y = self.view.center.y + 138;
+            CGPoint center = self.view.center;
+            center.y = center.y - 138;
+            self.view.center = center;
+            
+        } completion:nil];
+}
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    [UIView animateWithDuration:0.2 animations:^{
+        
+        //self.view.center.y = self.view.center.y + 138;
+        CGPoint center = self.view.center;
+        center.y = center.y + 138;
+        self.view.center = center;
+        
+    } completion:nil];
+
+}
 
 #pragma mark -
 - (void)didReceiveMemoryWarning
